@@ -1,233 +1,438 @@
-/*global jQuery:false */
-jQuery(document).ready(function($) {
-  "use strict";
+/* JS Document */
+
+/******************************
+
+[Table of Contents]
+
+1. Vars and Inits
+2. Set Header
+3. Init Menu
+4. Init Timer
+5. Init Favorite
+6. Init Fix Product Border
+7. Init Isotope Filtering
+8. Init Slider
 
 
-  (function() {
+******************************/
 
-    var $menu = $('.navigation nav'),
-      optionsList = '<option value="" selected>Go to..</option>';
+jQuery(document).ready(function($)
+{
+	"use strict";
 
-    $menu.find('li').each(function() {
-        var $this = $(this),
-          $anchor = $this.children('a'),
-          depth = $this.parents('ul').length - 1,
-          indent = '';
+	/* 
 
-        if (depth) {
-          while (depth > 0) {
-            indent += ' - ';
-            depth--;
-          }
+	1. Vars and Inits
 
-        }
-        $(".nav li").parent().addClass("bold");
+	*/
 
-        optionsList += '<option value="' + $anchor.attr('href') + '">' + indent + ' ' + $anchor.text() + '</option>';
-      }).end()
-      .after('<select class="selectmenu">' + optionsList + '</select>');
+	var header = $('.header');
+	var topNav = $('.top_nav')
+	var mainSlider = $('.main_slider');
+	var hamburger = $('.hamburger_container');
+	var menu = $('.hamburger_menu');
+	var menuActive = false;
+	var hamburgerClose = $('.hamburger_close');
+	var fsOverlay = $('.fs_menu_overlay');
 
-    $('select.selectmenu').on('change', function() {
-      window.location = $(this).val();
-    });
+	setHeader();
 
-  })();
+	$(window).on('resize', function()
+	{
+		initFixProductBorder();
+		setHeader();
+	});
 
+	$(document).on('scroll', function()
+	{
+		setHeader();
+	});
 
-  $('.toggle-link').each(function() {
-    $(this).click(function() {
-      var state = 'open'; //assume target is closed & needs opening
-      var target = $(this).attr('data-target');
-      var targetState = $(this).attr('data-target-state');
+	initMenu();
+	initTimer();
+	initFavorite();
+	initFixProductBorder();
+	initIsotopeFiltering();
+	initSlider();
 
-      //allows trigger link to say target is open & should be closed
-      if (typeof targetState !== 'undefined' && targetState !== false) {
-        state = targetState;
-      }
+	/* 
 
-      if (state == 'undefined') {
-        state = 'open';
-      }
+	2. Set Header
 
-      $(target).toggleClass('toggle-link-' + state);
-      $(this).toggleClass(state);
-    });
-  });
+	*/
 
-  //add some elements with animate effect
+	function setHeader()
+	{
+		if(window.innerWidth < 992)
+		{
+			if($(window).scrollTop() > 100)
+			{
+				header.css({'top':"0"});
+			}
+			else
+			{
+				header.css({'top':"0"});
+			}
+		}
+		else
+		{
+			if($(window).scrollTop() > 100)
+			{
+				header.css({'top':"-50px"});
+			}
+			else
+			{
+				header.css({'top':"0"});
+			}
+		}
+		if(window.innerWidth > 991 && menuActive)
+		{
+			closeMenu();
+		}
+	}
 
-  $(".big-cta").hover(
-    function() {
-      $('.cta a').addClass("animated shake");
-    },
-    function() {
-      $('.cta a').removeClass("animated shake");
+	/* 
+
+	3. Init Menu
+
+	*/
+
+	function initMenu()
+	{
+		if(hamburger.length)
+		{
+			hamburger.on('click', function()
+			{
+				if(!menuActive)
+				{
+					openMenu();
+				}
+			});
+		}
+
+		if(fsOverlay.length)
+		{
+			fsOverlay.on('click', function()
+			{
+				if(menuActive)
+				{
+					closeMenu();
+				}
+			});
+		}
+
+		if(hamburgerClose.length)
+		{
+			hamburgerClose.on('click', function()
+			{
+				if(menuActive)
+				{
+					closeMenu();
+				}
+			});
+		}
+
+		if($('.menu_item').length)
+		{
+			var items = document.getElementsByClassName('menu_item');
+			var i;
+
+			for(i = 0; i < items.length; i++)
+			{
+				if(items[i].classList.contains("has-children"))
+				{
+					items[i].onclick = function()
+					{
+						this.classList.toggle("active");
+						var panel = this.children[1];
+					    if(panel.style.maxHeight)
+					    {
+					    	panel.style.maxHeight = null;
+					    }
+					    else
+					    {
+					    	panel.style.maxHeight = panel.scrollHeight + "px";
+					    }
+					}
+				}	
+			}
+		}
+	}
+
+	function openMenu()
+	{
+		menu.addClass('active');
+		// menu.css('right', "0");
+		fsOverlay.css('pointer-events', "auto");
+		menuActive = true;
+	}
+
+	function closeMenu()
+	{
+		menu.removeClass('active');
+		fsOverlay.css('pointer-events', "none");
+		menuActive = false;
+	}
+
+	/* 
+
+	4. Init Timer
+
+	*/
+
+	function initTimer()
+    {
+    	if($('.timer').length)
+    	{
+    		// Uncomment line below and replace date
+	    	// var target_date = new Date("Dec 7, 2017").getTime();
+
+	    	// comment lines below
+	    	var date = new Date();
+	    	date.setDate(date.getDate() + 3);
+	    	var target_date = date.getTime();
+	    	//----------------------------------------
+	 
+			// variables for time units
+			var days, hours, minutes, seconds;
+
+			var d = $('#day');
+			var h = $('#hour');
+			var m = $('#minute');
+			var s = $('#second');
+
+			setInterval(function ()
+			{
+			    // find the amount of "seconds" between now and target
+			    var current_date = new Date().getTime();
+			    var seconds_left = (target_date - current_date) / 1000;
+			 
+			    // do some time calculations
+			    days = parseInt(seconds_left / 86400);
+			    seconds_left = seconds_left % 86400;
+			     
+			    hours = parseInt(seconds_left / 3600);
+			    seconds_left = seconds_left % 3600;
+			     
+			    minutes = parseInt(seconds_left / 60);
+			    seconds = parseInt(seconds_left % 60);
+
+			    // display result
+			    d.text(days);
+			    h.text(hours);
+			    m.text(minutes);
+			    s.text(seconds); 
+			 
+			}, 1000);
+    	}	
     }
-  );
-  $(".box").hover(
-    function() {
-      $(this).find('.icon').addClass("animated pulse");
-      $(this).find('.text').addClass("animated fadeInUp");
-      $(this).find('.image').addClass("animated fadeInDown");
-    },
-    function() {
-      $(this).find('.icon').removeClass("animated pulse");
-      $(this).find('.text').removeClass("animated fadeInUp");
-      $(this).find('.image').removeClass("animated fadeInDown");
+
+    /* 
+
+	5. Init Favorite
+
+	*/
+
+    function initFavorite()
+    {
+    	if($('.favorite').length)
+    	{
+    		var favs = $('.favorite');
+
+    		favs.each(function()
+    		{
+    			var fav = $(this);
+    			var active = false;
+    			if(fav.hasClass('active'))
+    			{
+    				active = true;
+    			}
+
+    			fav.on('click', function()
+    			{
+    				if(active)
+    				{
+    					fav.removeClass('active');
+    					active = false;
+    				}
+    				else
+    				{
+    					fav.addClass('active');
+    					active = true;
+    				}
+    			});
+    		});
+    	}
     }
-  );
 
+    /* 
 
-  $('.accordion').on('show', function(e) {
+	6. Init Fix Product Border
 
-    $(e.target).prev('.accordion-heading').find('.accordion-toggle').addClass('active');
-    $(e.target).prev('.accordion-heading').find('.accordion-toggle i').removeClass('icon-plus');
-    $(e.target).prev('.accordion-heading').find('.accordion-toggle i').addClass('icon-minus');
-  });
+	*/
 
-  $('.accordion').on('hide', function(e) {
-    $(this).find('.accordion-toggle').not($(e.target)).removeClass('active');
-    $(this).find('.accordion-toggle i').not($(e.target)).removeClass('icon-minus');
-    $(this).find('.accordion-toggle i').not($(e.target)).addClass('icon-plus');
-  });
+    function initFixProductBorder()
+    {
+    	if($('.product_filter').length)
+    	{
+			var products = $('.product_filter:visible');
+    		var wdth = window.innerWidth;
 
+    		// reset border
+    		products.each(function()
+    		{
+    			$(this).css('border-right', 'solid 1px #e9e9e9');
+    		});
 
+    		// if window width is 991px or less
 
-  //Navi hover
-  $('ul.nav li.dropdown').hover(function() {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn();
-  }, function() {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut();
-  });
+    		if(wdth < 480)
+			{
+				for(var i = 0; i < products.length; i++)
+				{
+					var product = $(products[i]);
+					product.css('border-right', 'none');
+				}
+			}
 
-  // tooltip
-  $('.social-network li a, .options_box .color a').tooltip();
+    		else if(wdth < 576)
+			{
+				if(products.length < 5)
+				{
+					var product = $(products[products.length - 1]);
+					product.css('border-right', 'none');
+				}
+				for(var i = 1; i < products.length; i+=2)
+				{
+					var product = $(products[i]);
+					product.css('border-right', 'none');
+				}
+			}
 
-  // fancybox
-  $(".fancybox").fancybox({
-    padding: 0,
-    autoResize: true,
-    beforeShow: function() {
-      this.title = $(this.element).attr('title');
-      this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '</p>';
-    },
-    helpers: {
-      title: {
-        type: 'inside'
-      },
+    		else if(wdth < 768)
+			{
+				if(products.length < 5)
+				{
+					var product = $(products[products.length - 1]);
+					product.css('border-right', 'none');
+				}
+				for(var i = 2; i < products.length; i+=3)
+				{
+					var product = $(products[i]);
+					product.css('border-right', 'none');
+				}
+			}
+
+    		else if(wdth < 992)
+			{
+				if(products.length < 5)
+				{
+					var product = $(products[products.length - 1]);
+					product.css('border-right', 'none');
+				}
+				for(var i = 3; i < products.length; i+=4)
+				{
+					var product = $(products[i]);
+					product.css('border-right', 'none');
+				}
+			}
+
+			//if window width is larger than 991px
+			else
+			{
+				if(products.length < 5)
+				{
+					var product = $(products[products.length - 1]);
+					product.css('border-right', 'none');
+				}
+				for(var i = 4; i < products.length; i+=5)
+				{
+					var product = $(products[i]);
+					product.css('border-right', 'none');
+				}
+			}	
+    	}
     }
-  });
 
+    /* 
 
-  //scroll to top
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('.scrollup').fadeIn();
-    } else {
-      $('.scrollup').fadeOut();
+	7. Init Isotope Filtering
+
+	*/
+
+    function initIsotopeFiltering()
+    {
+    	if($('.grid_sorting_button').length)
+    	{
+    		$('.grid_sorting_button').click(function()
+	    	{
+	    		// putting border fix inside of setTimeout because of the transition duration
+	    		setTimeout(function()
+		        {
+		        	initFixProductBorder();
+		        },500);
+
+		        $('.grid_sorting_button.active').removeClass('active');
+		        $(this).addClass('active');
+		 
+		        var selector = $(this).attr('data-filter');
+		        $('.product-grid').isotope({
+		            filter: selector,
+		            animationOptions: {
+		                duration: 750,
+		                easing: 'linear',
+		                queue: false
+		            }
+		        });
+
+		        
+		         return false;
+		    });
+    	}
     }
-  });
-  $('.scrollup').click(function() {
-    $("html, body").animate({
-      scrollTop: 0
-    }, 1000);
-    return false;
-  });
 
-  $('#mycarousel').jcarousel();
-  $('#mycarousel1').jcarousel();
+    /* 
 
-  //flexslider
-  $('.flexslider').flexslider();
+	8. Init Slider
 
-  //nivo slider
-  $('.nivo-slider').nivoSlider({
-    effect: 'random', // Specify sets like: 'fold,fade,sliceDown'
-    slices: 15, // For slice animations
-    boxCols: 8, // For box animations
-    boxRows: 4, // For box animations
-    animSpeed: 500, // Slide transition speed
-    pauseTime: 5000, // How long each slide will show
-    startSlide: 0, // Set starting Slide (0 index)
-    directionNav: true, // Next & Prev navigation
-    controlNav: false, // 1,2,3... navigation
-    controlNavThumbs: false, // Use thumbnails for Control Nav
-    pauseOnHover: true, // Stop animation while hovering
-    manualAdvance: false, // Force manual transitions
-    prevText: '', // Prev directionNav text
-    nextText: '', // Next directionNav text
-    randomStart: false, // Start on a random slide
-    beforeChange: function() {}, // Triggers before a slide transition
-    afterChange: function() {}, // Triggers after a slide transition
-    slideshowEnd: function() {}, // Triggers after all slides have been shown
-    lastSlide: function() {}, // Triggers when last slide is shown
-    afterLoad: function() {} // Triggers when slider has loaded
-  });
+	*/
 
-  // Da Sliders
-  if ($('#da-slider').length) {
-    $('#da-slider').cslider();
-  }
+    function initSlider()
+    {
+    	if($('.product_slider').length)
+    	{
+    		var slider1 = $('.product_slider');
 
-  //slitslider
-  var Page = (function() {
+    		slider1.owlCarousel({
+    			loop:false,
+    			dots:false,
+    			nav:false,
+    			responsive:
+				{
+					0:{items:1},
+					480:{items:2},
+					768:{items:3},
+					991:{items:4},
+					1280:{items:5},
+					1440:{items:5}
+				}
+    		});
 
-    var $nav = $('#nav-dots > span'),
-      slitslider = $('#slider').slitslider({
-        onBeforeChange: function(slide, pos) {
-          $nav.removeClass('nav-dot-current');
-          $nav.eq(pos).addClass('nav-dot-current');
-        }
-      }),
+    		if($('.product_slider_nav_left').length)
+    		{
+    			$('.product_slider_nav_left').on('click', function()
+    			{
+    				slider1.trigger('prev.owl.carousel');
+    			});
+    		}
 
-      init = function() {
-        initEvents();
-      },
-      initEvents = function() {
-        $nav.each(function(i) {
-          $(this).on('click', function() {
-            var $dot = $(this);
-
-            if (!slitslider.isActive()) {
-              $nav.removeClass('nav-dot-current');
-              $dot.addClass('nav-dot-current');
-            }
-
-            slitslider.jump(i + 1);
-            return false;
-
-          });
-
-        });
-
-      };
-
-    return {
-      init: init
-    };
-  })();
-
-  Page.init();
-
-  //Google Map
-  if( $('#google-map').length ) {
-    var get_latitude = $('#google-map').data('latitude');
-    var get_longitude = $('#google-map').data('longitude');
-
-    function initialize_google_map() {
-      var myLatlng = new google.maps.LatLng(get_latitude, get_longitude);
-      var mapOptions = {
-        zoom: 14,
-        scrollwheel: false,
-        center: myLatlng
-      };
-      var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map
-      });
+    		if($('.product_slider_nav_right').length)
+    		{
+    			$('.product_slider_nav_right').on('click', function()
+    			{
+    				slider1.trigger('next.owl.carousel');
+    			});
+    		}
+    	}
     }
-    google.maps.event.addDomListener(window, 'load', initialize_google_map);
-  }
-
 });

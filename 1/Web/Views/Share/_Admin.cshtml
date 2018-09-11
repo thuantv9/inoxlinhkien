@@ -7,27 +7,24 @@
     <link rel="shortcut icon" href="img/favicon.png">
     <title>Inox Linh Kiên Admin </title>
     <!-- Bootstrap CSS -->
-    <link href="/css/admin/bootstrap.css" rel="stylesheet">
+    <link href="/admin_dist/css/bootstrap.css" rel="stylesheet">
     <!-- bootstrap theme -->
-    <link href="/css/admin/bootstrap-theme.css" rel="stylesheet">
+    <link href="/admin_dist/css/bootstrap-theme.css" rel="stylesheet">
     <!-- font icon -->
-    <link href="/css/admin/elegant-icons-style.css" rel="stylesheet" />
-    <link href="/css/admin/font-awesome.css" rel="stylesheet" />
+    <link href="/admin_dist/css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="/admin_dist/css/font-awesome.css" rel="stylesheet" />
     <!-- Custom styles -->
-    <link href="/css/admin/styleadmin.css" rel="stylesheet">
-    <link href="/css/admin/style-responsive.css" rel="stylesheet" />
+    <link href="/admin_dist/css/styleadmin.css" rel="stylesheet">
+    <link href="/admin_dist/css/style-responsive.css" rel="stylesheet" />
 
-    <link href="/css/admin/jquery-ui-1.10.4.min.css" rel="stylesheet">
-    <link href="~/js/datatable/datatables.min.css" rel="stylesheet" />
+    <link href="/admin_dist/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+    <link href="/admin_dist/css/datatable/datatables.min.css" rel="stylesheet" />
 </head>
 
 <body>
     <!-- container section start -->
     <section id="container" class="">
-        <header class="header dark-bg">
-            <div class="toggle-nav">
-                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
-            </div>
+        <header class="header dark-bg">            
             <!--logo start-->
             <a href="index.html" class="logo"> Trang quản trị<span class="lite"></span></a>
             <!--logo end-->
@@ -42,29 +39,7 @@
                 </ul>
                 <!--  search form end -->
             </div>
-            <div class="top-nav notification-row">
-                <!-- user login dropdown start-->
-                <ul>
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
-                            </span>
-                            <span class="username">Jenifer Smith</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu extended logout">
-                            @*<div class="log-arrow-up"></div>*@
-                            <li class="eborder-top">
-                                <a href="#"><i class="icon_profile"></i> My Profile</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            
         </header>
         <!--header end-->
         <!--sidebar start-->
@@ -126,38 +101,28 @@
         <section id="main-content">
             <section class="wrapper">
                 @RenderBody()
-            </section>
-            <div class="text-right">
-                <div class="credits">
-                    Thiết kế bởi <a href="">Thịnh Vượng Thời đại 4.0</a>
-                </div>
-            </div>
+            </section>            
         </section>
         <!--main content end-->
     </section>
     <!-- container section start -->
     <!-- javascripts -->
-    <script src="/js/admin/jquery.js"></script>
-    <script src="/js/admin/jquery-ui-1.10.4.min.js"></script>
-    <script src="/js/admin/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="/js/admin/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="/admin_dist/js/jquery.js"></script>
+    <script src="/admin_dist/js/jquery-ui-1.10.4.min.js"></script>
+    <script src="/admin_dist/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/admin_dist/js/jquery-ui-1.9.2.custom.min.js"></script>
     <!-- bootstrap -->
-    <script src="/js/admin/bootstrap.min.js"></script>    
+    <script src="/admin_dist/js/bootstrap.min.js"></script>    
     <!-- custom select -->
-    <script src="/js/admin/jquery.customSelect.min.js"></script>
+    <script src="/admin_dist/js/jquery.customSelect.min.js"></script>
     <!--custome script for all page-->
-    <script src="/js/admin/scripts.js"></script>
-    <script src="~/ckeditor/ckeditor.js"></script>
-    <script src="~/ckfinder/ckfinder.js"></script>
-    <script src="~/js/datatable/datatables.min.js"></script>
+    <script src="/admin_dist/js/scripts.js"></script>    
+    <script src="/admin_dist/js/datatable/datatables.min.js"></script>
     <script>
         $(function () {
             $('select.styled').customSelect();
         });
-    </script>
-    <script>
-        CKFinder.setupCKEditor(null, '/ckfinder');
-    </script>
+    </script>   
     @RenderSection("productjs",required:false)
     @RenderSection("categoryjs", required: false)
     @RenderSection("customerjs", required: false)

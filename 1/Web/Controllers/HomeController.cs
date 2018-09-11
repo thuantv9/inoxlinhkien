@@ -17,6 +17,10 @@ namespace Web.Controllers
             ViewBag.Customer = dbcontext.GetAllCustomer();
             return View(dbcontext.GetAllProduct());
         }
+        public ActionResult Index2()
+        {
+            return View();
+        }
         public ActionResult Category()
         {
             var categoryid = Request["CategoryId"];
@@ -35,15 +39,21 @@ namespace Web.Controllers
             // truyền model tất cả chủng loại sản phẩm
             return View(dbcontext.GetAllCategory());
         }
-
         public ActionResult About()
         {
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Category = dbcontext.GetAllCategory();
+            return View();
+        }
+        public ActionResult Customer()
+        {
+            return View();
+        }
+        public ActionResult News()
+        {
             return View();
         }
     }
