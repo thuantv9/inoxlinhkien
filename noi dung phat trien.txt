@@ -1,0 +1,57 @@
+﻿I.Về thống nhất nhiệm vụ phát triển.
+1.Nội dung phát triển trang Website:
+	- Thiết kế logo của công ty.
+	- Xây dựng giao diện trang chủ: giới thiệu sản phẩm công ty, thông tin liên hệ, sologan của công ty.
+	- Xây dựng trang chi tiết sản phẩm: mô tả nội dung chi tiết về sản phẩm, hoặc sản phẩm theo chủng loại
+	- Xây dựng trang liên hệ, giới thiệu công ty: thông tin liên hệ của công ty như điện thoại, email, facebook. Cho phép người dùng gửi mail, hoặc chat facebook để liên hệ với công ty.
+	- Xây dựng trang giới thiệu dự án công ty đã thực hiện 
+	- Xây dựng trang quản trị cho Website bao gồm các thành phần:
+		+ Đăng nhập
+		+ Quản lý hình ảnh slide chạy trên trang chủ
+		+ Quản lý danh mục sản phẩm, chủng loại sản phẩm
+		+ Tạo đơn hàng và quản lý đơn hàng
+		+ Quản lý khách hàng 
+		+ Báo cáo doanh thu theo thời gian (tháng, quý, năm) (hỗ trợ phát triển trong giai đoạn sau)
+	- Hỗ trợ đăng tải 08 sản phẩm của công ty.	
+2. Nội dung SEO trang Website:
+	- Thực hiện tối ưu nội dung và hình ảnh tại trang Website chuẩn SEO
+	- Hỗ trợ SEO nội dung trang Website trong thời gian 02 tháng với một số từ khóa hướng đến đối tượng khách hàng tại địa bàn Thái Bình
+		(đề xuất từ khóa: Inox tại Thái Bình, bếp công nghiệp Inox, chậu rửa bát inox, inoxthaibinh, inoxlinhkien)
+		
+3. Nội dung phát triển Fanpage:
+	- Xây dựng Fanpage của công ty
+	- Thiết kế Avatar, cover photo
+	- Nghiên cứu thiết kế nội dung của 05 bài viết về các sản phẩm, chương trình, dự án của công ty nhằm mục đích quảng bá
+	- Đưa ra chiến lược quảng cáo phù hợp với yêu cầu và chiến lược kinh doanh trong giai đoạn đầu của công ty.
+----------------------------------------------------------------------------------------------------------------------------	
+II.Về tiến trình thực hiện: dự kiến tiến độ (timesheet) triển khai các nhiệm vụ của dự án như sau:
+28 - 31/8: thống nhất nội dung nhiệm vụ, lấy nguồn dữ liệu (resource từ công ty)
+1/9 - 23/9: triển khai xây dựng các nội dung nhiệm vụ
+24/9 - 25/9: bàn giao dự án và hướng dẫn sử dụng.
+Trong quá trình triển khai 02 bên sẽ thường xuyên trao đổi để lấy ý kiến về giao diện, chức năng cho phù hợp với yêu cầu của người dùng. 
+
+----------------------------------------------------------------------------------------------------------------------------	
+III. Báo giá 
+Tiền công + tiền đăng ký tên miền(tên miền được mô tả tại phía dưới), thuê hosting Website: 10.000.000 VNĐ
+(bằng chữ: mười triệu đồng chẵn)
+
+-----------------------------------------------------------------------------------------------------------------------------
+III. Về yêu cầu đối với công ty:
+1. Cung cấp danh mục sản phẩm của công ty với dung như sau:
+	Tên sản phẩm
+	Chủng loại sản phẩm (nếu có)
+	Kích thước sản phẩm 
+	Mô tả sản phẩm
+	Hình ảnh sản phẩm : mỗi sản phẩm 03 hình ảnh là tốt nhất (sẽ hỗ trợ chỉnh sửa hình ảnh của sản phẩm) (gửi file ảnh kèm theo)
+	Ví dụ: Bếp công nghiệp Inox, kích thước 5mx6mx3m, Sản phẩm bếp công nghiệp được sử dụng nhiều ..., 
+	(theo mẫu file excel đính kèm)
+2. Giới thiệu về công ty
+	- Mô tả giới thiệu về quá trình ra đời của công ty, mục tiêu, mục đích của công ty, hoặc một vài sologan, hình ảnh của công ty, nhân lực tại công ty.
+	- Tên công ty, địa chỉ công ty, thông tin liên hệ của công ty, giám đốc công ty, địa chỉ Email ...
+3. Giới thiệu về các dự án của công ty
+	Mô tả về danh mục các dự án của công ty với các nội dung như: tên dự án, thời gian thực hiện, quá trình thực hiện, hình ảnh trong quá trình triển khai dự án
+	Nếu công ty có thông tin cung cấp thêm có thể gửi thêm kèm mô tả.
+4. Việc xây dựng trang Website của công ty yêu cầu phải có tên miền của công ty.
+	Tên miền là địa chỉ của công ty trên mạng (ví dụ như các trang 24h.com.vn, dantri.com.vn, vnexpress.net thì đây chính là tên miền)
+	Vì vậy, đề nghị công ty thống nhất lựa chọn tên miền.
+	Theo tôi đề xuất là: inoxlinhkien.com hoặc inoxthaibinh.com hoặc theo đề xuất của công ty.
