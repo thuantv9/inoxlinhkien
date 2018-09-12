@@ -84,32 +84,57 @@ insert into Category values (5, N'Xe đẩy');
 go
 
 -- Thêm dữ liệu bảng khách hàng
-insert into Customer values(1,N'Bệnh viện đa khoa Lâm Hoa',N'/img/dummies/clients/client1.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(2,N'Bệnh viện đa khoa Lâm Hoa',N'/img/dummies/clients/client2.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(3,N'Bệnh viện đa khoa Lâm Hoa',N'/img/dummies/clients/client3.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(4,N'Bệnh viện đa khoa Lâm Hoa',N'/img/dummies/clients/client4.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(5,N'Bệnh viện đa khoa Lâm Hoa',N'/img/dummies/clients/client5.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(6,N'Bệnh viện đa khoa Lâm Hoa',N'/img/dummies/clients/client6.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(7,N'Bệnh viện đa khoa Lâm Hoa',N'/img/dummies/clients/client7.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(1,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_1.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(2,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_2.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(3,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_3.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(4,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_4.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(5,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_5.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(6,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_6.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(7,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_7.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
 go
 -- Thêm dữ liệu bảng sản phẩm
 insert into Product values (1,N'chậu rửa bát công nghiệp hai hố inox 304',N'inox 304',1,
 N'KT:1850x750x800 ; KT chậu: 550x500x280; Vòi nước công nghiệp=2;Chân tăng chỉnh cao thấp =4',
-N'/img/works/thumbs/image-01.jpg',
+N'/images/product_1.png',
 N'Lorem .....',
 1);
 insert into Product values (2,N'Bếp gas công nghiệp 2 họng đốt( GADO)',
 N'inox 304',2,
 N'KT: 1250X750X800;Vòi nước công nghiệp;Chân tăng chỉnh cao thấp; Hệ thống làm mát bề mặt',
-N'/img/works/thumbs/image-02.jpg',
+N'/images/product_2.png',
 N'Lorem .....2',
 1);
 insert into Product values (3,N'tủ để đồ có ngăn kéo cánh mở',
 N'inox 304',3,
 N'KT : 1500x600x800; KT ngăn kéo :450x200',
-N'/img/works/thumbs/image-03.jpg',
+N'/images/product_3.png',
 N'Lorem .....3',
 1);
+insert into Product values (4,N'tủ để đồ có ngăn kéo cánh mở',
+N'inox 304',3,
+N'KT : 1500x600x800; KT ngăn kéo :450x200',
+N'/images/product_4.png',
+N'Lorem .....3',
+1);
+insert into Product values (5,N'tủ để đồ có ngăn kéo cánh mở',
+N'inox 304',2,
+N'KT : 1500x600x800; KT ngăn kéo :450x200',
+N'/images/product_5.png',
+N'Lorem .....3',
+1);
+insert into Product values (6,N'tủ để đồ có ngăn kéo cánh mở',
+N'inox 304',4,
+N'KT : 1500x600x800; KT ngăn kéo :450x200',
+N'/images/product_6.png',
+N'Lorem .....3',
+1);
+insert into Product values (7,N'tủ để đồ có ngăn kéo cánh mở',
+N'inox 304',2,
+N'KT : 1500x600x800; KT ngăn kéo :450x200',
+N'/images/product_7.png',
+N'Lorem .....3',
+1);
+
 go
 --------------------------------------------------------------------------------------------------------
 -- tạo procedure

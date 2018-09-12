@@ -19,7 +19,9 @@ namespace Web.Controllers
         }
         public ActionResult Index2()
         {
-            return View();
+            ViewBag.Product = dbcontext.GetAllProduct();
+            ViewBag.Customer = dbcontext.GetAllCustomer();
+            return View(dbcontext.GetAllCategory());
         }
         public ActionResult Category()
         {
