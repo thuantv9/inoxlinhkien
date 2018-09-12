@@ -1048,9 +1048,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\about-01.jpg" />
+    <Content Include="images\about-02.jpg" />
     <Content Include="images\banner_1.jpg" />
     <Content Include="images\banner_2.jpg" />
     <Content Include="images\banner_3.jpg" />
+    <Content Include="images\bg-01.jpg" />
     <Content Include="images\blog_1.jpg" />
     <Content Include="images\blog_2.jpg" />
     <Content Include="images\blog_3.jpg" />

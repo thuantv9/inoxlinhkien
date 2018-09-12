@@ -17,11 +17,8 @@
 <body>
 
     <div class="super_container">
-
         <!-- Header -->
-
         <header class="header trans_300">
-
             <!-- Top Navigation -->
             <div class="top_nav">
                 <div class="container">
@@ -49,37 +46,22 @@
                             </div>
                             <nav class="navbar">
                                 <ul class="navbar_menu">
-                                    <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                                    <li><a href="@Url.Action("Index2","Home")">Trang chủ</a></li>
                                     <li><a href="@Url.Action("Category","Home")">Sản phẩm</a></li>
                                     <li><a href="@Url.Action("Customer","Home")">Đối tác</a></li>
                                     <li><a href="@Url.Action("About","Home")">Giới thiệu</a></li>
                                     <li><a href="@Url.Action("News","Home")">Tin tức</a></li>
                                     <li><a href="@Url.Action("Contact","Home")">Liên hệ</a></li>
                                 </ul>                                
-                                <div class="hamburger_container">
+                                @*<div class="hamburger_container">
                                     <i class="fa fa-bars" aria-hidden="true"></i>
-                                </div>
+                                </div>*@
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
-
-        <div class="fs_menu_overlay"></div>
-        <div class="hamburger_menu">
-            <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <div class="hamburger_menu_content text-right">
-                <ul class="menu_top_nav">
-                    <li class="menu_item"><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
-                    <li class="menu_item"><a href="@Url.Action("Category","Home")">Sản phẩm</a></li>
-                    <li class="menu_item"><a href="@Url.Action("Customer","Home")">Đối tác</a></li>
-                    <li class="menu_item"><a href="@Url.Action("About","Home")">Giới thiệu</a></li>
-                    <li class="menu_item"><a href="@Url.Action("News","Home")">Tin tức</a></li>
-                    <li class="menu_item"><a href="@Url.Action("Contact","Home")">Liên hệ</a></li>
-                </ul>
-            </div>
-        </div>       
+        </header>        
         <!-- Render Body Start-->
                 @RenderBody()
         <!-- Render Body End-->

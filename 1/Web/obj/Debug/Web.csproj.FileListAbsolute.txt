@@ -53,7 +53,6 @@ E:\DU AN INOX LINH KIEN\Project\InoxLinhKien\Web\bin\Microsoft.Owin.Security.Mic
 E:\DU AN INOX LINH KIEN\Project\InoxLinhKien\Web\obj\Debug\Web.dll
 E:\DU AN INOX LINH KIEN\Project\InoxLinhKien\Web\obj\Debug\Web.pdb
 E:\DU AN INOX LINH KIEN\Project\InoxLinhKien\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
-E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.dll
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.pdb
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Web.dll.config
