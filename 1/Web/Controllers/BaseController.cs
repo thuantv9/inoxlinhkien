@@ -16,7 +16,12 @@ namespace Web.Controllers
         {
             return Json(dbcontext.GetAllProduct(), JsonRequestBehavior.AllowGet);
         }
-        // lấy by id
+        // lấy by  id
+        public JsonResult GetProductById(int id)
+        {
+            return Json(dbcontext.GetProductById(id), JsonRequestBehavior.AllowGet);
+        }
+        // lấy by category id
         public JsonResult GetProductByCategoryId(int CategoryId)
         {
             return Json(dbcontext.GetProductByCategoryId(CategoryId), JsonRequestBehavior.AllowGet);
