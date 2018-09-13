@@ -25,15 +25,16 @@ namespace Web.Controllers
         }
         public ActionResult Category()
         {
-            var categoryid = Request["CategoryId"];
+           
+            var id = Url.RequestContext.RouteData.Values["id"];
             // truyền categoryid
-            if (categoryid == null)
+            if (id == null)
             {
-                ViewBag.CategoryId = 1;
+                ViewBag.CategoryId = "";
             }
             else
             {
-                ViewBag.CategoryId = categoryid;
+                ViewBag.CategoryId = id;
             }
 
             // lấy tất cả sản phẩm
@@ -52,7 +53,16 @@ namespace Web.Controllers
         }
         public ActionResult Customer()
         {
-            return View();
+            var id = Url.RequestContext.RouteData.Values["id"];
+            if (id == null)
+            {
+                ViewBag.CustomerId = "";
+            }
+            else
+            {
+                ViewBag.CustomerId = id;
+            }
+            return View(dbcontext.GetAllCustomer());
         }
         public ActionResult News()
         {

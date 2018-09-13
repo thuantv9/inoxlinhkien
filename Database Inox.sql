@@ -66,6 +66,14 @@ ProductId	int,
 Quantity	int	,
 )
 
+-- tạo bảng tin tức
+create table News
+(
+NewsId int not null primary key,
+NewsImage nvarchar(300),
+NewsDescription ntext,
+NewsRemark ntext
+)
 -- hết phần tạo bảng
 --------------------------------------------------------------------------------------------------------
 -- Tạo dữ liệu giả lập

@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -1283,6 +1283,13 @@ section
 {
 	margin-right: 11px;
 }
+/* Thêm mới nội dung trang Customer*/
+.sidebar1
+{
+	float: left;
+	width: 300px;
+	padding-right: 17px;
+}
 
 /*********************************
 7. Main Content
@@ -1502,7 +1509,13 @@ section
 {
 	color: #fe4c50;
 }
-
+/* Mở rộng main content cho trang Customer*/
+.main_content1
+{
+	float: left;
+	width: calc(100% - 300px);
+	padding-left: 34px;
+}
 /*********************************
 8. Benefit
 *********************************/

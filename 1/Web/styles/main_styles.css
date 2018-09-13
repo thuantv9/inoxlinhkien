@@ -297,6 +297,14 @@ section {
     text-transform: uppercase;
 }
 
+.top_nav_right {
+    height: 50px;
+    line-height: 50px;
+    font-size: 13px;
+    color: #b5aec4;
+    text-transform: uppercase;
+}
+
 /*********************************
 3.1 Currency
 *********************************/
@@ -829,12 +837,13 @@ section {
 
 .main_slider {
     width: 100%;
+    display:block;
     height: 700px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     /*margin-top: 150px;*/
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 .main_slider_content {
@@ -890,6 +899,32 @@ section {
 .shop_now_button {
     width: 140px;
     margin-top: 32px;
+}
+
+/**Thêm mới cho nivo slider*/
+.nivoSlider, .nivo-slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 0;
+}
+
+.nivo-slider {
+    background: #fbfbfb;
+}
+.nivo-slider img {
+    /*position: absolute;*/
+    width:100%;
+    top: 50px;
+    left: 0px;
+    max-width: none;
+}
+#featured {
+    background: #fcfcfc;
+    position: relative;
+    margin: 0;
+    padding-top: 160px;
 }
 
 /*********************************
