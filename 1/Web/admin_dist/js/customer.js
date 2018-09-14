@@ -2,27 +2,25 @@
 ref = $("#myTable").DataTable({ "scrollX": true });
 $(document).ready(function () {
     loaddatabyHung();
-
 });
 // load data by Hung
 function loaddatabyHung() {
     ref.clear().draw();
     var html = '';
     $.ajax({
-        url: "/Base/GetAllProduct",
+        url: "/Base/GetAllCustomer",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {
             $.each(result, function (key, item) {
-                html = '<a href="#" onclick="showcontent(' + item.CategoryID + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.CategoryID + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.CategoryID + ');">Xóa</a>';
+                html = '<a href="#" onclick="showcontent(' + item.CustomerId + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.CategoryID + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.CustomerId + ');">Xóa</a>';
+                htmlimage = '<img src="' + item.CustomerImage + '" class="img-fluid" />';
                 ref.row.add([
-
-                    item.Id,
-                    item.Name,
-                    item.MadeFrom,
-                    item.CategoryId,
-                    item.Dimenson,
+                    item.CustomerId,
+                    item.CustomerName,
+                    htmlimage,
+                    item.CustomerDescription,                  
                     html
                 ]);
             });
@@ -34,16 +32,16 @@ function loaddatabyHung() {
     });
 
 }
-// Show content popup hiển thị chi tiết nội dung category đó
+// Show content popup hiển thị chi tiết nội dung customer đó
 function showcontent(id) {
     $.ajax({
-        url: "/Base/GetProductById/" + id,
+        url: "/Base/GetCustomerById/" + id,
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            if (result.Remark) {
-                $('#modalshowcontent_body').html(result.Remark);
+            if (result.CustomerRemark) {
+                $('#modalshowcontent_body').html(result.CustomerRemark);
             }
             else {
                 $('#modalshowcontent_body').html('Không có mô tả');
@@ -55,35 +53,27 @@ function showcontent(id) {
         }
     });
 }
-// function lấy dữ liệu theo category ID để chỉnh sửa
+// function lấy dữ liệu theo Customer ID để chỉnh sửa
 function getbyID(ID) {
-    $('#CategoryID').css('border-color', 'lightgrey');
-    $('#Level').css('border-color', 'lightgrey');
-    $('#Level').attr('disabled', 'disabled');
-    $('#CategoryName').css('border-color', 'lightgrey');
-    $('#ParentCategoryId').css('border-color', 'lightgrey');
-    $('#ParentCategoryId').attr('disabled', 'disabled');
-    $('#Description').css('border-color', 'lightgrey');
-    $('#Remarks').css('border-color', 'lightgrey');
-    $('#btnCreatenewlevel').attr('disabled', 'disabled');
-
+    $('#CustomerId').css('border-color', 'lightgrey');
+    $('#CustomerName').css('border-color', 'lightgrey');
+    $('#CustomerId').attr('disabled', 'disabled');
+    $('#CustomerImage').css('border-color', 'lightgrey');
+    $('#CustomerDescription').css('border-color', 'lightgrey');   
+    $('#CustomerRemark').css('border-color', 'lightgrey');    
     $.ajax({
-        url: "/Home/GetByID/" + ID,
+        url: "/Base/GetCustomerById/" + ID,
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            $('#CategoryID').val(result.CategoryID);
+            $('#CustomerId').val(result.CustomerId);
+            $('#CustomerName').val(result.CustomerName);
+            $('#CustomerImage').val(result.CustomerImage);
+            $('#CustomerDescription').val(result.CustomerDescription);
+            CKEDITOR.instances['CustomerRemark'].setData(result.CustomerRemark);
 
-            $('#Level').find('option').remove().end();
-            $('#Level').append('<option value="' + result.Level + '">' + result.Level + '</option>');
-            $('#CategoryName').val(result.CategoryName);
-            $('#ParentCategoryId').find('option').remove().end();
-            $('#ParentCategoryId').append('<option value="' + result.ParentCategoryID + '">' + result.ParentCategoryID + '</option>');
-            $('#Description').val(result.Description);
-            CKEDITOR.instances['Remarks'].setData(result.Remarks);
-
-            $('#myModalLabel').html('<span class="glyphicon glyphicon-envelope"></span> Edit Category');
+            $('#myModalLabel').html('<span class="glyphicon glyphicon-envelope"></span> Chỉnh sửa');
             $('#myModal').modal('show');
             $('#btnUpdate').show();
             $('#btnAdd').hide();
@@ -132,61 +122,32 @@ function validate() {
     return isvalidate;
 }
 
-//function load level cho dropdown level
-function loaddropdownlevel() {
-    var html = '<option value="0"> All Level </option>';
-    var html1 = '<option disabled selected value> -- select an option -- </option>';
-    $.ajax({
-        url: "/Home/GetListLevel",
-        type: "GET",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            $.each(result, function (index, value) {
-
-                html += '<option value="' + value + '">' + value + '</option>';
-                html1 += '<option value="' + value + '">' + value + '</option>';
-            });
-            $("#levelfilter").html(html); // load tại filter lọc
-            $("#Level").html(html1); //load cho trong modal
-        },
-        error: function (errormessage) {
-            alert(errormessage.responseText);
-        }
-    });
-}
 // Script cho phan Add: them moi Content
 function Add() {
-    //alert(CKEDITOR.instances['Remarks'].getData());
-    var date = new Date();
+    //alert(CKEDITOR.instances['Remarks'].getData());    
     var res = validate();
     if (res == false) {
         return false;
     }
-    var category =
+    var customer =
     {
-        CategoryID: $('#CategoryID').val(),
-        Level: $('#Level').val(),
-        CategoryName: $('#CategoryName').val(),
-        ParentCategoryID: $('#ParentCategoryId').val(),
-        EditDate: date.toLocaleDateString(),
-        Editor: 'thuan',
-        Description: $('#Description').val(),
-        Remarks: CKEDITOR.instances['Remarks'].getData()
+        CustomerId: $('#CustomerId').val(),
+        CustomerName: $('#CustomerName').val(),
+        CustomerImage: $('#CustomerImage').val(),       
+        CustomerDescription: $('#CustomerDescription').val(),
+        CustomerRemark: CKEDITOR.instances['CustomerRemark'].getData()
     };
     //alert(JSON.stringify(category));
     $.ajax({
-        url: "/Home/Add",
-        data: JSON.stringify(category),
+        url: "/Base/InsertCustomer",
+        data: JSON.stringify(customer),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         datatype: "json",
         success: function (result) {
-            bootbox.alert('Add new category success!');
-            //loaddatabyHung();
-            loaddatabylevel($('#Level option:selected').val());
-            loaddropdownlevel();
-            //loaddropdownparentcatgory();
+            bootbox.alert('Thêm thành công!');
+            loaddatabyHung();     
+          
             $('#myModal').modal('hide');
         },
         error: function (errormessage) {
@@ -195,46 +156,36 @@ function Add() {
     });
 
 }
-
 // fucntion Update dữ liệu
 function Update() {
-
-    var date = new Date();
     var res = validate();
     if (res == false) {
         return false;
     }
-    var category =
+    var customer =
     {
-        CategoryID: $('#CategoryID').val(),
-        Level: $('#Level').val(),
-        CategoryName: $('#CategoryName').val(),
-        ParentCategoryID: $('#ParentCategoryId').val(),
-        EditDate: date.toLocaleDateString(),
-        Editor: 'thuan',
-        Description: $('#Description').val(),
-        Remarks: CKEDITOR.instances['Remarks'].getData()
+        CustomerId: $('#CustomerId').val(),
+        CustomerName: $('#CustomerName').val(),
+        CustomerImage: $('#CustomerImage').val(),
+        CustomerDescription: $('#CustomerDescription').val(),
+        CustomerRemark: CKEDITOR.instances['CustomerRemark'].getData()
     };
+    //alert(JSON.stringify(category));
     $.ajax({
-        url: "/Home/Update",
-        data: JSON.stringify(category),
+        url: "/Base/UpdateCustomer",
+        data: JSON.stringify(customer),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         datatype: "json",
         success: function (result) {
-            //loaddatabyHung();
-            var c = $('#Level option:selected').val();
-            loaddatabylevel(c);
-            loaddropdownlevel();
+            bootbox.alert('Sửathành công!');
+            loaddatabyHung();
             $('#myModal').modal('hide');
-
-            bootbox.alert('Update success !');
         },
         error: function (errormessage) {
-            bootbox.alert(errormessage.responseText);
+            alert(errormessage.responseText);
         }
     });
-
 }
 
 // function delete ID
@@ -310,19 +261,18 @@ function clearTextBox() {
 }
 // mở popup khi bấm nút add category
 function addpopup() {
-    $('#myModalLabel').html('<h4><span class="glyphicon glyphicon-envelope"></span> Add New Category</h4>');
+    $('#myModalLabel').html('<h4><span class="glyphicon glyphicon-envelope"></span> Thêm mới</h4>');
     $('#myModal').modal('show');
-    clearTextBox();
-    loaddropdownlevel();
+    clearTextBox();   
     $('#btnUpdate').hide();
     $('#btnAdd').show();
     $.ajax({
-        url: "/Home/GetNextCategoryID",
+        url: "/Base/GetNextCustomerId",
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            $('#CategoryID').val(result);
+            $('#CustomerId').val(result);
         },
         error: function (errormessage) {
             alert(errormessage.responseText);

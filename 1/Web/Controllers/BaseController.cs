@@ -41,6 +41,12 @@ namespace Web.Controllers
         {
             return Json(dbcontext.DeleteProduct(id), JsonRequestBehavior.AllowGet);
         }
+
+        // lấy số id tiếp theo của sản phẩm
+        public JsonResult GetNextProductId()
+        {
+            return Json(dbcontext.GetNextProductId(), JsonRequestBehavior.AllowGet);
+        }
         #endregion
         #region Admin Category
         // lấy tất cả category
@@ -63,13 +69,22 @@ namespace Web.Controllers
         {
             return Json(dbcontext.UpdateCategory(category), JsonRequestBehavior.AllowGet);
         }
-
+        // lấy số id tiếp theo của chủng loại sản phẩm
+        public JsonResult GetNextCategoryId()
+        {
+            return Json(dbcontext.GetNextCategoryId(), JsonRequestBehavior.AllowGet);
+        }
         #endregion
         #region Admin Customer
         // lấy tất cả kh
         public JsonResult GetAllCustomer()
         {
             return Json(dbcontext.GetAllCustomer(), JsonRequestBehavior.AllowGet);
+        }
+        // lấy khách hàng teho id
+        public JsonResult GetCustomerById(int customerid)
+        {
+            return Json(dbcontext.GetCustomerById(customerid), JsonRequestBehavior.AllowGet);
         }
         // thêm mới khách hàng
         public JsonResult InsertCustomer(Customer customer)
@@ -81,6 +96,10 @@ namespace Web.Controllers
         {
             return Json(dbcontext.UpdateCustomer(customer), JsonRequestBehavior.AllowGet);
         }
+         public JsonResult GetNextCustomerId()
+         {
+             return Json(dbcontext.GetNextCustomerId(), JsonRequestBehavior.AllowGet);
+         }
      
         #endregion
         #region Admin SlideImage

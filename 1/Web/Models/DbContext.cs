@@ -195,6 +195,30 @@ namespace Web.Models
             }
             return i;
         }
+        // lấy số Id product tiếp theo
+        public int GetNextProductId()
+        {
+            int i = 1;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("GetNextProductId", con);
+                com.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = com.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        i = Int32.Parse(reader[0].ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            return i;
+        }
         #endregion
         #region Table Category
         // lấy tất cả loại sản phẩm
@@ -275,6 +299,31 @@ namespace Web.Models
             }
             return i;
         }
+
+        // lấy số Id category tiếp theo
+        public int GetNextCategoryId()
+        {
+            int i = 1;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("GetNextCategoryId", con);
+                com.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = com.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        i = Int32.Parse(reader[0].ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            return i;
+        }
         #endregion
         #region Table Customer
         // lấy tất cả khách hàng
@@ -307,6 +356,30 @@ namespace Web.Models
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        // láy customer theo id
+        public Customer GetCustomerById(int customerid)
+        {
+            Customer c = new Customer();
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("GetCustomerById", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CustomerId", customerid);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    c.CustomerId = Int32.Parse(reader["CustomerId"].ToString());
+                    c.CustomerName = reader["CustomerName"].ToString();
+                    c.CustomerImage = reader["CustomerImage"].ToString();
+                    c.CustomerDescription = reader["CustomerDescription"].ToString();
+                    c.CustomerRemark = reader["CustomerRemark"].ToString();
+                  
+                }
+                return c;
             }
         }
         // thêm mới khách hàng
@@ -404,6 +477,31 @@ namespace Web.Models
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@CustomerId", CustomerId);
                 i = com.ExecuteNonQuery();
+            }
+            return i;
+        }
+
+        // lấy số Id Customer tiếp theo
+        public int GetNextCustomerId()
+        {
+            int i = 1;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("GetNextCustomerId", con);
+                com.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = com.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        i = Int32.Parse(reader[0].ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
             return i;
         }

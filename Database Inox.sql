@@ -251,6 +251,18 @@ begin
 	delete from Product where Id=@Id
 end
 go 
+-- procedure lấy số tiếp theo của ProdcutId
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetNextProductId' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.GetNextProductId
+
+create procedure dbo.GetNextProductId
+as
+begin
+	 select max(Id)+1 from Product
+	
+end
+go
 
 -- Bảng chủng loại sản phẩm
 -- lấy tất cả chủng loại
@@ -305,6 +317,18 @@ begin
 end
 -- Delete chủng loại theo id, nếu còn sản phẩm của chủng loại thì không cho xóa
 -- Tham khảo từ Online Help
+-- procedure lấy số tiếp theo của CategoryIdId
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetNextCategoryId' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.GetNextProductId
+
+create procedure dbo.GetNextCategoryId
+as
+begin
+	 select max(CategoryId)+1 from Category
+	
+end
+go
  
 -- Bảng khách hàng
 --  lấy tất cả khách hàng
@@ -318,7 +342,18 @@ begin
 	select * from Customer
 end
 go
-
+-- lấy khách hàng theo Customer id
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetCustomerById' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.GetCustomerById
+go
+create procedure dbo.GetCustomerById
+CustomerId int
+as
+begin
+	select * from Customer where CustomerId=@CustomerId
+end
+go
 -- thêm mới khách hàng
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 	WHERE ROUTINE_NAME = 'InsertCustomer' AND ROUTINE_SCHEMA = 'dbo')
@@ -364,6 +399,17 @@ create procedure dbo.DeleteCustomerById
 as
 begin
 	delete from Customer where CustomerId=@CustomerId
+end
+go
+-- procedure lấy số tiếp theo của CustomerId
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetNextCategoryId' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.GetNextCustomerId
+create procedure dbo.GetNextCustomerId
+as
+begin
+	 select max(CustomerId)+1 from Customer
+	
 end
 go
 -- Bảng người dùng
@@ -432,6 +478,8 @@ begin
 	delete from Users where UserId=@UserId
 end
 go
+
+
 -- Bảng Slide Image
 -- lấy tất cả slide
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES

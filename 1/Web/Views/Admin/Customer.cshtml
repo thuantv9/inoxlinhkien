@@ -17,13 +17,11 @@
         <table id="myTable" class="table table-bordered table-hover" style="width: 100%;">
             <thead class="bg-danger">
                 <tr>
-
-                    <td style="width:8%">ID</td>
-                    <td style="width:8%">Tên sản phẩm</td>
-                    <td style="width:25%">Chất liệu</td>
-                    <td style="width:8%">Mã chủng loại sản phẩm</td>
-                    <td style="width:26%">Kích thước</td>
-                    <td style="width:26%">Ảnh sản phẩm</td>
+                    <td style="width:8%">Mã dự án</td>
+                    <td style="width:8%">Tên dự án</td>
+                    <td style="width:25%">Ảnh</td>
+                    <td style="width:8%">Mô tả ngắn gọn</td>
+                    <td style="width:26%">Mô tả chi tiết</td>                    
                     <td style="width:25%"></td>
                 </tr>
             </thead>
@@ -37,48 +35,57 @@
                     <div class="modal-header">
                         @*<button type="button" class="close" data-dismiss="modal">×</button>*@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-envelope"></span> Thêm mới sản phẩm</h4>
+                        <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-envelope"></span> Thêm mới dự án</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="CategoryID">Tên sản phẩm <span class="labels">(*)</span></label>
-                            <input type="text" class="form-control" id="CategoryID" placeholder="Category ID" disabled="disabled" />
+                            <label for="CustomerId">Mã dự án<span class="labels">(*)</span></label>
+                            <input type="text" class="form-control" id="CustomerId" placeholder="Mã dự án" disabled="disabled" />
                         </div>
                         <div class="form-group">
-                            <label for="Level">Chủng loại sản phẩm<span class="labels">(*)</span></label>
-                            <select class="form-control" id="Level" onchange="Getparentcategorybylevelofchild(this.value)" name="Level"></select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="CategoryName">Tên sản phẩm<span class="labels">(*)</span></label>
-                            <input type="text" class="form-control" id="CategoryName" placeholder="Tên sản phẩm" />
+                            <label for="CustomerName">Tên dự án<span class="labels">(*)</span></label>
+                            <input type="text" class="form-control" id="CustomerName" placeholder="Tên dự án" disabled="disabled" />
                         </div>
 
                         <div class="form-group">
-                            <label for="ParentCategoryId">Kích thước<span class="labels">(*)</span></label>
-                            <input type="text" class="form-control" id="CategoryName" placeholder="Kích thước sản phẩm" />
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="Description">Ảnh sản phẩm<span class="labels">(*)</span></label>
-                            <input type="text" class="form-control" id="Description" placeholder="Ảnh sản phẩm" />
+                            <label for="CustomerImage">Ảnh<span class="labels">(*)</span></label>
+                            <input type="text" class="form-control" id="CustomerImage" placeholder="Ảnh" />
                         </div>
 
                         <div class="form-group">
-                            <label for="Remarks">Mô tả</label>
-                            <textarea id="Remarks" name="txtArea" class="ckeditor form-control" rows="2" cols="20" placeholder="Remarks"></textarea>
+                            <label for="CustomerDescription">Mô tả ngắn gọn<span class="labels">(*)</span></label>
+                            <input type="text" class="form-control" id="CustomerDescription" placeholder="Mô tả ngắn gọn" />
+                        </div>
+                        <div class="form-group">
+                            <label for="CustomerRemark">Mô tả chi tiết</label>
+                            <textarea id="CustomerRemark" name="txtArea" class="ckeditor form-control" rows="2" cols="20" placeholder="Remarks"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();"><span class="glyphicon glyphicon-ok"></span> Thêm mới</button>
                         <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update()"><span class="glyphicon glyphicon-ok"></span> Cập nhật</button>
-                        <button type="button" class="btn btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                        <button type="button" class="btn btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Hủy bỏ</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Ket thuc modal-->
+        <!-- model show content-->
+        <div class="modal fade" id="modalshowcontent" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" style="width:80%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="modalshowcontentLabel"><span class="glyphicon glyphicon-th"></span> Nội dung chi tiết</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modalshowcontent_body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Ket thuc show content modal-->
     </div>
 </div>
 @section customerjs

@@ -134,40 +134,26 @@ function Update() {
 }
 // function clear text box trong modal
 function clearTextBox() {
-    $('#CategoryID').val("");
-    $('#CategoryName').val("");
-    $('#Level').val("");
-    //$('#ParentCategoryId').val("");
-    $('#ParentCategoryId').find('option').remove().end();
-    $('#Description').val("");
-    //$('#Remarks').val("");
-    CKEDITOR.instances['Remarks'].setData("")
-
+    $('#CategoryId').val("");
+    $('#CategoryName').val(""); 
+    
     $('#CategoryName').removeAttr('disabled');
-    $('#Level').removeAttr('disabled');
-    $('#ParentCategoryId').removeAttr('disabled');
-    $('#Description').removeAttr('disabled');
-    $('#Remarks').removeAttr('disabled');
-    $('#btnCreatenewlevel').removeAttr('disabled');
+    $('#Level').removeAttr('disabled');   
 
     $('#btnUpdate').hide();
     $('#btnAdd').show();
-    $('#CategoryName').css('border-color', 'lightgrey');
-    $('#ParentCategoryID').css('border-color', 'lightgrey');
-    $('#Description').css('border-color', 'lightgrey');
-    $('#Remarks').css('border-color', 'lightgrey');
-
+    $('#CategoryName').css('border-color', 'lightgrey');   
 }
 // mở popup khi bấm nút add category
 function addpopup() {
-    $('#myModalLabel').html('<h4><span class="glyphicon glyphicon-envelope"></span> Add New Category</h4>');
+    $('#myModalLabel').html('<h4><span class="glyphicon glyphicon-envelope"></span> Thêm mới chủng loại</h4>');
     $('#myModal').modal('show');
     clearTextBox();
     loaddropdownlevel();
     $('#btnUpdate').hide();
     $('#btnAdd').show();
     $.ajax({
-        url: "/Home/GetNextCategoryID",
+        url: "/Home/GetNextCategoryId",
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
