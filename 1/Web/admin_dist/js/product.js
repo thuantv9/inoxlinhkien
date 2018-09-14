@@ -2,7 +2,6 @@
 ref = $("#myTable").DataTable({ "scrollX": true });
 $(document).ready(function () {
     loaddatabyHung();
-   
 });
 // load data by Hung
 function loaddatabyHung() {
@@ -15,13 +14,15 @@ function loaddatabyHung() {
         dataType: "json",
         success: function (result) {
             $.each(result, function (key, item) {
-                html = '<a href="#" onclick="showcontent(' + item.CategoryID + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.CategoryID + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.CategoryID + ');">Xóa</a>';
+                html = '<a href="#" onclick="showcontent(' + item.Id + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.Id + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.Id + ');">Xóa</a>';
+                htmlimage = '<img src="' + item.Image.split(" ")[0] + '" style="img-fluid">';
                 ref.row.add([
                     item.Id,
                     item.Name,
                     item.MadeFrom,
                     item.CategoryId,
                     item.Dimenson,
+                    htmlimage,
                     html
                 ]);
             });
@@ -31,7 +32,6 @@ function loaddatabyHung() {
             alert(errormessage.responseText);
         }
     });
-
 }
 // Show content popup hiển thị chi tiết nội dung category đó
 function showcontent(id) {
@@ -57,14 +57,13 @@ function showcontent(id) {
 // function lấy dữ liệu theo category ID để chỉnh sửa
 function getbyID(ID) {
     $('#Id').css('border-color', 'lightgrey');
-    $('#Name').css('border-color', 'lightgrey');    
+    $('#Name').css('border-color', 'lightgrey');
     $('#MadeFrom').css('border-color', 'lightgrey');
-    $('#CategoryId').css('border-color', 'lightgrey');    
+    $('#CategoryId').css('border-color', 'lightgrey');
     $('#Dimenson').css('border-color', 'lightgrey');
     $('#Image').css('border-color', 'lightgrey');
     $('#Remark').css('border-color', 'lightgrey');
     //$('#btnCreatenewlevel').attr('disabled', 'disabled');
-
     $.ajax({
         url: "/Base/GetProductById/" + ID,
         type: "GET",
@@ -108,7 +107,7 @@ function validate() {
     else {
         $('#Name').css('border-color', 'lightgrey');
     }
-    
+
 
     if ($('#MadeFrom').val().trim() === "") {
         $('#MadeFrom').css('border-color', 'red');
@@ -134,6 +133,14 @@ function validate() {
         $('#Image').css('border-color', 'lightgrey');
     }
 
+    if ($('#Remark').val().trim() === "") {
+        $('#Remark').css('border-color', 'red');
+        isvalidate = false;
+    }
+    else {
+        $('#Remark').css('border-color', 'lightgrey');
+    }
+
     return isvalidate;
 }
 
@@ -150,7 +157,7 @@ function Add() {
         Id: $('#Id').val(),
         Level: $('#Name').val(),
         MadeFrom: $('#MadeFrom').val(),
-        CategoryId: $('#CategoryId').val(),       
+        CategoryId: $('#CategoryId').val(),
         Dimenson: $('#Dimenson').val(),
         Image: $('#Image').val(),
         Remark: CKEDITOR.instances['Remark'].getData()
@@ -164,7 +171,7 @@ function Add() {
         datatype: "json",
         success: function (result) {
             bootbox.alert('Thêm mới thành công!');
-            loaddatabyHung();           
+            loaddatabyHung();
             //loaddropdownparentcatgory();
             $('#myModal').modal('hide');
         },
@@ -201,7 +208,7 @@ function Update() {
         datatype: "json",
         success: function (result) {
             bootbox.alert('Update thành công!');
-            loaddatabyHung();            
+            loaddatabyHung();
             $('#myModal').modal('hide');
         },
         error: function (errormessage) {
@@ -217,7 +224,7 @@ function clearTextBox() {
     $('#MadeFrom').val("");
     $('#CategoryId').val("");
     $('#Dimenson').val("");
-    $('#Image').val("");    
+    $('#Image').val("");
     //$('#Remarks').val("");
     CKEDITOR.instances['Remark'].setData("")
 
@@ -228,7 +235,6 @@ function clearTextBox() {
     $('#Dimenson').removeAttr('disabled');
     $('#Image').removeAttr('disabled');
     $('#Remark').removeAttr('disabled');
-    $('#btnCreatenewlevel').removeAttr('disabled');
 
     $('#btnUpdate').hide();
     $('#btnAdd').show();
@@ -242,16 +248,16 @@ function clearTextBox() {
 function addpopup() {
     $('#myModalLabel').html('<h4><span class="glyphicon glyphicon-envelope"></span> Thêm mới sản phẩm</h4>');
     $('#myModal').modal('show');
-    clearTextBox();    
+    clearTextBox();
     $('#btnUpdate').hide();
     $('#btnAdd').show();
     $.ajax({
-        url: "/Home/GetNextCategoryID",
+        url: "/Base/GetNextProductId",
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            $('#CategoryID').val(result);
+            $('#Id').val(result);
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
@@ -259,42 +265,29 @@ function addpopup() {
     });
 }
 
-
 // function delete ID
 function Delete(ID) {
     bootbox.confirm({
         title: "Xóa?",
-        message: "Do you want to delete this category?",
+        message: "Bạn có muốn xóa không?",
         buttons: {
             cancel: {
-                label: '<i class="glyphicon glyphicon-remove"></i> Cancel'
+                label: '<i class="glyphicon glyphicon-remove"></i> Hủy bỏ'
             },
             confirm: {
-                label: '<i class="glyphicon glyphicon-ok"></i> Confirm'
+                label: '<i class="glyphicon glyphicon-ok"></i> Xác nhận'
             }
         },
         callback: function (a) {
             if (a) {
                 $.ajax({
-                    url: "/Home/Delete/" + ID,
+                    url: "/Base/DeleteProduct/" + ID,
                     type: "POST",
                     contentType: "application/json;charset=UTF-8",
                     dataType: "json",
                     success: function (result) {
-                        if (result == -1) {
-                            bootbox.alert("You cannot this category. You must delete all child of it");
-
-                        }
-                        else {
-                            //loaddatabyHung();   
-                            var b = $('#levelfilter option:selected').val();
-                            // load lại tại đúng level đó
-                            loaddatabylevel(b);
-                            // load lại level ở trang
-                            loaddropdownlevel();
-                            bootbox.alert("Delete Successful!");
-                        }
-                        //loaddropdownparentcatgory();
+                        bootbox.alert("Xóa thành công!");
+                        loaddatabyHung();
                     },
                     error: function (errormessage) {
                         alert(errormessage.responseText);
@@ -303,29 +296,5 @@ function Delete(ID) {
             }
         }
     });
-
 }
 
-//function load level cho dropdown level
-function loaddropdownlevel() {
-    var html = '<option value="0"> All Level </option>';
-    var html1 = '<option disabled selected value> -- select an option -- </option>';
-    $.ajax({
-        url: "/Home/GetListLevel",
-        type: "GET",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            $.each(result, function (index, value) {
-
-                html += '<option value="' + value + '">' + value + '</option>';
-                html1 += '<option value="' + value + '">' + value + '</option>';
-            });
-            $("#levelfilter").html(html); // load tại filter lọc
-            $("#Level").html(html1); //load cho trong modal
-        },
-        error: function (errormessage) {
-            alert(errormessage.responseText);
-        }
-    });
-}

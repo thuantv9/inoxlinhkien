@@ -182,7 +182,7 @@ namespace Web.Models
             return i;
         }
         // Xóa sản phẩm 
-        public int Delete(int Id)
+        public int DeleteProduct(int Id)
         {
             int i;
             using (SqlConnection con = new SqlConnection(Const.Connectring))

@@ -6,8 +6,7 @@
     <div class="row">
         <div class="col-md-6" id="command">
         </div>
-        <div class="col-md-6" id="command">
-            <h4> Command</h4>
+        <div class="col-md-6" id="command">            
             <button type="button" class="btn btn-default" onclick="addpopup();">Thêm mới sản phẩm</button>
         </div>
     </div>
@@ -15,7 +14,6 @@
         <table id="myTable" class="table table-bordered table-hover" style="width: 100%;">
             <thead class="bg-danger">
                 <tr>
-
                     <td style="width:8%">ID</td>
                     <td style="width:8%">Tên sản phẩm</td>
                     <td style="width:25%">Chất liệu</td>
@@ -32,40 +30,34 @@
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" style="width:60%">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        @*<button type="button" class="close" data-dismiss="modal">×</button>*@
+                    <div class="modal-header">                      
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-envelope"></span> Thêm mới sản phẩm</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="CategoryID">Tên sản phẩm <span class="labels">(*)</span></label>
-                            <input type="text" class="form-control" id="CategoryID" placeholder="Category ID" disabled="disabled" />
+                            <label for="Name">Tên sản phẩm <span class="labels">(*)</span></label>
+                            <input type="text" class="form-control" id="Name" placeholder="Tên sản phẩm" disabled="disabled" />
                         </div>
                         <div class="form-group">
-                            <label for="Level">Chủng loại sản phẩm<span class="labels">(*)</span></label>
-                            <select class="form-control" id="Level" onchange="Getparentcategorybylevelofchild(this.value)" name="Level"></select>
-                        </div>
+                            <label for="MadeFrom">Chất liệu<span class="labels">(*)</span></label>
+                            <input type="text" class="form-control" id="MadeFrom" placeholder="Chất liệu" disabled="disabled" />
 
-                        <div class="form-group">
-                            <label for="CategoryName">Tên sản phẩm<span class="labels">(*)</span></label>
-                            <input type="text" class="form-control" id="CategoryName" placeholder="Tên sản phẩm" />
                         </div>
 
                         <div class="form-group">
-                            <label for="ParentCategoryId">Kích thước<span class="labels">(*)</span></label>
-                            <input type="text" class="form-control" id="CategoryName" placeholder="Kích thước sản phẩm" />
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="Description">Ảnh sản phẩm<span class="labels">(*)</span></label>
-                            <input type="text" class="form-control" id="Description" placeholder="Ảnh sản phẩm" />
+                            <label for="Dimenson">Kích thước<span class="labels">(*)</span></label>
+                            <input type="text" class="form-control" id="Dimenson" placeholder="Kích thước" />
                         </div>
 
                         <div class="form-group">
-                            <label for="Remarks">Mô tả</label>
-                            <textarea id="Remarks" name="txtArea" class="ckeditor form-control" rows="2" cols="20" placeholder="Remarks"></textarea>
+                            <label for="Image">Ảnh<span class="labels">(*)</span></label>
+                            <input type="text" class="form-control" id="Image" placeholder="Ảnh" />
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="Remark">Mô tả</label>
+                            <textarea id="Remark" name="txtArea" class="ckeditor form-control" rows="2" cols="20" placeholder="GHi chú"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -77,6 +69,22 @@
             </div>
         </div>
         <!-- Ket thuc modal-->
+        <!-- model show content-->
+        <div class="modal fade" id="modalshowcontent" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" style="width:80%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="modalshowcontentLabel"><span class="glyphicon glyphicon-th"></span> Nội dung chi tiết</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modalshowcontent_body">
+                        </div>
+                    </div>
+                </div>
+            </div>         
+        </div>
+        <!-- Ket thuc show content modal-->
     </div>
 </div>
 @section productjs

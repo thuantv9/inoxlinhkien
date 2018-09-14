@@ -37,9 +37,9 @@ namespace Web.Controllers
             return Json(dbcontext.UpdateProduct(product), JsonRequestBehavior.AllowGet);
         }
         // Xóa sản phẩm 
-        public JsonResult Delete(int id)
+        public JsonResult DeleteProduct(int id)
         {
-            return Json(dbcontext.Delete(id), JsonRequestBehavior.AllowGet);
+            return Json(dbcontext.DeleteProduct(id), JsonRequestBehavior.AllowGet);
         }
         #endregion
         #region Admin Category
