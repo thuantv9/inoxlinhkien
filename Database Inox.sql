@@ -2,7 +2,7 @@
 ---------------------------------------
 create database InoxLinhKien
 go
--- tạo bảng
+--1. tạo bảng
 -- tạo bảng sản phẩm
 create table Product
 (
@@ -70,13 +70,14 @@ Quantity	int	,
 create table News
 (
 NewsId int not null primary key,
+NewsName nvarchar(300),
 NewsImage nvarchar(300),
-NewsDescription ntext,
 NewsRemark ntext
 )
+go
 -- hết phần tạo bảng
 --------------------------------------------------------------------------------------------------------
--- Tạo dữ liệu giả lập
+--2. Tạo dữ liệu giả lập
 -- Thêm dữ liệu cho Slide
 insert into SlideImage values (1,'/img/slides/nivo/bg-1.jpg');
 insert into SlideImage values (2,'/img/slides/nivo/bg-2.jpg'); 
@@ -142,10 +143,13 @@ N'KT : 1500x600x800; KT ngăn kéo :450x200',
 N'/images/product_7.png',
 N'Lorem .....3',
 1);
-
+-- thêm dữ liệu cho bảng tin tức
+insert into News(NewsId,NewsName,NewsImage,NewsRemark) values(1, N'Tin tức 1','/images/blog_1.jpg',N'Chi tiết tin tức 1');
+insert into News(NewsId,NewsName,NewsImage,NewsRemark) values(2, N'Tin tức 2','/images/blog_3.jpg',N'Chi tiết tin tức 2');
+insert into News(NewsId,NewsName,NewsImage,NewsRemark) values(3, N'Tin tức 3','/images/blog_3.jpg',N'Chi tiết tin tức 3'); 
 go
 --------------------------------------------------------------------------------------------------------
--- tạo procedure
+--3. tạo procedure
 -- đối với Product
 -- lấy tất cả sản phẩm
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
@@ -648,5 +652,82 @@ BEGIN
 
  RETURN
 END
+
+-- Bảng tin tức News
+-- lấy tất cả tin tức
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetAllNews' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.GetAllNews
+go
+create procedure dbo.GetAllNews
+as
+begin
+	select * from News
+end
+go
+
+-- lấy tin tức theo id
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetNewsById' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.GetNewsById
+go
+create procedure dbo.GetNewsById
+@NewsId int
+as
+begin
+	select * from News where NewsId=@NewsId
+end
+go
+
+-- Thêm tin tức mới
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'InsertNews' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.InsertNews
+go
+create procedure dbo.InsertNews
+@NewsId int,
+@NewsName nvarchar(300),
+@NewsImage nvarchar(300),
+@NewsRemark ntext
+as
+begin
+	insert into News(NewsId,NewsName,NewsImage,NewsRemark) values (@NewsId,@NewsName,@NewsImage,@NewsRemark); 
+end
+go
+
+-- Update tin tức mới
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'UpdateNews' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.UpdateNews
+go
+create procedure dbo.UpdateNews 
+@NewsId int,
+@NewsName nvarchar(300),
+@NewsImage nvarchar(300),
+@NewsRemark ntext
+as
+begin
+	update News set 	
+	NewsName = @NewsName,
+	NewsImage = @NewsImage,
+	NewsRemark =@NewsRemark
+	where 
+	NewsId = @NewsId
+	; 
+end
+go
+
+-- lấy số tiếp theo của NewsId
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetNextNewsId' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.GetNextNewsId
+go
+create procedure dbo.GetNextNewsId
+as
+begin
+	 select max(NewsId)+1 from News
+	
+end
+go
 
 

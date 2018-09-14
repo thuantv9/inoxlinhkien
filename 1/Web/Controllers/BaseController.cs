@@ -9,7 +9,7 @@ namespace Web.Controllers
 {
     public class BaseController : Controller
     {
-        DbContext dbcontext = new DbContext();  
+        DbContext dbcontext = new DbContext();
         #region Admin Product
         // lấy tất cả product
         public JsonResult GetAllProduct()
@@ -92,27 +92,27 @@ namespace Web.Controllers
             return Json(dbcontext.InsertCustomer(customer), JsonRequestBehavior.AllowGet);
         }
         // cập nhật khách hàng
-         public JsonResult UpdateCustomer(Customer customer)
+        public JsonResult UpdateCustomer(Customer customer)
         {
             return Json(dbcontext.UpdateCustomer(customer), JsonRequestBehavior.AllowGet);
         }
-         public JsonResult GetNextCustomerId()
-         {
-             return Json(dbcontext.GetNextCustomerId(), JsonRequestBehavior.AllowGet);
-         }
-     
+        public JsonResult GetNextCustomerId()
+        {
+            return Json(dbcontext.GetNextCustomerId(), JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
         #region Admin SlideImage
         // lấy tất cả slide
         public JsonResult GetAllSlideImage()
-         {
-             return Json(dbcontext.GetAllSlideImage(), JsonRequestBehavior.AllowGet);
-         }
+        {
+            return Json(dbcontext.GetAllSlideImage(), JsonRequestBehavior.AllowGet);
+        }
         // thêm mới slide
         public JsonResult InsertSlideImage(SlideImage slide)
-         {
-             return Json(dbcontext.InsertSlideImage(slide), JsonRequestBehavior.AllowGet);
-         }        
+        {
+            return Json(dbcontext.InsertSlideImage(slide), JsonRequestBehavior.AllowGet);
+        }
         #endregion
         #region Admin Order
         // lấy tất cả đơn hàng
@@ -130,7 +130,7 @@ namespace Web.Controllers
         {
             return Json(dbcontext.UpdateOrder(order), JsonRequestBehavior.AllowGet);
         }
-        
+
         #endregion
         #region Admin OrderItem
         // lấy tất cả chi tiết
@@ -144,7 +144,7 @@ namespace Web.Controllers
             return Json(dbcontext.GetOrderItemByOrderId(OrderId), JsonRequestBehavior.AllowGet);
         }
         // thêm mới chi tiết đơn hàng
-        public JsonResult InsertOrderItem(OrderItem  orderitem)
+        public JsonResult InsertOrderItem(OrderItem orderitem)
         {
             return Json(dbcontext.InsertOrderItem(orderitem), JsonRequestBehavior.AllowGet);
         }
@@ -153,7 +153,33 @@ namespace Web.Controllers
         {
             return Json(dbcontext.UpdateOrderItem(orderitem), JsonRequestBehavior.AllowGet);
         }
-        
+
         #endregion
-	}
+        #region Admin News
+        // lấy tất cả tin tức
+        public JsonResult GetAllNews()
+        {
+            return Json(dbcontext.GetAllNews(), JsonRequestBehavior.AllowGet);
+        }
+        // lấy tin tức theo id
+        public JsonResult GetNewsById(int id)
+        {
+            return Json(dbcontext.GetNewsById(id), JsonRequestBehavior.AllowGet);
+        }
+        // thêm mới tin tức
+        public JsonResult InsertNews(News news)
+        {
+            return Json(dbcontext.InsertNews(news), JsonRequestBehavior.AllowGet);
+        }
+        // cập nhật tin tức
+        public JsonResult UpdateNews(News news)
+        {
+            return Json(dbcontext.UpdateNews(news), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetNextNewsId()
+        {
+            return Json(dbcontext.GetNextNewsId(), JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+    }
 }

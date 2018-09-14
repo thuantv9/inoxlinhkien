@@ -712,5 +712,153 @@ namespace Web.Models
             return i;
         }
         #endregion
+        #region News
+         // lấy tất cả tin tức
+        public List<News> GetAllNews()
+        {
+            List<News> newss = new List<News>();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Const.Connectring))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("GetAllNews", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        newss.Add(new News()
+                        {
+                            NewsId = Int32.Parse(reader["NewsId"].ToString()),
+                            NewsName = reader["NewsName"].ToString(),
+                            NewsImage = reader["NewsImage"].ToString(),
+                            NewsRemark = reader["NewsRemark"].ToString()                                                       
+                        });
+                    }
+                    return newss;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        // láy tin tức theo id
+        public News GetNewsById(int newsid)
+        {
+            News c = new News();
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("GetNewsById", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NewsId", newsid);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    c.NewsId = Int32.Parse(reader["NewsId"].ToString());
+                    c.NewsName = reader["NewsName"].ToString();
+                    c.NewsImage = reader["NewsImage"].ToString();
+                    c.NewsRemark = reader["NewsRemark"].ToString();                   
+                }
+                return c;
+            }
+        }
+        // thêm mới tin tức
+        public int InsertNews(News news)
+        {
+            int i;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("InsertNews", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NewsId", Int32.Parse(news.NewsId.ToString()));
+                cmd.Parameters.AddWithValue("@NewsName", news.NewsName.ToString());
+                // Check NewsImage là null thì truyền null
+                if (news.NewsImage == null)
+                {
+                    cmd.Parameters.AddWithValue("@NewsImage", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@NewsImage", news.NewsImage);
+                }
+                // Check CustomerDescription là null thì truyền null
+                if (news.NewsRemark == null)
+                {
+                    cmd.Parameters.AddWithValue("@NewsRemark", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@NewsRemark", news.NewsRemark);
+                }
+               
+                i = cmd.ExecuteNonQuery();
+            }
+            return i;
+        }
+        // Cập nhật tin tức
+        public int UpdateNews(News news)
+        {
+            int i;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UpdateNews", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NewsId", Int32.Parse(news.NewsId.ToString()));
+                cmd.Parameters.AddWithValue("@NewsName", news.NewsName.ToString());
+                // Check NewsImage là null thì truyền null
+                if (news.NewsImage == null)
+                {
+                    cmd.Parameters.AddWithValue("@NewsImage", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@NewsImage", news.NewsImage);
+                }
+                // Check CustomerDescription là null thì truyền null
+                if (news.NewsRemark == null)
+                {
+                    cmd.Parameters.AddWithValue("@NewsRemark", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@NewsRemark", news.NewsRemark);
+                }
+               
+                i = cmd.ExecuteNonQuery();
+            }
+            return i;
+        }
+       
+         // lấy số Id Customer tiếp theo
+        public int GetNextNewsId()
+        {
+            int i = 1;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("GetNextNewsId", con);
+                com.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = com.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        i = Int32.Parse(reader[0].ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            return i;
+        }
+       
+        #endregion
     }
 }

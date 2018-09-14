@@ -21,6 +21,7 @@ namespace Web.Controllers
         {
             ViewBag.Product = dbcontext.GetAllProduct();
             ViewBag.Customer = dbcontext.GetAllCustomer();
+            ViewBag.News = dbcontext.GetAllNews().Take(3);
             return View(dbcontext.GetAllCategory());
         }
         public ActionResult Category()
@@ -64,9 +65,10 @@ namespace Web.Controllers
             }
             return View(dbcontext.GetAllCustomer());
         }
-        public ActionResult News()
+        public ActionResult Product(int id)
         {
-            return View();
+            return View(dbcontext.GetProductById(id));
         }
+      
     }
 }
