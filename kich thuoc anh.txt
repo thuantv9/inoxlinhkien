@@ -2,3 +2,7 @@
 Product: 235px x 235 px
 
 Thiết kế category sử dụng ajax để gọi.
+slide đang là 1824 x 576px
+About: 1200 x 1200
+Product, Customer : 235x 235 px
+deal of weak: 504x 540 px

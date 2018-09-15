@@ -93,51 +93,69 @@ insert into Category values (5, N'Xe đẩy');
 go
 
 -- Thêm dữ liệu bảng khách hàng
-insert into Customer values(1,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_1.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(2,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_2.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(3,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_3.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(4,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_4.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(5,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_5.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(6,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_6.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
-insert into Customer values(7,N'Bệnh viện đa khoa Lâm Hoa',N'/images/product_7.png',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(1,N'Bệnh viện đa khoa Lâm Hoa',N'/images/customer.jpg',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(2,N'Bệnh viện đa khoa Lâm Hoa',N'/images/customer.jpg',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(3,N'Bệnh viện đa khoa Lâm Hoa',N'/images/customer.jpg',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(4,N'Bệnh viện đa khoa Lâm Hoa',N'/images/customer.jpg',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(5,N'Bệnh viện đa khoa Lâm Hoa',N'/images/customer.jpg',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(6,N'Bệnh viện đa khoa Lâm Hoa',N'/images/customer.jpg',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
+insert into Customer values(7,N'Bệnh viện đa khoa Lâm Hoa',N'/images/customer.jpg',N'Địa chỉ: Phố Lý Bôn, thành phố Thái Bình',N'Lorem....');
 go
 -- Thêm dữ liệu bảng sản phẩm
-insert into Product values (1,N'chậu rửa bát công nghiệp hai hố inox 304',N'inox 304',1,
+insert into Product values (1,N'Chậu rửa bát công nghiệp hai hố',N'inox 304',1,
 N'KT:1850x750x800 ; KT chậu: 550x500x280; Vòi nước công nghiệp=2;Chân tăng chỉnh cao thấp =4',
-N'/images/product_1.png',
+N'/images/product-1.jpg',
 N'Lorem .....',
 1);
 insert into Product values (2,N'Bếp gas công nghiệp 2 họng đốt( GADO)',
 N'inox 304',2,
 N'KT: 1250X750X800;Vòi nước công nghiệp;Chân tăng chỉnh cao thấp; Hệ thống làm mát bề mặt',
-N'/images/product_2.png',
+N'/images/product-1.jpg',
 N'Lorem .....2',
 1);
-insert into Product values (3,N'tủ để đồ có ngăn kéo cánh mở',
+insert into Product values (3,N'Tủ để đồ có ngăn kéo cánh mở',
 N'inox 304',3,
 N'KT : 1500x600x800; KT ngăn kéo :450x200',
-N'/images/product_3.png',
+N'/images/product-1.jpg',
 N'Lorem .....3',
 1);
-insert into Product values (4,N'tủ để đồ có ngăn kéo cánh mở',
+insert into Product values (4,N'Tủ để đồ có ngăn kéo cánh mở',
 N'inox 304',3,
 N'KT : 1500x600x800; KT ngăn kéo :450x200',
-N'/images/product_4.png',
+N'/images/product-1.jpg',
 N'Lorem .....3',
 1);
-insert into Product values (5,N'tủ để đồ có ngăn kéo cánh mở',
+insert into Product values (5,N'Tủ để đồ có ngăn kéo cánh mở',
 N'inox 304',2,
 N'KT : 1500x600x800; KT ngăn kéo :450x200',
-N'/images/product_5.png',
+N'/images/product-1.jpg',
 N'Lorem .....3',
 1);
-insert into Product values (6,N'tủ để đồ có ngăn kéo cánh mở',
+insert into Product values (6,N'Tủ để đồ có ngăn kéo cánh mở',
 N'inox 304',4,
 N'KT : 1500x600x800; KT ngăn kéo :450x200',
-N'/images/product_6.png',
+N'/images/product-1.jpg',
 N'Lorem .....3',
 1);
-insert into Product values (7,N'tủ để đồ có ngăn kéo cánh mở',
+insert into Product values (7,N'Tủ để đồ có ngăn kéo cánh mở',
+N'inox 304',2,
+N'KT : 1500x600x800; KT ngăn kéo :450x200',
+N'/images/product-1.jpg',
+N'Lorem .....3',
+1);
+insert into Product values (8,N'Tủ để đồ có ngăn kéo cánh mở',
+N'inox 304',2,
+N'KT : 1500x600x800; KT ngăn kéo :450x200',
+N'/images/product-1.jpg',
+N'Lorem .....3',
+1);
+insert into Product values (9,N'Tủ để đồ có ngăn kéo cánh mở',
+N'inox 304',2,
+N'KT : 1500x600x800; KT ngăn kéo :450x200',
+N'/images/product-1.jpg',
+N'Lorem .....3',
+1);
+insert into Product values (10,N'Tủ để đồ có ngăn kéo cánh mở',
 N'inox 304',2,
 N'KT : 1500x600x800; KT ngăn kéo :450x200',
 N'/images/product_7.png',

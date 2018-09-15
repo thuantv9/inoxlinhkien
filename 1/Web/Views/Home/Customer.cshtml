@@ -3,6 +3,10 @@
     ViewBag.Title = "Customer";
     Layout = "~/Views/Share/_Home.cshtml";
 }
+@section categoriesstyle {
+    <link rel="stylesheet" type="text/css" href="/styles/categories_styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/categories_responsive.css">
+}
 <div class="container product_section_container">
     <div class="row">
         <div class="col product_section clearfix">
@@ -68,3 +72,6 @@
         </div>
     </div>
 </div>
+@section categoriesjs{
+    <script src="/js/categories_custom.js"></script>
+    }

@@ -1,9 +1,11 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Contact";
     Layout = "~/Views/Share/_Home.cshtml";
 }
-
+@section contactstyle {
+    <link rel="stylesheet" type="text/css" href="/styles/contact_styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/contact_responsive.css">
+}
 <div class="container contact_container">
     <div class="row">
         <div class="col">
@@ -86,5 +88,7 @@
 
     </div>
 </div>
-
+@section contactjs{
+    <script src="/js/contact_custom.js"></script>
+}
 

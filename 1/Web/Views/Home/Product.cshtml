@@ -3,6 +3,10 @@
     ViewBag.Title = "Product";
     Layout = "~/Views/Share/_Home.cshtml";
 }
+@section singlestyle{
+    <link rel="stylesheet" type="text/css" href="/styles/single_styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/single_responsive.css">
+}
 <div class="container single_product_container">
     <div class="row">
         <div class="col">
@@ -51,7 +55,7 @@
                     <span class="ti-truck"></span><span>Miễn phí giao hàng</span>
                 </div>
                 @*<div class="original_price">$629.99</div>*@
-                <div class="product_price">$495.00</div>
+                <div class="product_price">Giá : 200.000 VNĐ</div>
                 <ul class="star_rating">
                     <li><i class="fa fa-star" aria-hidden="true"></i></li>
                     <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -63,17 +67,6 @@
                     <span>Chất liệu:</span>
                     <span> @Model.MadeFrom</span>
                 </div>
-                <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-                    <span>Quantity:</span>
-                    <div class="quantity_selector">
-                        <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                        <span id="quantity_value">1</span>
-                        <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                    </div>
-
-                    <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
-                </div>
-                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
             </div>
         </div>
     </div>
@@ -230,8 +223,8 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>free shipping</h6>
-                        <p>Suffered Alteration in Some Form</p>
+                        <h6>Uy tín</h6>
+                        <p>Đặt uy tín lên hàng đầu</p>
                     </div>
                 </div>
             </div>
@@ -239,8 +232,8 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>cach on delivery</h6>
-                        <p>The Internet Tend To Repeat</p>
+                        <h6>Mẫu mã đa dạng</h6>
+                        <p>Đa dạng các loại sản phẩm</p>
                     </div>
                 </div>
             </div>
@@ -248,8 +241,8 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>45 days return</h6>
-                        <p>Making it Look Like Readable</p>
+                        <h6>Giá cả cạnh tranh</h6>
+                        <p>Mức giá hợp lý nhất</p>
                     </div>
                 </div>
             </div>
@@ -257,8 +250,8 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>opening all week</h6>
-                        <p>8AM - 09PM</p>
+                        <h6>Giao hàng nhanh chóng</h6>
+                        <p>Hoàn thiện nhanh, giao hàng chóng</p>
                     </div>
                 </div>
             </div>
@@ -266,5 +259,8 @@
     </div>
 </div>
 
+@section singlejs{
+    <script src="/js/single_custom.js"></script>
+}
 
 

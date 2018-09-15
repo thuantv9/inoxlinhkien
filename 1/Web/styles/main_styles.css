@@ -837,7 +837,7 @@ section {
 
 .main_slider {
     width: 100%;
-    display:block;
+    display: block;
     height: 700px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -913,18 +913,21 @@ section {
 .nivo-slider {
     background: #fbfbfb;
 }
-.nivo-slider img {
-    /*position: absolute;*/
-    width:100%;
-    top: 50px;
-    left: 0px;
-    max-width: none;
-}
+
+    .nivo-slider img {       
+        width: 100%;
+        top: 50px;
+        left: 0px;
+        max-width: none;
+    }
+
 #featured {
     background: #fcfcfc;
-    position: relative;
+    /*position: absolute;*/
+    height:auto;
     margin: 0;
-    padding-top: 160px;
+    padding-top: 10px;
+    max-height:100%;
 }
 
 /*********************************
@@ -1115,7 +1118,11 @@ section {
     color: #fe4c50;
     font-weight: 600;
 }
-
+.product_price a {
+    font-size: 15px;
+    color: #fe4c50;
+    font-weight: 600;
+}
     .product_price span {
         font-size: 12px;
         margin-left: 10px;
@@ -1272,8 +1279,19 @@ section {
     display: inline-block;
     text-align: center;
 }
+.section_title1{
+    padding-top:30px;
+}
+.section_title1 p
+{
+    text-align:center;
+    font-size:16px;
+    font-weight:500;
+    color:#000;
 
+}
     .section_title h2 {
+        color:#fe4c50;
         display: inline-block;
     }
 
@@ -1325,8 +1343,8 @@ section {
 }
 
 .deal_ofthe_week_button {
-    width: 140px;
-    background: #1e1e27;
+    width: 180px;
+    background: #fe4c50;
     margin-top: 52px;
 }
 
@@ -1719,13 +1737,13 @@ section {
 /* Thêm mới vào đây*/
 /* Trang About*/
 #about1 {
-    background-image: url("/images/bg-01.jpg");
+    /*background-image: url("/images/bg3.jpg");*/
     background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat;
+    background-repeat:repeat-x;
     display: block;
-    padding-top: 92px;
-    padding-bottom: 92px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .ltext-105 {
@@ -1754,20 +1772,23 @@ section {
 }
 
 #about_story {
-    padding-top: 7px;
-    padding-bottom: 15px;
-    padding-left:10px;
-    padding-right:10px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
     #about_story p {
-        color: #888;
-        font-family: Poppins-Light;
-    font-size: 18px;
-    line-height: 1.7857;
-        padding-bottom: 26px;
+        color: #000;
+        /*font-family: Poppins-Light;*/
+        font-size: 16px;
+        line-height: 1.7857;
+        padding-bottom: 4px;
     }
-
+     #about_story h3
+     {
+         color: #fe4c50;
+     }
     #about_story img {
         display: block;
         overflow: hidden;
@@ -1777,3 +1798,18 @@ section {
         border-style: none;
         box-sizing: border-box;
     }
+/* Style cho Modal*/
+.modal {
+    padding-top: 30px;
+}
+
+.modal-header, .modal-header h4, .close {
+    background-color: #3c8dbc;
+    color: #fff !important;
+    text-align: center;
+    font-size: 18px;
+}
+
+.modal-header, .modal-body {
+    padding: 15px 20px;
+}
