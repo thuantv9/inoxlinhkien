@@ -130,7 +130,7 @@
                                             <div class="product_price">Chất liệu: @p.MadeFrom@*<span>@p.Dimenson</span>*@</div>
                                         </div>
                                     </div>
-                                    <div class="red_button add_to_cart_button"><a href="#">Xem chi tiết</a></div>
+                                    <div class="red_button add_to_cart_button"><a href="@Url.Action("Product","Home",new RouteValueDictionary(new {id=@p.Id}))">Xem chi tiết</a></div>
                                 </div>
                             }
                         }

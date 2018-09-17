@@ -277,7 +277,7 @@ go
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 	WHERE ROUTINE_NAME = 'GetNextProductId' AND ROUTINE_SCHEMA = 'dbo')
 		DROP PROCEDURE dbo.GetNextProductId
-
+go
 create procedure dbo.GetNextProductId
 as
 begin

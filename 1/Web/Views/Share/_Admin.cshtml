@@ -1,26 +1,20 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/favicon.png">
     <title>Inox Linh Kiên Admin </title>
-    <!-- Bootstrap CSS -->
-    <link href="/admin_dist/css/bootstrap.css" rel="stylesheet">
-    <!-- bootstrap theme -->
-    <link href="/admin_dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/admin_dist/dist/datatable/datatables.min.css" rel="stylesheet" />   
+    <link href="~/admin_dist/dist/boostrap/css/bootstrap.min.css" rel="stylesheet" />    
+    <link href="~/admin_dist/dist/boostrap/css/bootstrap-theme.min.css" rel="stylesheet" />
     <!-- font icon -->
-    <link href="/admin_dist/css/elegant-icons-style.css" rel="stylesheet" />
+    @*<link href="/admin_dist/css/elegant-icons-style.css" rel="stylesheet" />*@
     <link href="/admin_dist/css/font-awesome.css" rel="stylesheet" />
     <!-- Custom styles -->
     <link href="/admin_dist/css/styleadmin.css" rel="stylesheet">
     <link href="/admin_dist/css/style-responsive.css" rel="stylesheet" />
-
-    <link href="/admin_dist/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-    <link href="/admin_dist/css/datatable/datatables.min.css" rel="stylesheet" />
 </head>
-
 <body>
     <!-- container section start -->
     <section id="container" class="">
@@ -47,13 +41,8 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
+                   
                     <li class="active">
-                        <a class="" href="@Url.Action("Product","Admin")">
-                            <i class="icon_house_alt"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu">
                         <a href="@Url.Action("Product","Admin")" class="">
                             <i class="icon_document_alt"></i>
                             <span>Sản phẩm</span>
@@ -81,12 +70,6 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="@Url.Action("SlideImage","Admin")" class="">
-                            <i class="icon_table"></i>
-                            <span>Slide ảnh</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu">
                         <a href="@Url.Action("Order","Admin")" class="">
                             <i class="icon_documents_alt"></i>
                             <span>Hóa đơn</span>
@@ -106,28 +89,22 @@
         <!--main content end-->
     </section>
     <!-- container section start -->
-    <!-- javascripts -->
-    <script src="/admin_dist/js/jquery.js"></script>
-    <script src="/admin_dist/js/jquery-ui-1.10.4.min.js"></script>
-    <script src="/admin_dist/js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="/admin_dist/js/jquery-ui-1.9.2.custom.min.js"></script>
-    <!-- bootstrap -->
-    <script src="/admin_dist/js/bootstrap.min.js"></script>    
-    <!-- custom select -->
-    <script src="/admin_dist/js/jquery.customSelect.min.js"></script>
-    <!--custome script for all page-->
-    <script src="/admin_dist/js/scripts.js"></script>    
-    <script src="/admin_dist/js/datatables.min.js"></script>
-    <script>
-        $(function () {
-            $('select.styled').customSelect();
-        });
-    </script>   
+    <!-- javascripts -->   
+    <script src="/admin_dist/dist/libs/jquery-3.3.1.min.js"></script>
+    <script src="/admin_dist/dist/boostrap/js/bootstrap.min.js"></script>
+    <script src="~/admin_dist/dist/datatable/datatables.min.js"></script>
+    <script src="/ckeditor/ckeditor.js"></script>
+    @*<script src="/ckfinder/ckfinder.js"></script>*@
+    <script src="/admin_dist/dist/bootbox.min.js"></script>
+    @*<script>
+        CKFinder.setupCKEditor(null, '/ckfinder');
+    </script>*@
+   
     @RenderSection("productjs",required:false)
     @RenderSection("categoryjs", required: false)
     @RenderSection("customerjs", required: false)
     @RenderSection("userjs", required: false)
     @RenderSection("orderjs", required: false)
-    @RenderSection("slideimagejs", required: false)
+   
 </body>
 </html>

@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -922,7 +922,7 @@ section
 .single_product_container
 {
 	margin-top: 150px;
-	padding-bottom: 80px;
+	padding-bottom: 60px;
 	border-bottom: solid 1px #ebebeb;
 }
 .single_product_thumbnails

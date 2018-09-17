@@ -2,6 +2,7 @@
 ref = $("#myTable").DataTable({ "scrollX": true });
 $(document).ready(function () {
     loaddatabyHung();
+    loadcategoryid();
 });
 // load data by Hung
 function loaddatabyHung() {
@@ -15,7 +16,7 @@ function loaddatabyHung() {
         success: function (result) {
             $.each(result, function (key, item) {
                 html = '<a href="#" onclick="showcontent(' + item.Id + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.Id + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.Id + ');">Xóa</a>';
-                htmlimage = '<img src="' + item.Image.split(" ")[0] + '" style="img-fluid">';
+                htmlimage = '<img src="' + item.Image.split(" ")[0] + '">';
                 ref.row.add([
                     item.Id,
                     item.Name,
@@ -27,6 +28,24 @@ function loaddatabyHung() {
                 ]);
             });
             ref.draw(false);
+        },
+        error: function (errormessage) {
+            alert(errormessage.responseText);
+        }
+    });
+}
+function loadcategoryid() {
+    $.ajax({
+        url: "/Base/GetAllCategory",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            var html = '';
+            $.each(result, function (key, item) {
+                html += '<option value="' + item.CategoryId + '">' + item.CategoryName + '</option>';
+            });
+            $("#CategoryId").html(html);
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
@@ -57,13 +76,13 @@ function showcontent(id) {
 // function lấy dữ liệu theo category ID để chỉnh sửa
 function getbyID(ID) {
     $('#Id').css('border-color', 'lightgrey');
+    $('#Id').attr('disabled', 'disabled');
     $('#Name').css('border-color', 'lightgrey');
     $('#MadeFrom').css('border-color', 'lightgrey');
     $('#CategoryId').css('border-color', 'lightgrey');
     $('#Dimenson').css('border-color', 'lightgrey');
     $('#Image').css('border-color', 'lightgrey');
     $('#Remark').css('border-color', 'lightgrey');
-    //$('#btnCreatenewlevel').attr('disabled', 'disabled');
     $.ajax({
         url: "/Base/GetProductById/" + ID,
         type: "GET",
@@ -73,6 +92,10 @@ function getbyID(ID) {
             $('#Id').val(result.Id);
             $('#Name').val(result.Name);
             $('#MadeFrom').val(result.MadeFrom);
+
+            $('#CategoryId').find('option').remove().end();
+            $('#CategoryId').append('<option value="' + result.CategoryId + '">' + result.CategoryName + '</option>');
+
             $('#Dimenson').val(result.Dimenson);
             $('#Image').val(result.Image);
             CKEDITOR.instances['Remark'].setData(result.Remark);
@@ -90,7 +113,6 @@ function getbyID(ID) {
 
 // function validate khi thêm mới hoặc chỉnh sửa
 function validate() {
-
     var isvalidate = true;
     if ($('#Id').val().trim() === "") {
         $('#Id').css('border-color', 'red');
@@ -117,12 +139,12 @@ function validate() {
         $('#MadeFrom').css('border-color', 'lightgrey');
     }
 
-    if ($('#Dimeson').val().trim() === "") {
-        $('#Dimeson').css('border-color', 'red');
+    if ($('#Dimenson').val().trim() === "") {
+        $('#Dimenson').css('border-color', 'red');
         isvalidate = false;
     }
     else {
-        $('#Dimeson').css('border-color', 'lightgrey');
+        $('#Dimenson').css('border-color', 'lightgrey');
     }
 
     if ($('#Image').val().trim() === "") {
@@ -132,15 +154,6 @@ function validate() {
     else {
         $('#Image').css('border-color', 'lightgrey');
     }
-
-    if ($('#Remark').val().trim() === "") {
-        $('#Remark').css('border-color', 'red');
-        isvalidate = false;
-    }
-    else {
-        $('#Remark').css('border-color', 'lightgrey');
-    }
-
     return isvalidate;
 }
 
@@ -155,12 +168,13 @@ function Add() {
     var product =
     {
         Id: $('#Id').val(),
-        Level: $('#Name').val(),
+        Name: $('#Name').val(),
         MadeFrom: $('#MadeFrom').val(),
         CategoryId: $('#CategoryId').val(),
         Dimenson: $('#Dimenson').val(),
         Image: $('#Image').val(),
-        Remark: CKEDITOR.instances['Remark'].getData()
+        Remark: CKEDITOR.instances['Remark'].getData(),
+        Status:1
     };
     //alert(JSON.stringify(category));
     $.ajax({
@@ -172,7 +186,6 @@ function Add() {
         success: function (result) {
             bootbox.alert('Thêm mới thành công!');
             loaddatabyHung();
-            //loaddropdownparentcatgory();
             $('#myModal').modal('hide');
         },
         error: function (errormessage) {
@@ -184,7 +197,6 @@ function Add() {
 
 // fucntion Update dữ liệu
 function Update() {
-
     var res = validate();
     if (res == false) {
         return false;
@@ -192,14 +204,15 @@ function Update() {
     var product =
     {
         Id: $('#Id').val(),
-        Level: $('#Name').val(),
+        Name: $('#Name').val(),
         MadeFrom: $('#MadeFrom').val(),
         CategoryId: $('#CategoryId').val(),
         Dimenson: $('#Dimenson').val(),
         Image: $('#Image').val(),
-        Remark: CKEDITOR.instances['Remark'].getData()
+        Remark: CKEDITOR.instances['Remark'].getData(),
+        Status: 1
     };
-    //alert(JSON.stringify(category));
+
     $.ajax({
         url: "/Base/UpdateProduct",
         data: JSON.stringify(product),
@@ -222,7 +235,7 @@ function clearTextBox() {
     $('#Id').val("");
     $('#Name').val("");
     $('#MadeFrom').val("");
-    $('#CategoryId').val("");
+    $('#CategoryId').find('option').remove().end();
     $('#Dimenson').val("");
     $('#Image').val("");
     //$('#Remarks').val("");
@@ -249,6 +262,7 @@ function addpopup() {
     $('#myModalLabel').html('<h4><span class="glyphicon glyphicon-envelope"></span> Thêm mới sản phẩm</h4>');
     $('#myModal').modal('show');
     clearTextBox();
+    loadcategoryid();
     $('#btnUpdate').hide();
     $('#btnAdd').show();
     $.ajax({
