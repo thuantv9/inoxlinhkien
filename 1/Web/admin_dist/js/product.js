@@ -16,13 +16,12 @@ function loaddatabyHung() {
         success: function (result) {
             $.each(result, function (key, item) {
                 html = '<a href="#" onclick="showcontent(' + item.Id + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.Id + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.Id + ');">Xóa</a>';
-                htmlimage = '<img src="' + item.Image.split(" ")[0] + '">';
+                htmlimage = '<img src="' + item.Image.split(" ")[0] + '" class="img-responsive">';
                 ref.row.add([
                     item.Id,
                     item.Name,
                     item.MadeFrom,
-                    item.CategoryId,
-                    item.Dimenson,
+                    item.CategoryId,                 
                     htmlimage,
                     html
                 ]);

@@ -14,13 +14,13 @@ function loaddatabyHung() {
         dataType: "json",
         success: function (result) {
             $.each(result, function (key, item) {
-                html = '<a href="#" onclick="showcontent(' + item.CustomerId + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.CategoryID + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.CustomerId + ');">Xóa</a>';
-                htmlimage = '<img src="' + item.CustomerImage + '" class="img-fluid" />';
+                html = '<a href="#" onclick="showcontent(' + item.CustomerId + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.CustomerId + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.CustomerId + ');">Xóa</a>';
+                htmlimage = '<img src="' + item.CustomerImage + '" class="img-responsive" />';
                 ref.row.add([
                     item.CustomerId,
                     item.CustomerName,
                     htmlimage,
-                    item.CustomerDescription,                  
+                    item.CustomerDescription,
                     html
                 ]);
             });
@@ -30,7 +30,6 @@ function loaddatabyHung() {
             alert(errormessage.responseText);
         }
     });
-
 }
 // Show content popup hiển thị chi tiết nội dung customer đó
 function showcontent(id) {
@@ -56,11 +55,12 @@ function showcontent(id) {
 // function lấy dữ liệu theo Customer ID để chỉnh sửa
 function getbyID(ID) {
     $('#CustomerId').css('border-color', 'lightgrey');
-    $('#CustomerName').css('border-color', 'lightgrey');
     $('#CustomerId').attr('disabled', 'disabled');
+
+    $('#CustomerName').css('border-color', 'lightgrey');    
     $('#CustomerImage').css('border-color', 'lightgrey');
-    $('#CustomerDescription').css('border-color', 'lightgrey');   
-    $('#CustomerRemark').css('border-color', 'lightgrey');    
+    $('#CustomerDescription').css('border-color', 'lightgrey');
+    $('#CustomerRemark').css('border-color', 'lightgrey');
     $.ajax({
         url: "/Base/GetCustomerById/" + ID,
         type: "GET",
@@ -87,44 +87,36 @@ function getbyID(ID) {
 // function validate khi thêm mới hoặc chỉnh sửa
 function validate() {
 
-    var isvalidate = true;
-    if ($('#Level option:selected').val().trim() === "") {
-        $('#Level').css('border-color', 'red');
+    var isvalidate = true;    
+
+    if ($('#CustomerName').val().trim() === "") {
+        $('#CustomerName').css('border-color', 'red');
         isvalidate = false;
     }
     else {
-        $('#Level').css('border-color', 'lightgrey');
+        $('#CustomerName').css('border-color', 'lightgrey');
     }
 
-    if ($('#CategoryName').val().trim() === "") {
-        $('#CategoryName').css('border-color', 'red');
+    if ($('#CustomerImage').val().trim() === "") {
+        $('#CustomerImage').css('border-color', 'red');
         isvalidate = false;
     }
     else {
-        $('#CategoryName').css('border-color', 'lightgrey');
+        $('#CustomerImage').css('border-color', 'lightgrey');
     }
 
-    if ($('#ParentCategoryId option:selected').val().trim() === "") {
-        $('#ParentCategoryId').css('border-color', 'red');
+    if ($('#CustomerDescription').val().trim() === "") {
+        $('#CustomerDescription').css('border-color', 'red');
         isvalidate = false;
     }
     else {
-        $('#ParentCategoryId').css('border-color', 'lightgrey');
-    }
-
-    if ($('#Description').val().trim() === "") {
-        $('#Description').css('border-color', 'red');
-        isvalidate = false;
-    }
-    else {
-        $('#Description').css('border-color', 'lightgrey');
+        $('#CustomerDescription').css('border-color', 'lightgrey');
     }
     return isvalidate;
 }
 
 // Script cho phan Add: them moi Content
-function Add() {
-    //alert(CKEDITOR.instances['Remarks'].getData());    
+function Add() {   
     var res = validate();
     if (res == false) {
         return false;
@@ -133,7 +125,7 @@ function Add() {
     {
         CustomerId: $('#CustomerId').val(),
         CustomerName: $('#CustomerName').val(),
-        CustomerImage: $('#CustomerImage').val(),       
+        CustomerImage: $('#CustomerImage').val(),
         CustomerDescription: $('#CustomerDescription').val(),
         CustomerRemark: CKEDITOR.instances['CustomerRemark'].getData()
     };
@@ -146,15 +138,13 @@ function Add() {
         datatype: "json",
         success: function (result) {
             bootbox.alert('Thêm thành công!');
-            loaddatabyHung();     
-          
+            loaddatabyHung();
             $('#myModal').modal('hide');
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
         }
     });
-
 }
 // fucntion Update dữ liệu
 function Update() {
@@ -178,7 +168,7 @@ function Update() {
         contentType: "application/json;charset=utf-8",
         datatype: "json",
         success: function (result) {
-            bootbox.alert('Sửathành công!');
+            bootbox.alert('Sửa thành công!');
             loaddatabyHung();
             $('#myModal').modal('hide');
         },
@@ -191,38 +181,26 @@ function Update() {
 // function delete ID
 function Delete(ID) {
     bootbox.confirm({
-        title: "Delete Category?",
-        message: "Do you want to delete this category?",
+        title: "Xóa?",
+        message: "Bạn có muốn xóa không?",
         buttons: {
             cancel: {
-                label: '<i class="glyphicon glyphicon-remove"></i> Cancel'
+                label: '<i class="glyphicon glyphicon-remove"></i> Hủy bỏ'
             },
             confirm: {
-                label: '<i class="glyphicon glyphicon-ok"></i> Confirm'
+                label: '<i class="glyphicon glyphicon-ok"></i> Xác nhận'
             }
         },
         callback: function (a) {
             if (a) {
                 $.ajax({
-                    url: "/Home/Delete/" + ID,
+                    url: "/Base/DeleteCustomer/" + ID,
                     type: "POST",
                     contentType: "application/json;charset=UTF-8",
                     dataType: "json",
                     success: function (result) {
-                        if (result == -1) {
-                            bootbox.alert("You cannot this category. You must delete all child of it");
-
-                        }
-                        else {
-                            //loaddatabyHung();   
-                            var b = $('#levelfilter option:selected').val();
-                            // load lại tại đúng level đó
-                            loaddatabylevel(b);
-                            // load lại level ở trang
-                            loaddropdownlevel();
-                            bootbox.alert("Delete Successful!");
-                        }
-                        //loaddropdownparentcatgory();
+                        bootbox.alert("Xóa thành công!");
+                        loaddatabyHung();
                     },
                     error: function (errormessage) {
                         alert(errormessage.responseText);
@@ -231,39 +209,33 @@ function Delete(ID) {
             }
         }
     });
-
 }
 // function clear text box trong modal
 function clearTextBox() {
-    $('#CategoryID').val("");
-    $('#CategoryName').val("");
-    $('#Level').val("");
-    //$('#ParentCategoryId').val("");
-    $('#ParentCategoryId').find('option').remove().end();
-    $('#Description').val("");
-    //$('#Remarks').val("");
-    CKEDITOR.instances['Remarks'].setData("")
+    $('#CustomerId').val("");
+    $('#CustomerName').val("");
+    $('#CustomerImage').val("");   
+    $('#CustomerDescription').val("");   
+    CKEDITOR.instances['CustomerRemark'].setData("")
 
-    $('#CategoryName').removeAttr('disabled');
-    $('#Level').removeAttr('disabled');
-    $('#ParentCategoryId').removeAttr('disabled');
-    $('#Description').removeAttr('disabled');
-    $('#Remarks').removeAttr('disabled');
-    $('#btnCreatenewlevel').removeAttr('disabled');
+    $('#CustomerName').removeAttr('disabled');
+    $('#CustomerImage').removeAttr('disabled');
+    $('#CustomerDescription').removeAttr('disabled');
+    $('#CustomerRemark').removeAttr('disabled');   
 
     $('#btnUpdate').hide();
     $('#btnAdd').show();
-    $('#CategoryName').css('border-color', 'lightgrey');
-    $('#ParentCategoryID').css('border-color', 'lightgrey');
-    $('#Description').css('border-color', 'lightgrey');
-    $('#Remarks').css('border-color', 'lightgrey');
+    $('#CustomerName').css('border-color', 'lightgrey');
+    $('#CustomerImage').css('border-color', 'lightgrey');
+    $('#CustomerDescription').css('border-color', 'lightgrey');
+    $('#CustomerRemark').css('border-color', 'lightgrey');
 
 }
 // mở popup khi bấm nút add category
 function addpopup() {
     $('#myModalLabel').html('<h4><span class="glyphicon glyphicon-envelope"></span> Thêm mới</h4>');
     $('#myModal').modal('show');
-    clearTextBox();   
+    clearTextBox();
     $('#btnUpdate').hide();
     $('#btnAdd').show();
     $.ajax({

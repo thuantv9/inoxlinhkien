@@ -14,9 +14,8 @@ function loaddatabyHung() {
         dataType: "json",
         success: function (result) {
             $.each(result, function (key, item) {
-                html = '<a href="#" onclick="return getbyID(' + item.CategoryID + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.CategoryID + ');">Xóa</a>';
+                html = '<a href="#" onclick="return getbyID(' + item.CategoryId + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.CategoryId + ');">Xóa</a>';
                 ref.row.add([
-
                     item.CategoryId,
                     item.CategoryName,                    
                     html
@@ -33,17 +32,18 @@ function loaddatabyHung() {
 // function lấy dữ liệu theo category ID để chỉnh sửa
 function getbyID(ID) {
     $('#CategoryId').css('border-color', 'lightgrey');   
-    $('#CategoryName').css('border-color', 'lightgrey');    
+    $('#CategoryName').css('border-color', 'lightgrey');
+    $('#CategoryName').removeAttr('disabled');
     $.ajax({
         url: "/Base/GetCategoryById/" + ID,
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            $('#CategoryID').val(result.CategoryId);           
+            $('#CategoryId').val(result.CategoryId);           
             $('#CategoryName').val(result.CategoryName);           
 
-            $('#myModalLabel').html('<span class="glyphicon glyphicon-envelope"></span> Edit Category');
+            $('#myModalLabel').html('<span class="glyphicon glyphicon-envelope"></span> Chỉnh sửa chủng loại');
             $('#myModal').modal('show');
             $('#btnUpdate').show();
             $('#btnAdd').hide();
@@ -53,18 +53,9 @@ function getbyID(ID) {
         }
     });
 }
-
 // function validate khi thêm mới hoặc chỉnh sửa
 function validate() {
-
-    var isvalidate = true;    
-    if ($('#CategoryId option:selected').val().trim() === "") {
-        $('#CategoryId').css('border-color', 'red');
-        isvalidate = false;
-    }
-    else {
-        $('#CategoryId').css('border-color', 'lightgrey');
-    }
+    var isvalidate = true;  
     if ($('#CategoryName').val().trim() === "") {
         $('#CategoryName').css('border-color', 'red');
         isvalidate = false;
@@ -94,15 +85,13 @@ function Add() {
         datatype: "json",
         success: function (result) {
             bootbox.alert('Thêm mới chủng loại sản phẩm thành công!');
-            loaddatabyHung();           
-            //loaddropdownparentcatgory();
+            loaddatabyHung();                      
             $('#myModal').modal('hide');
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
         }
     });
-
 }
 
 // fucntion Update dữ liệu
@@ -123,7 +112,7 @@ function Update() {
         contentType: "application/json;charset=utf-8",
         datatype: "json",
         success: function (result) {
-            //loaddatabyHung();            
+            loaddatabyHung();            
             $('#myModal').modal('hide');
             bootbox.alert('Cập nhật thành công !');
         },
@@ -138,7 +127,7 @@ function clearTextBox() {
     $('#CategoryName').val(""); 
     
     $('#CategoryName').removeAttr('disabled');
-    $('#Level').removeAttr('disabled');   
+    $('#CategoryId').removeAttr('disabled');
 
     $('#btnUpdate').hide();
     $('#btnAdd').show();
@@ -148,23 +137,23 @@ function clearTextBox() {
 function addpopup() {
     $('#myModalLabel').html('<h4><span class="glyphicon glyphicon-envelope"></span> Thêm mới chủng loại</h4>');
     $('#myModal').modal('show');
-    clearTextBox();
-    loaddropdownlevel();
+    clearTextBox();   
     $('#btnUpdate').hide();
     $('#btnAdd').show();
     $.ajax({
-        url: "/Home/GetNextCategoryId",
+        url: "/Base/GetNextCategoryId",
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            $('#CategoryID').val(result);
+            $('#CategoryId').val(result);
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
         }
     });
 }
+
 
 
 

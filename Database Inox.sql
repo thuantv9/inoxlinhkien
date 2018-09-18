@@ -342,8 +342,8 @@ end
 -- procedure lấy số tiếp theo của CategoryIdId
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 	WHERE ROUTINE_NAME = 'GetNextCategoryId' AND ROUTINE_SCHEMA = 'dbo')
-		DROP PROCEDURE dbo.GetNextProductId
-
+		DROP PROCEDURE dbo.GetNextCategoryId
+go
 create procedure dbo.GetNextCategoryId
 as
 begin
@@ -425,13 +425,13 @@ end
 go
 -- procedure lấy số tiếp theo của CustomerId
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
-	WHERE ROUTINE_NAME = 'GetNextCategoryId' AND ROUTINE_SCHEMA = 'dbo')
+	WHERE ROUTINE_NAME = 'GetNextCustomerId' AND ROUTINE_SCHEMA = 'dbo')
 		DROP PROCEDURE dbo.GetNextCustomerId
+go		
 create procedure dbo.GetNextCustomerId
 as
 begin
 	 select max(CustomerId)+1 from Customer
-	
 end
 go
 -- Bảng người dùng

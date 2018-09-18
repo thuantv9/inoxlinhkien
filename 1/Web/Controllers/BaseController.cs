@@ -55,9 +55,9 @@ namespace Web.Controllers
             return Json(dbcontext.GetAllCategory(), JsonRequestBehavior.AllowGet);
         }
         // lấy chủng loại theo Id
-        public JsonResult GetCategoryById(int categoryid)
+        public JsonResult GetCategoryById(int id)
         {
-            return Json(dbcontext.GetCategoryById(categoryid), JsonRequestBehavior.AllowGet);
+            return Json(dbcontext.GetCategoryById(id), JsonRequestBehavior.AllowGet);
         }
         // thêm mới category
         public JsonResult InsertCategory(Category category)
@@ -82,9 +82,9 @@ namespace Web.Controllers
             return Json(dbcontext.GetAllCustomer(), JsonRequestBehavior.AllowGet);
         }
         // lấy khách hàng teho id
-        public JsonResult GetCustomerById(int customerid)
+        public JsonResult GetCustomerById(int id)
         {
-            return Json(dbcontext.GetCustomerById(customerid), JsonRequestBehavior.AllowGet);
+            return Json(dbcontext.GetCustomerById(id), JsonRequestBehavior.AllowGet);
         }
         // thêm mới khách hàng
         public JsonResult InsertCustomer(Customer customer)
@@ -99,6 +99,10 @@ namespace Web.Controllers
         public JsonResult GetNextCustomerId()
         {
             return Json(dbcontext.GetNextCustomerId(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult DeleteCustomer(int id)
+        {
+            return Json(dbcontext.DeleteCustomer(id), JsonRequestBehavior.AllowGet);
         }
 
         #endregion

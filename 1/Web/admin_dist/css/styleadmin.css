@@ -7,6 +7,7 @@
 /* Import fonts */
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+
 body {
     color: #797979;
     background: #eeeeee;
@@ -313,10 +314,22 @@ table tr th {
     background: rgba(255,255,255,0.9);
 }
 
-.modal-header .close {
-    font-weight: 300;
-    font-size: 30px;
+.modal-header {
+    font-family: Arial !important;
+    font-weight: 500;
+    font-size: 14px;
 }
+.modal-header .close {
+        font-weight: 300;
+        font-size: 30px;
+    }
+
+.img-responsive {
+    max-width: 100%;
+    display: block;
+    height: 120px;
+}
+
 
 /*sidebar navigation*/
 #sidebar {
@@ -325,6 +338,7 @@ table tr th {
     position: fixed;
     background: #394a59;
 }
+
 .nav-collapse.collapse {
     display: inline;
 }
@@ -656,6 +670,10 @@ ul.sidebar-menu li.active a i {
     margin-top: 60px;
     padding: 15px;
     width: 100%;
+    font-family: Arial;
+    font-weight: 500;
+    font-size: 14px;
+    color:#000000;
 }
 
 

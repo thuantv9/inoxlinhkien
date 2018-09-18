@@ -251,7 +251,7 @@ namespace Web.Models
             }
         }
         // lấy chủng loại theo Id
-        public Category GetCategoryById(int CategoryId)
+        public Category GetCategoryById(int id)
         {
             Category c = new Category();
             using (SqlConnection con = new SqlConnection(Const.Connectring))
@@ -259,7 +259,7 @@ namespace Web.Models
                 con.Open();
                 SqlCommand cmd = new SqlCommand("GetCategoryById", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@CategoryId", CategoryId);
+                cmd.Parameters.AddWithValue("@CategoryId", id);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -360,7 +360,7 @@ namespace Web.Models
         }
 
         // láy customer theo id
-        public Customer GetCustomerById(int customerid)
+        public Customer GetCustomerById(int id)
         {
             Customer c = new Customer();
             using (SqlConnection con = new SqlConnection(Const.Connectring))
@@ -368,7 +368,7 @@ namespace Web.Models
                 con.Open();
                 SqlCommand cmd = new SqlCommand("GetCustomerById", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@CustomerId", customerid);
+                cmd.Parameters.AddWithValue("@CustomerId", id);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -505,6 +505,21 @@ namespace Web.Models
             }
             return i;
         }
+        public int DeleteCustomer(int Id)
+        {
+            int i;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("DeleteCustomerById", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@CustomerId", Id);
+                i = com.ExecuteNonQuery();
+            }
+            return i;
+        }
+        
+
         #endregion
         #region Table User
         
