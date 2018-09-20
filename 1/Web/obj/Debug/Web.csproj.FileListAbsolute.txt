@@ -105,6 +105,5 @@ E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.OAuth.xml
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.Google.xml
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.Twitter.xml
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.dll
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.pdb

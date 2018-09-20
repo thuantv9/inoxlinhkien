@@ -13,7 +13,7 @@
 
             <!-- Breadcrumbs -->
 
-            <div class="breadcrumbs d-flex flex-row align-items-center">
+            <div class="breadcrumbs">
                 <ul>
                     <li><a href="@Url.Action("Index2","Home")">Trang chủ</a></li>
                     <li class="active"><a href="@Url.Action("Category","Home")"><i class="fa fa-angle-right" aria-hidden="true"></i>Sản phấm</a></li>
@@ -118,7 +118,7 @@
                                                         <img src="@p.Image" alt="">
                                                     </div>
                                                     <div class="favorite favorite_left"></div>
-                                                   
+
                                                     <div class="product_info">
                                                         <h6 class="product_name"><a href="@Url.Action("Product", "Home", new RouteValueDictionary(new { id=@p.Id}))">@p.Name</a></h6>
                                                         <div class="product_price">@p.MadeFrom</div>
@@ -173,15 +173,14 @@
 </div>
 
 <!-- Benefit -->
-
 <div class="benefit">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row benefit_row">
             <div class="col-lg-3 benefit_col">
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>Uy tín</h6>
+                        <h6>Uy tín cao</h6>
                         <p>Đặt uy tín lên hàng đầu</p>
                     </div>
                 </div>
@@ -208,7 +207,7 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>Giao hàng nhanh chóng</h6>
+                        <h6>Giao hàng nhanh</h6>
                         <p>Hoàn thiện nhanh, giao hàng chóng</p>
                     </div>
                 </div>

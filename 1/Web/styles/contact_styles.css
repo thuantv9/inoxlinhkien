@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -794,7 +794,7 @@ section
 3.6 Logo
 *********************************/
 
-.logo_container
+/*.logo_container
 {
 	position: absolute;
 	top: 50%;
@@ -815,10 +815,10 @@ section
 .logo_container a span
 {
 	color: #fe4c50;
-}
+}*/
 .red_button
 {
-	display: -webkit-inline-box;
+	display: -webkit-inline-box;s
 	display: -moz-inline-box;
 	display: -ms-inline-flexbox;
 	display: -webkit-inline-flex;

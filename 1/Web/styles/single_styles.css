@@ -532,13 +532,13 @@ section
 3.4 Main Navigation
 *********************************/
 
-.main_nav_container
+/*.main_nav_container
 {
 	width: 100%;
 	background: #FFFFFF;
 	box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
-}
-.navbar
+}*/
+/*.navbar
 {
 	width: auto;
 	height: 100px;
@@ -600,7 +600,7 @@ section
 .navbar_user li a:hover
 {
 	color: #b5aec4;
-}
+}*/
 .checkout a
 {
 	background: #eceff6;
@@ -794,7 +794,7 @@ section
 3.6 Logo
 *********************************/
 
-.logo_container
+/*.logo_container
 {
 	position: absolute;
 	top: 50%;
@@ -815,7 +815,7 @@ section
 .logo_container a span
 {
 	color: #fe4c50;
-}
+}*/
 .red_button
 {
 	display: -webkit-inline-box;
@@ -893,9 +893,10 @@ section
 .breadcrumbs
 {
 	width: 100%;
-	height: 60px;
+	height: 100px;
 	border-bottom: solid 1px #ebebeb;
-	margin-bottom: 79px;
+	/*margin-bottom: 79px;*/
+    padding-top:50px;
 }
 .breadcrumbs ul li
 {

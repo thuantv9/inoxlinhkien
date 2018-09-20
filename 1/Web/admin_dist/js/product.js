@@ -1,9 +1,33 @@
 ﻿var ref;
 ref = $("#myTable").DataTable({ "scrollX": true });
+var button1 = document.getElementById('ckfinder-popup-1');
 $(document).ready(function () {
     loaddatabyHung();
     loadcategoryid();
+    //button1.onclick = function () {
+    //    selectFileWithCKFinder('ckfinder-input-1');
+    //};
 });
+//ckfinder
+function selectFileWithCKFinder() {
+    CKFinder.modal({
+        chooseFiles: true,
+        width: 800,
+        height: 600
+        //onInit: function (finder) {
+        //    finder.on('files:choose', function (evt) {
+        //        var file = evt.data.files.first();
+        //        var output = document.getElementById('ckfinder-input-1');
+        //        output.value = file.getUrl();
+        //    });
+
+        //    finder.on('file:choose:resizedImage', function (evt) {
+        //        var output = document.getElementById('ckfinder-input-1');
+        //        output.value = evt.data.resizedUrl;
+        //    });
+        //}
+    });
+}
 // load data by Hung
 function loaddatabyHung() {
     ref.clear().draw();
@@ -16,7 +40,8 @@ function loaddatabyHung() {
         success: function (result) {
             $.each(result, function (key, item) {
                 html = '<a href="#" onclick="showcontent(' + item.Id + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.Id + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.Id + ');">Xóa</a>';
-                htmlimage = '<img src="' + item.Image.split(" ")[0] + '" class="img-responsive">';
+                htmlimage = '<button type="button" id="ckfinder-popup-1" onclick="selectFileWithCKFinder()"> abc</button>';
+                //<img src="' + item.Image.split(" ")[0] + '" class="img-responsive">
                 ref.row.add([
                     item.Id,
                     item.Name,
