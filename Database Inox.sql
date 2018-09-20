@@ -203,7 +203,12 @@ create procedure dbo.GetProductById
 @Id int
 as
 begin
-	select * from Product where Id=@Id
+	select a.Id,a.Name,a.MadeFrom,a.CategoryId,a.Dimenson,a.Image,a.Remark,a.Status,b.CategoryName
+from Product a, Category b
+where a.Id=@Id
+and b.CategoryId in
+(select CategoryId  from Product where Id=@Id)
+go
 end
 go
 

@@ -4,29 +4,27 @@ var button1 = document.getElementById('ckfinder-popup-1');
 $(document).ready(function () {
     loaddatabyHung();
     loadcategoryid();
-    //button1.onclick = function () {
-    //    selectFileWithCKFinder('ckfinder-input-1');
-    //};
+    
 });
 //ckfinder
-function selectFileWithCKFinder() {
-    CKFinder.modal({
-        chooseFiles: true,
-        width: 800,
-        height: 600
-        //onInit: function (finder) {
-        //    finder.on('files:choose', function (evt) {
-        //        var file = evt.data.files.first();
-        //        var output = document.getElementById('ckfinder-input-1');
-        //        output.value = file.getUrl();
-        //    });
+function BrowseServer() {
+    // You can use the "CKFinder" class to render CKFinder in a page:
+    var finder = new CKFinder();
+    finder.basePath = '/ckfinder/';	// The path for the installation of CKFinder (default = "/ckfinder/").
+    finder.selectActionFunction = SetFileField;
+    finder.popup();
 
-        //    finder.on('file:choose:resizedImage', function (evt) {
-        //        var output = document.getElementById('ckfinder-input-1');
-        //        output.value = evt.data.resizedUrl;
-        //    });
-        //}
-    });
+    // It can also be done in a single line, calling the "static"
+    // popup( basePath, width, height, selectFunction ) function:
+    // CKFinder.popup( '../', null, null, SetFileField ) ;
+    //
+    // The "popup" function can also accept an object as the only argument.
+    // CKFinder.popup( { basePath : '../', selectActionFunction : SetFileField } ) ;
+}
+
+// This is a sample function which is called when a file is selected in CKFinder.
+function SetFileField(fileUrl) {
+    document.getElementById('Image').value = fileUrl;
 }
 // load data by Hung
 function loaddatabyHung() {
@@ -40,8 +38,7 @@ function loaddatabyHung() {
         success: function (result) {
             $.each(result, function (key, item) {
                 html = '<a href="#" onclick="showcontent(' + item.Id + ');"> Chi tiết </a> | <a href="#" onclick="return getbyID(' + item.Id + ');"> Chỉnh sửa</a> | <a href="#" onclick="Delete(' + item.Id + ');">Xóa</a>';
-                htmlimage = '<button type="button" id="ckfinder-popup-1" onclick="selectFileWithCKFinder()"> abc</button>';
-                //<img src="' + item.Image.split(" ")[0] + '" class="img-responsive">
+                htmlimage = '<img src="' + item.Image.split(" ")[0] + '" class="img-responsive">';              
                 ref.row.add([
                     item.Id,
                     item.Name,
@@ -118,7 +115,7 @@ function getbyID(ID) {
             $('#MadeFrom').val(result.MadeFrom);
 
             $('#CategoryId').find('option').remove().end();
-            $('#CategoryId').append('<option value="' + result.CategoryId + '">' + result.CategoryName + '</option>');
+            $('#CategoryId').append('<option value="' + result.CategoryId + '">' + result.CategoryId + '</option>');
 
             $('#Dimenson').val(result.Dimenson);
             $('#Image').val(result.Image);

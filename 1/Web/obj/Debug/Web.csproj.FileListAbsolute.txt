@@ -107,3 +107,4 @@ E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.Twitter.x
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.dll
 E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.pdb
+E:\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache

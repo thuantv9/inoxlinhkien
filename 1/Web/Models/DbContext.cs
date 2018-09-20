@@ -92,7 +92,7 @@ namespace Web.Models
                     c.CategoryId = Int32.Parse(reader["CategoryId"].ToString());
                     c.Dimenson = reader["Dimenson"].ToString();
                     c.Image = reader["Image"].ToString();
-                    c.Remark = reader["Remark"].ToString();
+                    c.Remark = reader["Remark"].ToString();                    
                     c.Status = Boolean.Parse(reader["Status"].ToString());
                 }
                 return c;
@@ -760,7 +760,7 @@ namespace Web.Models
         }
 
         // láy tin tức theo id
-        public News GetNewsById(int newsid)
+        public News GetNewsById(int id)
         {
             News c = new News();
             using (SqlConnection con = new SqlConnection(Const.Connectring))
@@ -768,7 +768,7 @@ namespace Web.Models
                 con.Open();
                 SqlCommand cmd = new SqlCommand("GetNewsById", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NewsId", newsid);
+                cmd.Parameters.AddWithValue("@NewsId", id);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
