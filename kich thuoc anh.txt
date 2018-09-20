@@ -6,3 +6,7 @@ slide đang là 1824 x 576px
 About: 1200 x 1200
 Product, Customer : 235x 235 px
 deal of weak: 504x 540 px
+Blog là:   370 x 270px
+Khách hàng (customer):  235x 235 px
+Ảnh chỗ phần phương châm kinh doanh: 504 x540px
+Banner: 370 x 280px

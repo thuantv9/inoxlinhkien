@@ -203,12 +203,11 @@ create procedure dbo.GetProductById
 @Id int
 as
 begin
-	select a.Id,a.Name,a.MadeFrom,a.CategoryId,a.Dimenson,a.Image,a.Remark,a.Status,b.CategoryName
+select a.Id,a.Name,a.MadeFrom,a.CategoryId,a.Dimenson,a.Image,a.Remark,a.Status,b.CategoryName
 from Product a, Category b
 where a.Id=@Id
 and b.CategoryId in
 (select CategoryId  from Product where Id=@Id)
-go
 end
 go
 
@@ -375,7 +374,7 @@ IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 		DROP PROCEDURE dbo.GetCustomerById
 go
 create procedure dbo.GetCustomerById
-CustomerId int
+@CustomerId int
 as
 begin
 	select * from Customer where CustomerId=@CustomerId

@@ -60,7 +60,7 @@
                                     {
                                         foreach(var p in listcustomer)
                                         {
-                                            <span>@p.CustomerRemark</span>
+                                            <span>@Html.Raw(p.CustomerRemark)</span>
                                         }
                                     }
                                }

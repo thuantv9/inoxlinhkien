@@ -1580,6 +1580,10 @@
     <Content Include="ckfinder\skins\v1\skin.js" />
     <Content Include="ckfinder\skins\v1\uipanel.css" />
     <Content Include="ckfinder\translations.txt" />
+    <Content Include="images\banner_1.jpg" />
+    <Content Include="images\banner_2.jpg" />
+    <Content Include="images\banner_3.jpg" />
+    <Content Include="images\phuongcham.jpg" />
     <Content Include="styles\nivo-slider.css" />
     <Content Include="admin_dist\css\owl.carousel.css" />
     <Content Include="admin_dist\css\style-responsive.css" />
@@ -1629,9 +1633,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\3.jpg" />
-    <Content Include="images\banner_1.jpg" />
-    <Content Include="images\banner_2.jpg" />
-    <Content Include="images\banner_3.jpg" />
     <Content Include="images\blog_1.jpg" />
     <Content Include="images\blog_2.jpg" />
     <Content Include="images\blog_3.jpg" />
