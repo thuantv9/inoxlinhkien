@@ -96,6 +96,7 @@ function showcontent(id) {
 }
 // function lấy dữ liệu theo category ID để chỉnh sửa
 function getbyID(ID) {
+    loadcategoryid();
     $('#Id').css('border-color', 'lightgrey');
     $('#Id').attr('disabled', 'disabled');
     $('#Name').css('border-color', 'lightgrey');
@@ -114,9 +115,9 @@ function getbyID(ID) {
             $('#Name').val(result.Name);
             $('#MadeFrom').val(result.MadeFrom);
 
-            $('#CategoryId').find('option').remove().end();
-            $('#CategoryId').append('<option value="' + result.CategoryId + '">' + result.CategoryId + '</option>');
-
+            //$('#CategoryId').find('option').remove().end();
+            //$('#CategoryId').append('<option value="' + result.CategoryId + '">' + result.CategoryId + '</option>');
+            $('#CategoryId option[value='+result.CategoryId+']').attr('selected','selected');
             $('#Dimenson').val(result.Dimenson);
             $('#Image').val(result.Image);
             CKEDITOR.instances['Remark'].setData(result.Remark);

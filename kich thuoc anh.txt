@@ -1,5 +1,5 @@
 ﻿Ảnh slider: 1905 x 700 pixel tức là 48.39 x 17.78 cm  lấy 67% thôi
-Product: 235px x 235 px
+Product: 235px x 235 px đổi thành 600x600px tức là:  15.875cm x 15.875 cm
 
 Thiết kế category sử dụng ajax để gọi.
 slide đang là 1824 x 576px

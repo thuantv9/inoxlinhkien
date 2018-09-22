@@ -6,10 +6,8 @@
     <link rel="shortcut icon" href="img/favicon.png">
     <title>Inox Linh Kiên Admin </title>
     <link href="/admin_dist/dist/datatable/datatables.min.css" rel="stylesheet" />   
-    <link href="~/admin_dist/dist/boostrap/css/bootstrap.min.css" rel="stylesheet" />    
-    <link href="~/admin_dist/dist/boostrap/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <!-- font icon -->
-    @*<link href="/admin_dist/css/elegant-icons-style.css" rel="stylesheet" />*@
+    <link href="/admin_dist/dist/boostrap/css/bootstrap.min.css" rel="stylesheet" />    
+    <link href="/admin_dist/dist/boostrap/css/bootstrap-theme.min.css" rel="stylesheet" />   
     <link href="/admin_dist/css/font-awesome.css" rel="stylesheet" />
     <!-- Custom styles -->
     <link href="/admin_dist/css/styleadmin.css" rel="stylesheet">
@@ -20,7 +18,7 @@
     <section id="container" class="">
         <header class="header dark-bg">            
             <!--logo start-->
-            <a href="index.html" class="logo"> Trang quản trị<span class="lite"></span></a>
+            <a href="@Url.Action("Product","Admin")" class="logo"> Trang quản trị<span class="lite"></span></a>
             <!--logo end-->
             <div class="nav search-row" id="top_menu">
                 <!--  search form start -->
@@ -92,7 +90,7 @@
     <!-- javascripts -->   
     <script src="/admin_dist/dist/libs/jquery-3.3.1.min.js"></script>
     <script src="/admin_dist/dist/boostrap/js/bootstrap.min.js"></script>
-    <script src="~/admin_dist/dist/datatable/datatables.min.js"></script>
+    <script src="/admin_dist/dist/datatable/datatables.min.js"></script>
     <script src="/ckeditor/ckeditor.js"></script>
     <script src="/ckfinder/ckfinder.js"></script>
     <script src="/admin_dist/dist/bootbox.min.js"></script>
@@ -104,7 +102,6 @@
     @RenderSection("customerjs", required: false)
     @RenderSection("userjs", required: false)
     @RenderSection("orderjs", required: false)
-    @RenderSection("newsjs", required: false)
-   
+    @RenderSection("newsjs", required: false)   
 </body>
 </html>

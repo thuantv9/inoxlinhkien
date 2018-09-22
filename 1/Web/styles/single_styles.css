@@ -965,7 +965,7 @@ section
 .single_product_image
 {
 	width: 100%;
-	height: 527px;
+	height:600px;
 }
 .single_product_image_background
 {
@@ -1152,160 +1152,14 @@ section
 	padding-bottom: 80px;
 	border-bottom: solid 1px #ebebeb;
 }
-.tabs_container
-{
-	margin-top: 66px;
-	margin-bottom: 66px;
-}
-.tabs
-{
 
+.tab-content h4{
+    padding-top:20px;
+    padding-bottom:20px;
+    color: #FF6347;
 }
-.tab
-{
-	margin-right: 50px;
-	cursor: pointer;
-}
-.tab:last-child
-{
-	margin-right: 0px;
-}
-.tab span
-{
-	height: 40px;
-	line-height: 40px;
-	font-size: 16px;
-	font-weight: 500;
-	color: #1e1e27;
-}
-.tab:hover span
-{
-	color: #b5aec4;
-}
-.tab.active span
-{
-	color: #fe4c50;
-	border-bottom: solid 1px #fe4c50;
-}
-.tab_container
-{
-	width: 100%;
-	display: none;
-}
-.tab_container.active
-{
-	display: block;
-}
-
-/*********************************
-7.1 Description
-*********************************/
-
-.desc_col
-{
-
-}
-.tab_title
-{
-	margin-bottom: 98px;
-}
-.tab_title h4
-{
-	display: inline-block;
-	color: #fe4c50;
-	border-bottom: solid 1px #fe4c50;
-}
-.tab_text_block
-{
-	margin-bottom: 133px;
-}
-.tab_text_block p
-{
-	font-weight: 400;
-	margin-top: 10px;
-}
-.tab_image
-{
-	width: 100%;
-	margin-bottom: 131px;
-}
-.tab_image img
-{
-	width: 100%;
-}
-.desc_last
-{
-	margin-bottom: 0px;
-}
-
-/*********************************
-7.2. Additional Info
-*********************************/
-
-.additional_info_col p span
-{
-	margin-left: 22px;
-}
-.additional_info_title
-{
-	margin-bottom: 48px;
-}
-
-/*********************************
-7.3 Reviews
-*********************************/
-
-.reviews_title
-{
-	margin-bottom: 58px;
-}
-.user_review_container
-{
-	width: 100%;
-	margin-bottom: 37px;
-}
-.reviews_col
-{
-	padding-right: 30px;
-}
-.user_pic
-{
-	width: 70px;
-	height: 70px;
-	background: #ebebeb;
-	border-radius: 50%;
-}
-.user_rating .star_rating
-{
-	margin-left: 5px;
-	margin-top: 13px;
-}
-.user_rating .star_rating li
-{
-	margin-right: -3px;
-}
-.user_rating .star_rating li i
-{
-	font-size: 12px;
-}
-.review
-{
-	padding-left: 30px;
-}
-.review_date
-{
-	color: #fe4c50;
-	margin-top: -4px;
-}
-.user_name
-{
-	font-size: 16px;
-	font-weight: 500;
-	margin-bottom: 18px;
-}
-.review p
-{
-	font-weight: 400;
+.tab-content p{
+    font-size:15px;
 }
 
 /*********************************

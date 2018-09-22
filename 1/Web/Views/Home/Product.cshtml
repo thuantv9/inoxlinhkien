@@ -10,9 +10,7 @@
 <div class="container single_product_container">
     <div class="row">
         <div class="col">
-
             <!-- Breadcrumbs -->
-
             <div class="breadcrumbs d-flex flex-row align-items-center">
                 <ul>
                     <li><a href="@Url.Action("Index2","Home")">Trang chủ</a></li>
@@ -20,14 +18,12 @@
                     <li class="active"><a href="@Url.Action("Product", "Home", new RouteValueDictionary(new { id= @Model.Id}))"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.Name</a></li>
                 </ul>
             </div>
-
         </div>
     </div>
-
     <div class="row">
         <div class="col-lg-7">
             <div class="single_product_pics">
-                <div class="row">                   
+                <div class="row">
                     <div class="col-lg-12 image_col order-lg-2 order-1">
                         <div class="single_product_image">
                             <div class="single_product_image_background" style="background-image:url(@Model.Image)"></div>
@@ -45,8 +41,7 @@
                 <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                     <span class="ti-truck"></span><span>Miễn phí giao hàng</span>
                 </div>
-                
-                <div class="product_price">Giá : 200.000 VNĐ</div>
+                <div class="product_price">Giá : liên hệ</div>
                 <ul class="star_rating">
                     <li><i class="fa fa-star" aria-hidden="true"></i></li>
                     <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -65,148 +60,71 @@
 <!-- Tabs -->
 <div class="tabs_section_container">
     <div class="container">
-        <div class="row tabss">
-            <div class="col">
-                <div class="tabs_container">
-                    <ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
-                        <li class="tab active" data-active-tab="tab_1"><span>Mô tả</span></li>
-                        <li class="tab" data-active-tab="tab_2"><span>Thông tin bổ sung</span></li>
-                        <li class="tab" data-active-tab="tab_3"><span>Nhận xét</span></li>
-                    </ul>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#mota">Mô tả</a></li>
+            <li><a data-toggle="tab" href="#thongtinbosung">Thông tin bổ sung</a></li>
+            <li><a data-toggle="tab" href="#nhanxet">Nhận xét</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="mota" class="tab-pane fade in active">
+                <h4>Thông tin sản phẩm</h4>               
+                    <p>@Html.Raw(Model.Remark)</p>                
+            </div>
+            <!-- Tab Additional Info -->
+            <div id="thongtinbosung" class="tab-pane fade">
+                <h4>Thông tin bổ sung</h4>
+                <p>Chất liệu và màu sắc:<span>Trắng</span></p>
+                <p>Kích thước:<span>Nhiều chủng loại</span></p>
+            </div>
+            <div id="nhanxet" class="tab-pane fade">
+                <h4>Nhận xét (2)</h4>
+                <!-- User Review -->
+                <div class="user_review_container d-flex flex-column flex-sm-row">
+                    <div class="user">
+                        <div class="user_pic"></div>
+                        <div class="user_rating">
+                            <ul class="star_rating">
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <div class="review_date">27 Aug 2016</div>
+                        <div class="user_name">A. Nguyễn Văn Cường</div>
+                        <p>Sản phẩm công ty đã mang lại nhiều giá trị và sự tiện dụng cho ngôi nhà của chúng tôi.</p>
+                    </div>
+                </div>
+                <!-- User Review -->
+                <!-- User Review -->
+                <div class="user_review_container d-flex flex-column flex-sm-row">
+                    <div class="user">
+                        <div class="user_pic"></div>
+                        <div class="user_rating">
+                            <ul class="star_rating">
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <div class="review_date">27 Aug 2018</div>
+                        <div class="user_name">A. Trịnh Đình Anh</div>
+                        <p>Nhà hàng của chúng tôi đã có được những sản phẩm Inox sáng mới, thẩm mỹ, tiện ích cao. Chất lượng gia công tốt, giao hàng nhanh chóng, làm việc nhiệt tình</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-
-                <!-- Tab Description -->
-
-                <div id="tab_1" class="tab_container active">
-                    <div class="row">
-                        <div class="col-lg-10 desc_col">
-                            <div class="tab_title">
-                                <h4>Thông tin mô tả về sản phẩm</h4>
-                            </div>
-                            <div class="tab_text_block">
-                                <p>@Html.Raw(Model.Remark)</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab Additional Info -->
-
-                <div id="tab_2" class="tab_container">
-                    <div class="row">
-                        <div class="col additional_info_col">
-                            <div class="tab_title additional_info_title">
-                                <h4>Thông tin bổ sung</h4>
-                            </div>
-                            <p>Chất liệu và màu sắc:<span>Trắng</span></p>
-                            <p>Kích thước:<span>Nhiều chủng loại</span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab Reviews -->
-
-                <div id="tab_3" class="tab_container">
-                    <div class="row">
-
-                        <!-- User Reviews -->
-
-                        <div class="col-lg-6 reviews_col">
-                            <div class="tab_title reviews_title">
-                                <h4>Nhận xét (2)</h4>
-                            </div>
-
-                            <!-- User Review -->
-
-                            <div class="user_review_container d-flex flex-column flex-sm-row">
-                                <div class="user">
-                                    <div class="user_pic"></div>
-                                    <div class="user_rating">
-                                        <ul class="star_rating">
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="review">
-                                    <div class="review_date">27 Aug 2016</div>
-                                    <div class="user_name">A. Nguyễn Văn Cường</div>
-                                    <p>Sản phẩm công ty đã mang lại nhiều giá trị và sự tiện dụng cho ngôi nhà của chúng tôi.</p>
-                                </div>
-                            </div>
-
-                            <!-- User Review -->
-
-                            <div class="user_review_container d-flex flex-column flex-sm-row">
-                                <div class="user">
-                                    <div class="user_pic"></div>
-                                    <div class="user_rating">
-                                        <ul class="star_rating">
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="review">
-                                    <div class="review_date">27 Aug 2018</div>
-                                    <div class="user_name">A. Trịnh Đình Anh</div>
-                                    <p>Nhà hàng của chúng tôi đã có được những sản phẩm Inox sáng mới, thẩm mỹ, tiện ích cao. Chất lượng gia công tốt, giao hàng nhanh chóng, làm việc nhiệt tình</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Add Review -->
-
-                        <div class="col-lg-6 add_review_col">
-
-                            <div class="add_review">
-                                <form id="review_form" action="post">
-                                    <div>
-                                        <h1>Thêm nhận xét</h1>
-                                        <input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Tên*" required="required" data-error="Name is required.">
-                                        <input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
-                                    </div>
-                                    <div>
-                                        <h1>Đánh giá của bạn:</h1>
-                                        <ul class="user_star_rating">
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                                        </ul>
-                                        <textarea id="review_message" class="input_review" name="message" placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
-                                    </div>
-                                    <div class="text-left text-sm-right">
-                                        <button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">Gửi</button>
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
+            <!-- End User Review-->
         </div>
     </div>
-
 </div>
-
 <!-- Benefit -->
-
 <div class="benefit">
     <div class="container">
         <div class="row benefit_row">
@@ -249,7 +167,6 @@
         </div>
     </div>
 </div>
-
 @section singlejs{
     <script src="/js/single_custom.js"></script>
 }
