@@ -43,7 +43,7 @@ COLOR PALETTE
 2. Body and some general stuff
 *********************************/
 
-*
+/**
 {
 	margin: 0;
 	padding: 0;
@@ -152,13 +152,13 @@ h6::selection
 	font-weight: 500;
 	color: #777777 !important;
 }
-:-moz-placeholder /* older Firefox*/
+:-moz-placeholder 
 {
 	font-size: 16px !important;
 	font-weight: 500;
 	color: #777777 !important;
 }
-::-moz-placeholder /* Firefox 19+ */
+::-moz-placeholder 
 {
 	font-size: 16px !important;
 	font-weight: 500;
@@ -251,13 +251,13 @@ section
 {
 	width: 100%;
 	overflow: hidden;
-}
+}*/
 
 /*********************************
 3. Home
 *********************************/
 
-.header
+/*.header
 {
 	position: fixed;
 	top: 0;
@@ -265,8 +265,8 @@ section
 	width: 100%;
 	background: #FFFFFF;
 	z-index: 10;
-}
-.top_nav
+}*/
+/*.top_nav
 {
 	width: 100%;
 	height: 50px;
@@ -279,13 +279,13 @@ section
 	font-size: 13px;
 	color: #b5aec4;
 	text-transform: uppercase;
-}
+}*/
 
 /*********************************
 3.1 Currency
 *********************************/
 
-.currency
+/*.currency
 {
 	display: inline-block;
 	position: relative;
@@ -362,13 +362,13 @@ section
 .currency_selection li:last-child a
 {
 	border-bottom: none;
-}
+}*/
 
 /*********************************
 3.2 Language
 *********************************/
 
-.language
+/*.language
 {
 	display: inline-block;
 	position: relative;
@@ -443,13 +443,13 @@ section
 .language_selection li:last-child a
 {
 	border-bottom: none;
-}
+}*/
 
 /*********************************
 3.3 Account
 *********************************/
 
-.account
+/*.account
 {
 	display: inline-block;
 	position: relative;
@@ -526,13 +526,13 @@ section
 .account_selection li a i
 {
 	margin-right: 10px;
-}
+}*/
 
 /*********************************
 3.4 Main Navigation
 *********************************/
 
-.main_nav_container
+/*.main_nav_container
 {
 	width: 100%;
 	background: #FFFFFF;
@@ -625,13 +625,13 @@ section
 	background: #fe4c50;
 	font-size: 12px;
 	color: #FFFFFF;
-}
+}*/
 
 /*********************************
 3.5 Hamburger Menu
 *********************************/
 
-.hamburger_container
+/*.hamburger_container
 {
 	display: none;
 	margin-left: 40px;
@@ -788,7 +788,7 @@ section
 .menu_selection li:last-child a
 {
 	border-bottom: none;
-}
+}*/
 
 /*********************************
 3.6 Logo
@@ -816,7 +816,7 @@ section
 {
 	color: #fe4c50;
 }*/
-.red_button
+/*.red_button
 {
 	display: -webkit-inline-box;s
 	display: -moz-inline-box;
@@ -880,11 +880,11 @@ section
 	height: 5px;
 	background: #fe4c50;
 	content: '';
-}
-.product_details_title p
+}*/
+/*.product_details_title p
 {
 	color: #;
-}
+}*/
 
 /*********************************
 4. Breadcrumbs
@@ -895,7 +895,8 @@ section
 	width: 100%;
 	height: 60px;
 	border-bottom: solid 1px #ebebeb;
-	margin-bottom: 79px;
+	margin-bottom: 30px;
+    padding-top:20px;
 }
 .breadcrumbs ul li
 {
@@ -919,12 +920,12 @@ section
 5. Google Map
 *********************************/
 
-.contact_container
+/*.contact_container
 {
 	margin-top: 150px;
 	padding-bottom: 80px;
 	border-bottom: solid 1px #ebebeb;
-}
+}*/
 #google_map
 {
 	width: 100%;
@@ -1239,7 +1240,7 @@ textarea:hover
 10. Footer
 *********************************/
 
-.footer_nav_container
+/*.footer_nav_container
 {
 	height: 130px;
 }
@@ -1301,4 +1302,4 @@ textarea:hover
 .footer_social ul li a:hover
 {
 	color: #fe4c50;
-}
+}*/

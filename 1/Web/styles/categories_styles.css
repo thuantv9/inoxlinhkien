@@ -42,7 +42,7 @@ COLOR PALETTE
 2. Body and some general stuff
 *********************************/
 
-*
+/**
 {
 	margin: 0;
 	padding: 0;
@@ -151,13 +151,13 @@ h6::selection
 	font-weight: 500;
 	color: #777777 !important;
 }
-:-moz-placeholder /* older Firefox*/
+:-moz-placeholder 
 {
 	font-size: 16px !important;
 	font-weight: 500;
 	color: #777777 !important;
 }
-::-moz-placeholder /* Firefox 19+ */
+::-moz-placeholder 
 {
 	font-size: 16px !important;
 	font-weight: 500;
@@ -217,16 +217,16 @@ section
 	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
-}
-.trans_300
+}*/
+/*.trans_300
 {
 	-webkit-transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
 	-ms-transition: all 300ms ease;
 	-o-transition: all 300ms ease;
 	transition: all 300ms ease;
-}
-.trans_400
+}*/
+/*.trans_400
 {
 	-webkit-transition: all 400ms ease;
 	-moz-transition: all 400ms ease;
@@ -250,13 +250,13 @@ section
 {
 	width: 100%;
 	overflow: hidden;
-}
+}*/
 
 /*********************************
 3. Home
 *********************************/
 
-.header
+/*.header
 {
 	position: fixed;
 	top: 0;
@@ -264,8 +264,8 @@ section
 	width: 100%;
 	background: #FFFFFF;
 	z-index: 10;
-}
-.top_nav
+}*/
+/*.top_nav
 {
 	width: 100%;
 	height: 50px;
@@ -278,13 +278,13 @@ section
 	font-size: 13px;
 	color: #b5aec4;
 	text-transform: uppercase;
-}
+}*/
 
 /*********************************
 3.1 Currency
 *********************************/
 
-.currency
+/*.currency
 {
 	display: inline-block;
 	position: relative;
@@ -361,13 +361,13 @@ section
 .currency_selection li:last-child a
 {
 	border-bottom: none;
-}
+}*/
 
 /*********************************
 3.2 Language
 *********************************/
 
-.language
+/*.language
 {
 	display: inline-block;
 	position: relative;
@@ -442,13 +442,13 @@ section
 .language_selection li:last-child a
 {
 	border-bottom: none;
-}
+}*/
 
 /*********************************
 3.3 Account
 *********************************/
 
-.account
+/*.account
 {
 	display: inline-block;
 	position: relative;
@@ -525,13 +525,13 @@ section
 .account_selection li a i
 {
 	margin-right: 10px;
-}
+}*/
 
 /*********************************
 3.4 Main Navigation
 *********************************/
 
-.main_nav_container
+/*.main_nav_container
 {
 	width: 100%;
 	background: #FFFFFF;
@@ -624,13 +624,13 @@ section
 	background: #fe4c50;
 	font-size: 12px;
 	color: #FFFFFF;
-}
+}*/
 
 /*********************************
 3.5 Hamburger Menu
 *********************************/
 
-.hamburger_container
+/*.hamburger_container
 {
 	display: none;
 	margin-left: 40px;
@@ -787,7 +787,7 @@ section
 .menu_selection li:last-child a
 {
 	border-bottom: none;
-}
+}*/
 
 /*********************************
 3.6 Logo
@@ -815,7 +815,7 @@ section
 {
 	color: #fe4c50;
 }*/
-.red_button
+/*.red_button
 {
 	display: -webkit-inline-box;
 	display: -moz-inline-box;
@@ -849,7 +849,7 @@ section
 	text-align: center;
 	line-height: 40px;
 	width: 100%;
-}
+}*/
 .shop_now_button
 {
 	width: 140px;
@@ -1118,8 +1118,7 @@ section
 	width: 100%;
 	height: 100px;
 	border-bottom: solid 1px #ebebeb;
-    padding-top:50px;
-	/*margin-bottom: 58px;*/
+    padding-top:30px;   
 }
 .breadcrumbs ul li
 {
@@ -1145,7 +1144,7 @@ section
 
 .product_section_container
 {
-	margin-top: 150px;
+	margin-top: 00px;
 }
 .product_section
 {

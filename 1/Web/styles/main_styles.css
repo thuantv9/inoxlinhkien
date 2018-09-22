@@ -292,24 +292,26 @@ section {
 .top_nav_left {
     height: 50px;
     line-height: 50px;
-    font-size: 13px;
+    font-size: 15px;
     color: #b5aec4;
     text-transform: uppercase;
+     font-weight:600;
 }
 
 .top_nav_right {
     height: 50px;
     line-height: 50px;
-    font-size: 13px;
+    font-size: 15px;
     color: #b5aec4;
     text-transform: uppercase;
+    font-weight:600;
 }
 
 /*********************************
 3.1 Currency
 *********************************/
 
-.currency {
+/*.currency {
     display: inline-block;
     position: relative;
     min-width: 50px;
@@ -385,13 +387,13 @@ section {
 
         .currency_selection li:last-child a {
             border-bottom: none;
-        }
+        }*/
 
 /*********************************
 3.2 Language
 *********************************/
 
-.language {
+/*.language {
     display: inline-block;
     position: relative;
     min-width: 50px;
@@ -465,13 +467,13 @@ section {
 
         .language_selection li:last-child a {
             border-bottom: none;
-        }
+        }*/
 
 /*********************************
 3.3 Account
 *********************************/
 
-.account {
+/*.account {
     display: inline-block;
     position: relative;
     min-width: 50px;
@@ -547,7 +549,7 @@ section {
 
         .account_selection li a i {
             margin-right: 10px;
-        }
+        }*/
 
 /*********************************
 3.4 Main Navigation

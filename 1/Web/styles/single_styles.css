@@ -257,7 +257,7 @@ section
 3. Home
 *********************************/
 
-.header
+/*.header
 {
 	position: fixed;
 	top: 0;
@@ -265,7 +265,7 @@ section
 	width: 100%;
 	background: #FFFFFF;
 	z-index: 10;
-}
+}*/
 .top_nav
 {
 	width: 100%;
@@ -896,7 +896,7 @@ section
 	height: 100px;
 	border-bottom: solid 1px #ebebeb;
 	/*margin-bottom: 79px;*/
-    padding-top:50px;
+    padding-top:30px;
 }
 .breadcrumbs ul li
 {
@@ -922,8 +922,8 @@ section
 
 .single_product_container
 {
-	margin-top: 150px;
-	padding-bottom: 60px;
+	margin-top: 10px;
+	padding-bottom: 40px;
 	border-bottom: solid 1px #ebebeb;
 }
 .single_product_thumbnails
