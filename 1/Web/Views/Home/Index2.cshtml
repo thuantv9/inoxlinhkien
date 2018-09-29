@@ -1,43 +1,44 @@
 ﻿@model  IEnumerable<Web.Models.Category>
 @{
-    ViewBag.Title = "Index2";
+    ViewBag.Title = "Thiết bị Inox Linh Kiên- Chuyên cung cấp thiết bị inox, tủ bếp, giường bệnh viện, xe đẩy inox tại Thái Bình";
     Layout = "~/Views/Share/_Home.cshtml";
 }
-<section id="featured">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="/images/nivo/slide-1.jpg" alt="Los Angeles">
+<div class="main_slider">
+    @*<section id="featured">*@
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="/images/nivo/slide-1.jpg" alt="Inox tại các nhà hàng: chậu rửa, bếp công nghiệp inox" class="img-responsive">
+                </div>
+
+                <div class="item">
+                    <img src="/images/nivo/slide-2.jpg" alt="Inox tại các bệnh viện Thái bình: giường Inox, xe tiêm, xe đẩy" class="img-responsive">
+                </div>
+
+                <div class="item">
+                    <img src="/images/nivo/slide-3.jpg" alt="Inox tại các công trình dân dụng Thái Bình: tủ cá nhân, giường, tủ bếp " class="img-responsive">
+                </div>
             </div>
 
-            <div class="item">
-                <img src="/images/nivo/slide-2.jpg" alt="Chicago">
-            </div>
-
-            <div class="item">
-                <img src="/images/nivo/slide-3.jpg" alt="New York">
-            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</section>
-
+    @*</section>*@
+</div>
 <!-- Banner -->
 <div class="banner">
     <div class="container">
@@ -121,7 +122,7 @@
                                 <div class="product-item @p.CategoryId">
                                     <div class="product discount product_filter">
                                         <div class="product_image">
-                                            <a href="@Url.Action("Product","Home",new RouteValueDictionary(new {id=@p.Id}))"><img src="@p.Image" alt=""></a>
+                                            <a href="@Url.Action("Product","Home",new RouteValueDictionary(new {id=@p.Id}))"><img src="@p.Image" alt="@p.Name,@p.MadeFrom,Thái Bình"></a>
                                         </div>
                                         <div class="favorite favorite_left"></div>
                                         <div class="product_info">
@@ -143,12 +144,12 @@
 <div class="deal_ofthe_week">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6" >
                 <div class="deal_ofthe_week_img">
-                    <img src="/images/phuongcham.jpg" alt="">
+                    <img src="/images/phuongcham.jpg" alt="Giám đốc công ty Inox Linh Kiên Thái Bình- Mục đích kinh doanh">
                 </div>
             </div>
-            <div class="col-lg-6 text-center deal_ofthe_week_col">
+            <div class="col-lg-6 col-md-6 text-center deal_ofthe_week_col">
                 <div class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
                     <div class="section_title">
                         <h2>Phương châm kinh doanh</h2>
@@ -193,7 +194,7 @@
                                         <div class="product-item">
                                             <div class="product">
                                                 <div class="product_image">
-                                                    <img src="@p.CustomerImage" alt="">
+                                                    <img src="@p.CustomerImage" alt="Inox Thái Bình,@p.CustomerName,@p.CustomerDescription">
                                                 </div>
                                                 <div class="product_info">
                                                     <h6 class="product_name"></h6>

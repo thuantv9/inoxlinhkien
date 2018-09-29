@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -60,11 +60,19 @@
 
 @media only screen and (max-width: 1199px)
 {
-	.main_slider
+    .main_slider{
+        display:none;
+    }
+    .logo_container{
+        padding-top:8rem;
+        padding-left:3rem;
+        /*vertical-align:central;*/
+    }
+	/*.main_slider
 	{
 		min-height: 475px;
 		height: calc(100vw / 1.714);
-	}
+	}*/
 	.main_slider_content
 	{
 		width: 80%;
@@ -107,7 +115,13 @@
 
 @media only screen and (max-width: 1024px)
 {
-	
+	.main_slider{
+        display:none;
+    }
+    .logo_container{
+        padding-top:8rem;
+        padding-left:3rem;       
+    }
 }
 
 /************
@@ -268,7 +282,14 @@
 
 @media only screen and (max-width: 959px)
 {
-	
+	.main_slider{
+        display:none;
+    }
+    .logo_container{
+        padding-top:8rem;
+        padding-left:3rem;
+        /*vertical-align:central;*/
+    }
 }
 
 /************
@@ -277,8 +298,14 @@
 
 @media only screen and (max-width: 880px)
 {
-	
-}
+.main_slider{
+        display:none;
+    }
+    .logo_container{
+        padding-top:8rem;
+        padding-left:3rem;
+        /*vertical-align:central;*/
+    }}
 
 /************
 9. 768px
@@ -286,7 +313,14 @@
 
 @media only screen and (max-width: 768px)
 {
-	
+	.main_slider{
+        display:none;
+    }
+    .logo_container{
+        padding-top:8rem;
+        padding-left:3rem;
+        /*vertical-align:central;*/
+    }
 }
 
 /************
@@ -295,6 +329,14 @@
 
 @media only screen and (max-width: 767px)
 {
+    .main_slider{
+        display:none;
+    }
+    .logo_container{
+        padding-top:8rem;
+        padding-left:3rem;
+        /*vertical-align:central;*/
+    }
 	h1{font-size: 36px;}
 	h2{font-size: 24px;}
 	h6{font-size: 12px;}

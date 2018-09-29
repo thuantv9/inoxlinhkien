@@ -17,6 +17,7 @@ namespace Web.Controllers
             ViewBag.Customer = dbcontext.GetAllCustomer();
             return View(dbcontext.GetAllProduct());
         }
+       
         public ActionResult Index2()
         {
             ViewBag.Product = dbcontext.GetAllProduct();

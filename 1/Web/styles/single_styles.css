@@ -893,10 +893,10 @@ section
 .breadcrumbs
 {
 	width: 100%;
-	height: 100px;
+	height: 60px;
 	border-bottom: solid 1px #ebebeb;
 	/*margin-bottom: 79px;*/
-    padding-top:30px;
+    padding-top:20px;
 }
 .breadcrumbs ul li
 {
@@ -922,7 +922,7 @@ section
 
 .single_product_container
 {
-	margin-top: 10px;
+	margin-top: 150px;
 	padding-bottom: 40px;
 	border-bottom: solid 1px #ebebeb;
 }

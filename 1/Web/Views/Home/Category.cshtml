@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Web.Models.Category>
 @{
-    ViewBag.Title = "Category";
+    ViewBag.Title = "Sản phẩm công ty Inox Linh Kiên Thái Bình: chậu rửa inox, giường ionx, tủ bếp inox, xe đẩy inox, uy tin tại Thái Bình";
     Layout = "~/Views/Share/_Home.cshtml";
 }
 @section categoriesstyle {
@@ -36,13 +36,7 @@
                                     <li><a href="@Url.Action("Category", "Home", new RouteValueDictionary(new { id= @p.CategoryId}))">@p.CategoryName</a></li>
                                 }
                             }
-                        }
-                        @*<li><a href="#">Men</a></li>
-                            <li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Women</a></li>
-                            <li><a href="#">Accessories</a></li>
-                            <li><a href="#">New Arrivals</a></li>
-                            <li><a href="#">Collection</a></li>
-                            <li><a href="#">Shop</a></li>*@
+                        }                        
                     </ul>
                 </div>
             </div>
@@ -59,12 +53,12 @@
                             <div class="product_sorting_container product_sorting_container_top">
                                 <ul class="product_sorting">
                                     <li>
-                                        <span class="type_sorting_text">Default Sorting</span>
+                                        <span class="type_sorting_text">Sắp xếp mặc định</span>
                                         <i class="fa fa-angle-down"></i>
                                         <ul class="sorting_type">
-                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default Sorting</span></li>
-                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Product Name</span></li>
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Mặc định</span></li>
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Giá</span></li>
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Tên sản phẩm</span></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -115,7 +109,7 @@
                                             <div class="product-item men">
                                                 <div class="product discount product_filter">
                                                     <div class="product_image">
-                                                        <img src="@p.Image" alt="">
+                                                        <img src="@p.Image" alt="Inox Thái Bình, @p.Name,@p.MadeFrom">
                                                     </div>
                                                     <div class="favorite favorite_left"></div>
 

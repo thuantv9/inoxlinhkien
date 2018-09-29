@@ -275,7 +275,7 @@ section {
 *********************************/
 
 .header {
-    /*position: fixed;*/
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -563,11 +563,11 @@ section {
 
 .navbar {
     width: auto;
-    height: 100px;
+    height: 80px;
     float: right;
     padding-left: 0px;
     padding-right: 0px;
-    padding-top: 30px;
+    padding-top:18px;
 }
 
 .navbar_menu li {
@@ -653,160 +653,160 @@ section {
 /*********************************
 3.5 Hamburger Menu
 *********************************/
-
-.hamburger_container {
-    display: none;
-    margin-left: 40px;
+.hamburger_container
+{
+	display: none;
+	margin-left: 40px;
 }
-
-    .hamburger_container i {
-        font-size: 24px;
-        color: #1e1e27;
-        -webkit-transition: all 300ms ease;
-        -moz-transition: all 300ms ease;
-        -ms-transition: all 300ms ease;
-        -o-transition: all 300ms ease;
-        transition: all 300ms ease;
-    }
-
-    .hamburger_container:hover i {
-        color: #b5aec4;
-    }
-
-.hamburger_menu {
-    position: fixed;
-    top: 0;
-    right: -400px;
-    width: 400px;
-    height: 100vh;
-    background: rgba(255,255,255,0.95);
-    z-index: 10;
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -ms-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
-    transition: all 300ms ease;
+.hamburger_container i
+{
+	font-size: 24px;
+	color: #1e1e27;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
 }
-
-    .hamburger_menu.active {
-        right: 0;
-    }
-
-.fs_menu_overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9;
-    background: rgba(255,255,255,0);
-    pointer-events: none;
-    -webkit-transition: all 200ms ease;
-    -moz-transition: all 200ms ease;
-    -ms-transition: all 200ms ease;
-    -o-transition: all 200ms ease;
-    transition: all 200ms ease;
+.hamburger_container:hover i
+{
+	color: #b5aec4;
 }
-
-.hamburger_close {
-    position: absolute;
-    top: 26px;
-    right: 10px;
-    padding: 10px;
-    z-index: 1;
+.hamburger_menu
+{
+	position: fixed;
+	top: 0;
+	right: -400px;
+	width: 400px;
+	height: 100vh;
+	background: rgba(255,255,255,0.95);
+	z-index: 10;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
 }
-
-    .hamburger_close i {
-        font-size: 24px;
-        color: #1e1e27;
-        -webkit-transition: all 300ms ease;
-        -moz-transition: all 300ms ease;
-        -ms-transition: all 300ms ease;
-        -o-transition: all 300ms ease;
-        transition: all 300ms ease;
-    }
-
-    .hamburger_close:hover i {
-        color: #b5aec4;
-    }
-
-.hamburger_menu_content {
-    padding-top: 100px;
-    width: 100%;
-    height: 100%;
-    padding-right: 20px;
+.hamburger_menu.active
+{
+	right: 0;
 }
-
-.menu_item {
-    display: block;
-    position: relative;
-    border-bottom: solid 1px #b5aec4;
-    vertical-align: middle;
+.fs_menu_overlay
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 9;
+	background: rgba(255,255,255,0);
+	pointer-events: none;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
 }
-
-    .menu_item > a {
-        display: block;
-        color: #1e1e27;
-        font-weight: 500;
-        height: 50px;
-        line-height: 50px;
-        font-size: 14px;
-        text-transform: uppercase;
-    }
-
-        .menu_item > a:hover {
-            color: #b5aec4;
-        }
-
-        .menu_item > a > i {
-            margin-left: 8px;
-        }
-
-    .menu_item.active .menu_selection {
-        display: block;
-        visibility: visible;
-        opacity: 1;
-    }
-
-.menu_selection {
-    margin: 0;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    z-index: 1;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+.hamburger_close
+{
+	position: absolute;
+	top: 26px;
+	right: 10px;
+	padding: 10px;
+	z-index: 1;
 }
-
-    .menu_selection li {
-        padding-left: 10px;
-        padding-right: 10px;
-        line-height: 50px;
-    }
-
-        .menu_selection li a {
-            display: block;
-            color: #232530;
-            border-bottom: solid 1px #dddddd;
-            font-size: 13px;
-            text-transform: uppercase;
-            -webkit-transition: opacity 0.3s ease;
-            -moz-transition: opacity 0.3s ease;
-            -ms-transition: opacity 0.3s ease;
-            -o-transition: opacity 0.3s ease;
-            transition: all 0.3s ease;
-        }
-
-            .menu_selection li a:hover {
-                color: #b5aec4;
-            }
-
-        .menu_selection li:last-child a {
-            border-bottom: none;
-        }
+.hamburger_close i
+{
+	font-size: 24px;
+	color: #1e1e27;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+.hamburger_close:hover i
+{
+	color: #b5aec4;
+}
+.hamburger_menu_content
+{
+	padding-top: 100px;
+	width: 100%;
+	height: 100%;
+	padding-right: 20px;
+}
+.menu_item
+{
+	display: block;
+	position: relative;
+	border-bottom: solid 1px #b5aec4;
+	vertical-align: middle;
+}
+.menu_item > a
+{
+	display: block;
+	color: #1e1e27;
+	font-weight: 500;
+	height: 50px;
+	line-height: 50px;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+.menu_item > a:hover
+{
+	color: #b5aec4;
+}
+.menu_item > a > i
+{
+	margin-left: 8px;
+}
+.menu_item.active .menu_selection
+{
+	display: block;
+	visibility: visible;
+	opacity: 1;
+}
+.menu_selection
+{
+	margin: 0;
+	width: 100%;
+	max-height: 0;
+	overflow: hidden;
+	z-index: 1;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.menu_selection li
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 50px;
+}
+.menu_selection li a
+{
+	display: block;
+	color: #232530;
+	border-bottom: solid 1px #dddddd;
+	font-size: 13px;
+	text-transform: uppercase;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
+}
+.menu_selection li a:hover
+{
+	color: #b5aec4;
+}
+.menu_selection li:last-child a
+{
+	border-bottom: none;
+}
 
 /*********************************
 3.6 Logo
@@ -820,13 +820,14 @@ section {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: 100px;
+    left: 15px;
 }
 
     .logo_container a {
         font-size: 26px;
         color: #1e1e27;
         font-weight: 700;
+        padding-left:35px;
         text-transform: uppercase;
     }
 
@@ -841,12 +842,12 @@ section {
 .main_slider {
     width: 100%;
     display: block;
-    height: 700px;
-    background-repeat: no-repeat;
+    height: auto;
+    /*background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
-    /*margin-top: 150px;*/
-    margin-top: 10px;
+    background-position: center center;*/
+    margin-top: 150px;
+
 }
 
 .main_slider_content {
@@ -904,34 +905,13 @@ section {
     margin-top: 32px;
 }
 
-/**Thêm mới cho nivo slider*/
-.nivoSlider, .nivo-slider {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    margin: 0;
-}
-
-.nivo-slider {
-    background: #fbfbfb;
-}
-
-    .nivo-slider img {
-        width: 100%;
-        top: 50px;
-        left: 0px;
-        max-width: none;
-    }
-
-#featured {
+/*#featured {
     background: #fcfcfc;
-    /*position: absolute;*/
     height: auto;
     margin: 0;
     padding-top: 10px;
     max-height: 100%;
-}
+}*/
 
 /*********************************
 4. Banner
@@ -1733,7 +1713,7 @@ padding-top:40px;
     background-position: center center;
     background-repeat: repeat-x;
     display: block;
-    padding-top: 80px;
+    padding-top: 150px;
     padding-bottom: 80px;
 }
 
