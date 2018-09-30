@@ -1,12 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Web
 {
+    public class GetSEOFriendlyRoute : Route
+    {
+        public GetSEOFriendlyRoute(string url, RouteValueDictionary defaults, IRouteHandler routeHandler)
+            : base(url, defaults, routeHandler)
+        {
+        }
+
+        public override RouteData GetRouteData(HttpContextBase httpContext)
+        {
+            var routeData = base.GetRouteData(httpContext);
+
+            if (routeData != null)
+            {
+                if (routeData.Values.ContainsKey("id"))
+                    routeData.Values["id"] = GetIdValue(routeData.Values["id"]);
+            }
+
+            return routeData;
+        }
+
+        private object GetIdValue(object id)
+        {
+            if (id != null)
+            {
+                string idValue = id.ToString();
+
+                var regex = new Regex(@"^(?<id>\d+).*$");
+                var match = regex.Match(idValue);
+
+                if (match.Success)
+                {
+                    return match.Groups["id"].Value;
+                }
+            }
+
+            return id;
+        }
+    }  
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
@@ -17,34 +56,50 @@ namespace Web
             // custome
             routes.MapRoute(
                 name:"About",
-                url:"Trang-Chu/Gioi-Thieu-Inox-Thaibinh",
+                url:"Gioi-Thieu-Inox-Thaibinh",
                 defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
                 );
             routes.MapRoute(
                 name: "Index2",
-                url: "Trang-Chu/Inox-ThaiBinh",
+                url: "Inox-ThaiBinh",
                 defaults: new { controller = "Home", action = "Index2", id = UrlParameter.Optional }
             );
+            
+            routes.Add("Category", new GetSEOFriendlyRoute("San-Pham-Inox/{id}",
+            new RouteValueDictionary(new { controller = "Home", action = "Category" }),
+            new MvcRouteHandler()));
+
             routes.MapRoute(
-                name: "Category",
-                url: "Trang-Chu/San-Pham-Inox/{id}",
-                defaults: new { controller = "Home", action = "Category", id = UrlParameter.Optional }
+                name: "Category1",
+                url: "San-Pham-Inox",
+                defaults: new { controller = "Home", action = "Category" }
             );
+           // routes.MapRoute(
+           //    name: "Customer1",
+           //    url: "Trang-Chu/Du-An-Inox",
+           //    defaults: new { controller = "Home", action = "Customer"}
+           //);
+
             routes.MapRoute(
-                name: "Customer",
-                url: "Trang-Chu/Du-An-Inox",
+                name: "Customer1",
+                url: "Du-An-Inox/{id}",
                 defaults: new { controller = "Home", action = "Customer", id = UrlParameter.Optional }
             );
             routes.MapRoute(
                 name: "Contact",
-                url: "Trang-Chu/Lien-He-Inox-ThaiBinh",
+                url: "Lien-He-Inox-ThaiBinh",
                 defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
-                name: "Product",
-                url: "Trang-Chu/Chi-Tiet-San-Pham-Inox/{id}",
-                defaults: new { controller = "Home", action = "Product", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "Product",
+            //    url: "Trang-Chu/Chi-Tiet-San-Pham-Inox/{id}",
+            //    defaults: new { controller = "Home", action = "Product", id = UrlParameter.Optional }
+            //);
+
+            routes.Add("ProductDetails", new GetSEOFriendlyRoute("Chi-tiet-Inox/{id}",
+            new RouteValueDictionary(new { controller = "Home", action = "Product" }),
+            new MvcRouteHandler()));  
+
             // route mặc định
             routes.MapRoute(
                 name: "Default",

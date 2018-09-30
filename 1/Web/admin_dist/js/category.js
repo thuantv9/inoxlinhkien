@@ -34,6 +34,9 @@ function getbyID(ID) {
     $('#CategoryId').css('border-color', 'lightgrey');   
     $('#CategoryName').css('border-color', 'lightgrey');
     $('#CategoryName').removeAttr('disabled');
+
+    $('#CategorySeo').css('border-color', 'lightgrey');
+    $('#CategorySeo').removeAttr('disabled');
     $.ajax({
         url: "/Base/GetCategoryById/" + ID,
         type: "GET",
@@ -42,6 +45,7 @@ function getbyID(ID) {
         success: function (result) {
             $('#CategoryId').val(result.CategoryId);           
             $('#CategoryName').val(result.CategoryName);           
+            $('#CategorySeo').val(result.CategorySeo);
 
             $('#myModalLabel').html('<span class="glyphicon glyphicon-envelope"></span> Chỉnh sửa chủng loại');
             $('#myModal').modal('show');
@@ -62,7 +66,14 @@ function validate() {
     }
     else {
         $('#CategoryName').css('border-color', 'lightgrey');
-    }    
+    }
+    if ($('#CategorySeo').val().trim() === "") {
+        $('#CategorySeo').css('border-color', 'red');
+        isvalidate = false;
+    }
+    else {
+        $('#CategorySeo').css('border-color', 'lightgrey');
+    }
     return isvalidate;
 }
 // Script cho phan Add: them moi Content
@@ -74,7 +85,8 @@ function Add() {
     var category =
     {
         CategoryId: $('#CategoryId').val(),        
-        CategoryName: $('#CategoryName').val()       
+        CategoryName: $('#CategoryName').val(),
+        CategorySeo: $('#CategorySeo').val()
     };
     //alert(JSON.stringify(category));
     $.ajax({
@@ -103,7 +115,8 @@ function Update() {
     var category =
     {
         CategoryId: $('#CategoryId').val(),
-        CategoryName: $('#CategoryName').val()        
+        CategoryName: $('#CategoryName').val(),
+        CategorySeo: $('#CategorySeo').val()
     };
     $.ajax({
         url: "/Base/UpdateCategory",
@@ -125,13 +138,16 @@ function Update() {
 function clearTextBox() {
     $('#CategoryId').val("");
     $('#CategoryName').val(""); 
-    
+    $('#CategorySeo').val("");
+
     $('#CategoryName').removeAttr('disabled');
     $('#CategoryId').removeAttr('disabled');
+    $('#CategorySeo').removeAttr('disabled');
 
     $('#btnUpdate').hide();
     $('#btnAdd').show();
-    $('#CategoryName').css('border-color', 'lightgrey');   
+    $('#CategoryName').css('border-color', 'lightgrey');
+    $('#CategorySeo').css('border-color', 'lightgrey');
 }
 // mở popup khi bấm nút add category
 function addpopup() {

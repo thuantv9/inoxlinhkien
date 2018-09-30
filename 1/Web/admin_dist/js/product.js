@@ -104,6 +104,7 @@ function getbyID(ID) {
     $('#CategoryId').css('border-color', 'lightgrey');
     $('#Dimenson').css('border-color', 'lightgrey');
     $('#Image').css('border-color', 'lightgrey');
+    $('#Seo').css('border-color', 'lightgrey');
     $('#Remark').css('border-color', 'lightgrey');
     $.ajax({
         url: "/Base/GetProductById/" + ID,
@@ -114,7 +115,7 @@ function getbyID(ID) {
             $('#Id').val(result.Id);
             $('#Name').val(result.Name);
             $('#MadeFrom').val(result.MadeFrom);
-
+            $('#Seo').val(result.Seo);
             //$('#CategoryId').find('option').remove().end();
             //$('#CategoryId').append('<option value="' + result.CategoryId + '">' + result.CategoryId + '</option>');
             $('#CategoryId option[value='+result.CategoryId+']').attr('selected','selected');
@@ -176,6 +177,14 @@ function validate() {
     else {
         $('#Image').css('border-color', 'lightgrey');
     }
+
+    if ($('#Seo').val().trim() === "") {
+        $('#Seo').css('border-color', 'red');
+        isvalidate = false;
+    }
+    else {
+        $('#Seo').css('border-color', 'lightgrey');
+    }
     return isvalidate;
 }
 
@@ -195,6 +204,7 @@ function Add() {
         CategoryId: $('#CategoryId').val(),
         Dimenson: $('#Dimenson').val(),
         Image: $('#Image').val(),
+        Seo: $('#Seo').val(),
         Remark: CKEDITOR.instances['Remark'].getData(),
         Status:1
     };
@@ -231,6 +241,7 @@ function Update() {
         CategoryId: $('#CategoryId').val(),
         Dimenson: $('#Dimenson').val(),
         Image: $('#Image').val(),
+        Seo: $('#Seo').val(),
         Remark: CKEDITOR.instances['Remark'].getData(),
         Status: 1
     };
@@ -260,6 +271,7 @@ function clearTextBox() {
     $('#CategoryId').find('option').remove().end();
     $('#Dimenson').val("");
     $('#Image').val("");
+    $('#Seo').val("");
     //$('#Remarks').val("");
     CKEDITOR.instances['Remark'].setData("")
 
@@ -269,6 +281,7 @@ function clearTextBox() {
     $('#CategoryId').removeAttr('disabled');
     $('#Dimenson').removeAttr('disabled');
     $('#Image').removeAttr('disabled');
+    $('#Seo').removeAttr('disabled');
     $('#Remark').removeAttr('disabled');
 
     $('#btnUpdate').hide();
@@ -276,7 +289,9 @@ function clearTextBox() {
     $('#Name').css('border-color', 'lightgrey');
     $('#CategoryId').css('border-color', 'lightgrey');
     $('#Dimenson').css('border-color', 'lightgrey');
+    $('#Seo').css('border-color', 'lightgrey');
     $('#Remark').css('border-color', 'lightgrey');
+
 
 }
 // mở popup khi bấm nút add category

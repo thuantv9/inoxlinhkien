@@ -13,6 +13,7 @@ CategoryId int,
 Dimenson ntext,
 Image ntext,
 Remark ntext,
+Seo nvarchar(200),
 Status bit
 )
 go
@@ -20,7 +21,8 @@ go
 create table Category
 (
 CategoryId int not null primary key,
-CategoryName nvarchar(100)
+CategoryName nvarchar(100),
+CategorySeo nvarchar(150)
 )
 go
 -- tạo bảng khách hàng (dùng cho phần hiển thị các dự án đã thực hiện)
@@ -203,7 +205,7 @@ create procedure dbo.GetProductById
 @Id int
 as
 begin
-select a.Id,a.Name,a.MadeFrom,a.CategoryId,a.Dimenson,a.Image,a.Remark,a.Status,b.CategoryName
+select a.Id,a.Name,a.MadeFrom,a.CategoryId,a.Dimenson,a.Image,a.Remark,a.Status,a.Seo,b.CategoryName
 from Product a, Category b
 where a.Id=@Id
 and b.CategoryId in
@@ -237,10 +239,11 @@ create procedure dbo.InsertProduct
 @Dimenson ntext,
 @Image ntext,
 @Remark ntext,
-@Status bit
+@Status bit,
+@Seo nvarchar(200)
 as
 begin
-	insert into Product(Id,Name,MadeFrom,CategoryId,Dimenson,Image,Remark,Status) values (@Id,@Name,@MadeFrom,@CategoryId,@Dimenson,@Image,@Remark,@Status); 
+	insert into Product(Id,Name,MadeFrom,CategoryId,Dimenson,Image,Remark,Status,Seo) values (@Id,@Name,@MadeFrom,@CategoryId,@Dimenson,@Image,@Remark,@Status,@Seo); 
 end
 go
 
@@ -257,11 +260,12 @@ create procedure dbo.UpdateProduct
 @Dimenson ntext,
 @Image ntext,
 @Remark ntext,
-@Status bit
+@Status bit,
+@Seo nvarchar(200)
 as
 begin
 	update Product
-	set	Name=@Name, MadeFrom=@MadeFrom, CategoryId=@CategoryId, Dimenson=@Dimenson,Image=@Image,Remark=@Remark, Status=@Status
+	set	Name=@Name, MadeFrom=@MadeFrom, CategoryId=@CategoryId, Dimenson=@Dimenson,Image=@Image,Remark=@Remark, Status=@Status, Seo=@Seo
 	where Id=@Id
 end
 go
@@ -322,10 +326,11 @@ IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 go
 create procedure dbo.InsertCategory
 @CategoryId int,
-@CategoryName nvarchar(100)
+@CategoryName nvarchar(100),
+@CategorySeo nvarchar(150)
 as
 begin
-	insert into Category values (@CategoryId,@CategoryName);
+	insert into Category values (@CategoryId,@CategoryName,@CategorySeo);
 end
 -- Update chủng loại
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
@@ -334,11 +339,12 @@ IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 go
 create procedure dbo.UpdateCategory
 @CategoryId int,
-@CategoryName nvarchar(100)
+@CategoryName nvarchar(100),
+@CategorySeo nvarchar(150)
 as
 begin
 	update  Category 
-	set CategoryName=@CategoryName
+	set CategoryName=@CategoryName, CategorySeo=@CategorySeo
 	where CategoryId=@CategoryId	
 end
 -- Delete chủng loại theo id, nếu còn sản phẩm của chủng loại thì không cho xóa

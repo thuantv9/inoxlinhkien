@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Web.Models.Category>
 @{
-    ViewBag.Title = "Sản phẩm công ty Inox Linh Kiên Thái Bình: chậu rửa inox, giường ionx, tủ bếp inox, xe đẩy inox, uy tin tại Thái Bình";
+    ViewBag.Title = "Sản phẩm công ty Inox Linh Kiên Thái Bình: chậu rửa inox, giường inox, tủ bếp inox, xe đẩy inox, uy tin tại Thái Bình";
     Layout = "~/Views/Share/_Home.cshtml";
 }
 @section categoriesstyle {
@@ -33,10 +33,10 @@
                             {
                                 foreach (var p in Model)
                                 {
-                                    <li><a href="@Url.Action("Category", "Home", new RouteValueDictionary(new { id= @p.CategoryId}))">@p.CategoryName</a></li>
+                                    <li><a href="@Url.Action("Category", "Home", new { id = p.GenerateItemNameAsParam()})">@p.CategoryName</a></li>
                                 }
                             }
-                        }                        
+                        }
                     </ul>
                 </div>
             </div>
@@ -109,16 +109,18 @@
                                             <div class="product-item men">
                                                 <div class="product discount product_filter">
                                                     <div class="product_image">
-                                                        <img src="@p.Image" alt="Inox Thái Bình, @p.Name,@p.MadeFrom">
+                                                        <a href="@Url.Action("Product", "Home", new { id = p.GenerateItemNameAsParam()})">
+                                                            <img src="@p.Image" alt="Inox Thái Bình, @p.Name,@p.MadeFrom">
+                                                        </a>
                                                     </div>
                                                     <div class="favorite favorite_left"></div>
 
                                                     <div class="product_info">
-                                                        <h6 class="product_name"><a href="@Url.Action("Product", "Home", new RouteValueDictionary(new { id=@p.Id}))">@p.Name</a></h6>
+                                                        <h6 class="product_name"><a href="@Url.Action("Product", "Home", new { id = p.GenerateItemNameAsParam()})">@p.Name</a></h6>
                                                         <div class="product_price">@p.MadeFrom</div>
                                                     </div>
                                                 </div>
-                                                <div class="red_button add_to_cart_button"><a href="@Url.Action("Product", "Home", new RouteValueDictionary(new { id=@p.Id}))">Xem chi tiết</a></div>
+                                                <div class="red_button add_to_cart_button"><a href="@Url.Action("Product", "Home", new { id = p.GenerateItemNameAsParam()})">Xem chi tiết</a></div>
                                             </div>
                                         }
                                     }

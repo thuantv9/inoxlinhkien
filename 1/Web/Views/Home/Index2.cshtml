@@ -122,15 +122,16 @@
                                 <div class="product-item @p.CategoryId">
                                     <div class="product discount product_filter">
                                         <div class="product_image">
-                                            <a href="@Url.Action("Product","Home",new RouteValueDictionary(new {id=@p.Id}))"><img src="@p.Image" alt="@p.Name,@p.MadeFrom,Thái Bình"></a>
+                                            <a href="@Url.Action("Product", "Home", new { id = p.GenerateItemNameAsParam()})"><img src="@p.Image" alt="@p.Name,@p.MadeFrom,Thái Bình"></a>
+                                             @*<a href="@Url.Action("Product","Home",new RouteValueDictionary(new {id=@p.Id}))"><img src="@p.Image" alt="@p.Name,@p.MadeFrom,Thái Bình"></a>*@
                                         </div>
                                         <div class="favorite favorite_left"></div>
                                         <div class="product_info">
-                                            <h6 class="product_name"><a href="@Url.Action("Product","Home",new RouteValueDictionary(new {id=@p.Id}))">@p.Name</a></h6>
+                                            <h6 class="product_name"><a href="@Url.Action("Product","Home",new { id = p.GenerateItemNameAsParam()})">@p.Name</a></h6>
                                             <div class="product_price">Chất liệu: @p.MadeFrom@*<span>@p.Dimenson</span>*@</div>
                                         </div>
                                     </div>
-                                    <div class="red_button add_to_cart_button"><a href="@Url.Action("Product","Home",new RouteValueDictionary(new {id=@p.Id}))">Xem chi tiết</a></div>
+                                    <div class="red_button add_to_cart_button"><a href="@Url.Action("Product","Home",new { id = p.GenerateItemNameAsParam()})">Xem chi tiết</a></div>
                                 </div>
                             }
                         }

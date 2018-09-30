@@ -34,7 +34,8 @@ namespace Web.Models
                             Dimenson = reader["Dimenson"].ToString(),
                             Image = reader["Image"].ToString(),
                             Remark = reader["Remark"].ToString(),
-                            Status = Boolean.Parse(reader["Status"].ToString())
+                            Status = Boolean.Parse(reader["Status"].ToString()),
+                            Seo = reader["Seo"].ToString(),
                         });
                     }
                     return products;
@@ -67,7 +68,8 @@ namespace Web.Models
                         Dimenson = reader["Dimenson"].ToString(),
                         Image = reader["Image"].ToString(),
                         Remark = reader["Remark"].ToString(),
-                        Status = Boolean.Parse(reader["Status"].ToString())
+                        Status = Boolean.Parse(reader["Status"].ToString()),
+                        Seo = reader["Seo"].ToString(),
                     });
                 }
                 return products;
@@ -94,6 +96,7 @@ namespace Web.Models
                     c.Image = reader["Image"].ToString();
                     c.Remark = reader["Remark"].ToString();                    
                     c.Status = Boolean.Parse(reader["Status"].ToString());
+                    c.Seo = reader["Seo"].ToString();    
                 }
                 return c;
             }
@@ -119,6 +122,7 @@ namespace Web.Models
                     c.Image = reader["Image"].ToString();
                     c.Remark = reader["Remark"].ToString();
                     c.Status = Boolean.Parse(reader["Status"].ToString());
+                    c.Seo = reader["Seo"].ToString();    
                 }
                 return c;
             }
@@ -138,6 +142,7 @@ namespace Web.Models
                 cmd.Parameters.AddWithValue("@CategoryId", Int32.Parse(product.CategoryId.ToString()));
                 cmd.Parameters.AddWithValue("@Dimenson", product.Dimenson);
                 cmd.Parameters.AddWithValue("@Image", product.Image);
+          
                 // Check remarks là null thì truyền null
                 if (product.Remark == null)
                 {
@@ -146,6 +151,15 @@ namespace Web.Models
                 else
                 {
                     cmd.Parameters.AddWithValue("@Remark", product.Remark);
+                }
+
+                if (product.Seo == null)
+                {
+                    cmd.Parameters.AddWithValue("@Seo", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Seo", product.Seo);
                 }
                 cmd.Parameters.AddWithValue("@Status", Boolean.Parse(product.Status.ToString()));
                 i = cmd.ExecuteNonQuery();
@@ -177,6 +191,15 @@ namespace Web.Models
                     cmd.Parameters.AddWithValue("@Remark", product.Remark);
                 }
                 cmd.Parameters.AddWithValue("@Status", Boolean.Parse(product.Status.ToString()));
+                // bo sung seo
+                if (product.Seo == null)
+                {
+                    cmd.Parameters.AddWithValue("@Seo", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Seo", product.Seo);
+                }
                 i = cmd.ExecuteNonQuery();
             }
             return i;
@@ -239,7 +262,7 @@ namespace Web.Models
                         {
                             CategoryId = Int32.Parse(reader["CategoryId"].ToString()),
                             CategoryName = reader["CategoryName"].ToString(),
-
+                            CategorySeo=reader["CategorySeo"].ToString()
                         });
                     }
                     return categories;
@@ -265,6 +288,7 @@ namespace Web.Models
                 {
                     c.CategoryId = Int32.Parse(reader["CategoryId"].ToString());
                     c.CategoryName = reader["CategoryName"].ToString();
+                    c.CategorySeo = reader["CategorySeo"].ToString();
                 }
                 return c;
             }
@@ -280,6 +304,7 @@ namespace Web.Models
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CategoryId", Int32.Parse(category.CategoryId.ToString()));
                 cmd.Parameters.AddWithValue("@CategoryName", category.CategoryName);
+                cmd.Parameters.AddWithValue("@CategorySeo", category.CategorySeo);
                 i = cmd.ExecuteNonQuery();
             }
             return i;
@@ -295,6 +320,7 @@ namespace Web.Models
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@CategoryId", Int32.Parse(category.CategoryId.ToString()));
                 cmd.Parameters.AddWithValue("@CategoryName", category.CategoryName.ToString());
+                cmd.Parameters.AddWithValue("@CategorySeo", category.CategorySeo.ToString());
                 i = cmd.ExecuteNonQuery();
             }
             return i;
