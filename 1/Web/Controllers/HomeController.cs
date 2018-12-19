@@ -17,7 +17,6 @@ namespace Web.Controllers
             ViewBag.Customer = dbcontext.GetAllCustomer();
             return View(dbcontext.GetAllProduct());
         }
-       
         public ActionResult Index2()
         {
             ViewBag.Product = dbcontext.GetAllProduct();
@@ -27,7 +26,6 @@ namespace Web.Controllers
         }
         public ActionResult Category()
         {
-           
             var id = Url.RequestContext.RouteData.Values["id"];
             // truyền categoryid
             if (id == null)
@@ -70,6 +68,13 @@ namespace Web.Controllers
         {
             return View(dbcontext.GetProductById(id));
         }
-      
+        public ActionResult News(int id)
+        {
+            return View(dbcontext.GetNewsById(id));
+        }
+        public ActionResult NewsAll()
+        {
+            return View(dbcontext.GetAllNews());
+        }
     }
 }

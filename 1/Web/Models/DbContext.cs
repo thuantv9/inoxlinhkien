@@ -94,9 +94,9 @@ namespace Web.Models
                     c.CategoryId = Int32.Parse(reader["CategoryId"].ToString());
                     c.Dimenson = reader["Dimenson"].ToString();
                     c.Image = reader["Image"].ToString();
-                    c.Remark = reader["Remark"].ToString();                    
+                    c.Remark = reader["Remark"].ToString();
                     c.Status = Boolean.Parse(reader["Status"].ToString());
-                    c.Seo = reader["Seo"].ToString();    
+                    c.Seo = reader["Seo"].ToString();
                 }
                 return c;
             }
@@ -122,7 +122,7 @@ namespace Web.Models
                     c.Image = reader["Image"].ToString();
                     c.Remark = reader["Remark"].ToString();
                     c.Status = Boolean.Parse(reader["Status"].ToString());
-                    c.Seo = reader["Seo"].ToString();    
+                    c.Seo = reader["Seo"].ToString();
                 }
                 return c;
             }
@@ -142,7 +142,7 @@ namespace Web.Models
                 cmd.Parameters.AddWithValue("@CategoryId", Int32.Parse(product.CategoryId.ToString()));
                 cmd.Parameters.AddWithValue("@Dimenson", product.Dimenson);
                 cmd.Parameters.AddWithValue("@Image", product.Image);
-          
+
                 // Check remarks là null thì truyền null
                 if (product.Remark == null)
                 {
@@ -262,7 +262,7 @@ namespace Web.Models
                         {
                             CategoryId = Int32.Parse(reader["CategoryId"].ToString()),
                             CategoryName = reader["CategoryName"].ToString(),
-                            CategorySeo=reader["CategorySeo"].ToString()
+                            CategorySeo = reader["CategorySeo"].ToString()
                         });
                     }
                     return categories;
@@ -373,7 +373,7 @@ namespace Web.Models
                             CustomerImage = reader["CustomerImage"].ToString(),
                             CustomerDescription = reader["CustomerDescription"].ToString(),
                             CustomerRemark = reader["CustomerRemark"].ToString()
-                            
+
                         });
                     }
                     return customers;
@@ -403,7 +403,7 @@ namespace Web.Models
                     c.CustomerImage = reader["CustomerImage"].ToString();
                     c.CustomerDescription = reader["CustomerDescription"].ToString();
                     c.CustomerRemark = reader["CustomerRemark"].ToString();
-                  
+
                 }
                 return c;
             }
@@ -544,11 +544,11 @@ namespace Web.Models
             }
             return i;
         }
-        
+
 
         #endregion
         #region Table User
-        
+
         #endregion
         #region Table SlideImage
         // lấy tất cả slide anh
@@ -569,7 +569,7 @@ namespace Web.Models
                         {
                             SlideId = Int32.Parse(reader["SlideId"].ToString()),
                             SlideImageName = reader["SlideImageName"].ToString(),
-                            
+
                         });
                     }
                     return slides;
@@ -595,7 +595,7 @@ namespace Web.Models
             }
             return i;
         }
-       
+
         #endregion
         #region Table Order
         // lấy tất cả đơn hàng
@@ -617,7 +617,7 @@ namespace Web.Models
                             OrderId = Int32.Parse(reader["OrderId"].ToString()),
                             CustomerName = reader["CustomerName"].ToString(),
                             Creator = reader["Creator"].ToString(),
-                            CreateDate =Convert.ToDateTime(reader["CreateDate"].ToString())
+                            CreateDate = Convert.ToDateTime(reader["CreateDate"].ToString())
                         });
                     }
                     return orders;
@@ -730,7 +730,7 @@ namespace Web.Models
                 cmd.Parameters.AddWithValue("@OrderItemId", Int32.Parse(orderitem.OrderItemId.ToString()));
                 cmd.Parameters.AddWithValue("@OrderId", Int32.Parse(orderitem.OrderId.ToString()));
                 cmd.Parameters.AddWithValue("@ProductId", Int32.Parse(orderitem.ProductId.ToString()));
-                cmd.Parameters.AddWithValue("@Quantity", Int32.Parse(orderitem.Quantity.ToString()));                
+                cmd.Parameters.AddWithValue("@Quantity", Int32.Parse(orderitem.Quantity.ToString()));
                 i = cmd.ExecuteNonQuery();
             }
             return i;
@@ -754,7 +754,7 @@ namespace Web.Models
         }
         #endregion
         #region News
-         // lấy tất cả tin tức
+        // lấy tất cả tin tức
         public List<News> GetAllNews()
         {
             List<News> newss = new List<News>();
@@ -773,7 +773,9 @@ namespace Web.Models
                             NewsId = Int32.Parse(reader["NewsId"].ToString()),
                             NewsName = reader["NewsName"].ToString(),
                             NewsImage = reader["NewsImage"].ToString(),
-                            NewsRemark = reader["NewsRemark"].ToString()                                                       
+                            NewsDescription = reader["NewsDescription"].ToString(),
+                            NewsRemark = reader["NewsRemark"].ToString(),
+                            NewsMadeby = reader["NewsMadeby"].ToString()
                         });
                     }
                     return newss;
@@ -784,7 +786,6 @@ namespace Web.Models
                 return null;
             }
         }
-
         // láy tin tức theo id
         public News GetNewsById(int id)
         {
@@ -801,7 +802,9 @@ namespace Web.Models
                     c.NewsId = Int32.Parse(reader["NewsId"].ToString());
                     c.NewsName = reader["NewsName"].ToString();
                     c.NewsImage = reader["NewsImage"].ToString();
-                    c.NewsRemark = reader["NewsRemark"].ToString();                   
+                    c.NewsDescription = reader["NewsDescription"].ToString();
+                    c.NewsRemark = reader["NewsRemark"].ToString();
+                    c.NewsMadeby = reader["NewsMadeby"].ToString();
                 }
                 return c;
             }
@@ -826,7 +829,7 @@ namespace Web.Models
                 {
                     cmd.Parameters.AddWithValue("@NewsImage", news.NewsImage);
                 }
-                // Check CustomerDescription là null thì truyền null
+                // Check newsremark là null thì truyền null
                 if (news.NewsRemark == null)
                 {
                     cmd.Parameters.AddWithValue("@NewsRemark", DBNull.Value);
@@ -835,7 +838,25 @@ namespace Web.Models
                 {
                     cmd.Parameters.AddWithValue("@NewsRemark", news.NewsRemark);
                 }
-               
+                // check NewsDescription la null 
+                if (news.NewsDescription == null)
+                {
+                    cmd.Parameters.AddWithValue("@NewsDescription", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@NewsDescription", news.NewsDescription);
+                }
+                // check NewsMadeby la null
+                if (news.NewsMadeby == null)
+                {
+                    cmd.Parameters.AddWithValue("@NewsMadeby", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@NewsMadeby", news.NewsMadeby);
+                }
+
                 i = cmd.ExecuteNonQuery();
             }
             return i;
@@ -869,13 +890,30 @@ namespace Web.Models
                 {
                     cmd.Parameters.AddWithValue("@NewsRemark", news.NewsRemark);
                 }
-               
+                // check NewsDescription la null 
+                if (news.NewsDescription == null)
+                {
+                    cmd.Parameters.AddWithValue("@NewsDescription", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@NewsDescription", news.NewsDescription);
+                }
+                // check NewsMadeby la null
+                if (news.NewsMadeby == null)
+                {
+                    cmd.Parameters.AddWithValue("@NewsMadeby", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@NewsMadeby", news.NewsMadeby);
+                }
                 i = cmd.ExecuteNonQuery();
             }
             return i;
         }
-       
-         // lấy số Id Customer tiếp theo
+
+        // lấy số Id Customer tiếp theo
         public int GetNextNewsId()
         {
             int i = 1;
@@ -899,7 +937,7 @@ namespace Web.Models
             }
             return i;
         }
-       
+
         #endregion
     }
 }

@@ -5,22 +5,12 @@ $(document).ready(function () {
     loaddatabyHung();    
 });
 //ckfinder
-function BrowseServer() {
-    // You can use the "CKFinder" class to render CKFinder in a page:
+function BrowseServer() {  
     var finder = new CKFinder();
-    finder.basePath = '/ckfinder/';	// The path for the installation of CKFinder (default = "/ckfinder/").
+    finder.basePath = '/ckfinder/';	
     finder.selectActionFunction = SetFileField;
     finder.popup();
-
-    // It can also be done in a single line, calling the "static"
-    // popup( basePath, width, height, selectFunction ) function:
-    // CKFinder.popup( '../', null, null, SetFileField ) ;
-    //
-    // The "popup" function can also accept an object as the only argument.
-    // CKFinder.popup( { basePath : '../', selectActionFunction : SetFileField } ) ;
 }
-
-// This is a sample function which is called when a file is selected in CKFinder.
 function SetFileField(fileUrl) {
     document.getElementById('NewsImage').value = fileUrl;
 }
@@ -78,7 +68,9 @@ function getbyID(ID) {
     $('#NewsId').attr('disabled', 'disabled');
     $('#NewsName').css('border-color', 'lightgrey');   
     $('#NewsImage').css('border-color', 'lightgrey');
+    $('#NewsDescription').css('border-color', 'lightgrey');
     $('#NewsRemark').css('border-color', 'lightgrey');
+    $('#NewsMadeby').css('border-color', 'lightgrey');
     $.ajax({
         url: "/Base/GetNewsById/" + ID,
         type: "GET",
@@ -88,8 +80,9 @@ function getbyID(ID) {
             $('#NewsId').val(result.NewsId);
             $('#NewsName').val(result.NewsName);           
             $('#NewsImage').val(result.NewsImage);
+            $('#NewsMadeby').val(result.NewsMadeby);
             CKEDITOR.instances['NewsRemark'].setData(result.NewsRemark);
-
+            CKEDITOR.instances['NewsDescription'].setData(result.NewsDescription);
             $('#myModalLabel').html('<span class="glyphicon glyphicon-envelope"></span> Chỉnh sửa tin');
             $('#myModal').modal('show');
             $('#btnUpdate').show();
@@ -131,7 +124,6 @@ function validate() {
     return isvalidate;
 }
 
-
 // Script cho phan Add: them moi Content
 function Add() {   
     var res = validate();
@@ -143,7 +135,9 @@ function Add() {
         NewsId: $('#NewsId').val(),
         NewsName: $('#NewsName').val(),       
         NewsImage: $('#NewsImage').val(),
-        NewsRemark: CKEDITOR.instances['NewsRemark'].getData()        
+        NewsDescription: CKEDITOR.instances['NewsDescription'].getData(),
+        NewsRemark: CKEDITOR.instances['NewsRemark'].getData(),
+        NewsMadeby: $('#NewsMadeby').val()
     };  
     $.ajax({
         url: "/Base/InsertNews",
@@ -162,7 +156,6 @@ function Add() {
     });
 
 }
-
 // fucntion Update dữ liệu
 function Update() {
     var res = validate();
@@ -174,7 +167,9 @@ function Update() {
         NewsId: $('#NewsId').val(),
         NewsName: $('#NewsName').val(),
         NewsImage: $('#NewsImage').val(),
-        NewsRemark: CKEDITOR.instances['NewsRemark'].getData()
+        NewsDescription: CKEDITOR.instances['NewsDescription'].getData(),
+        NewsRemark: CKEDITOR.instances['NewsRemark'].getData(),
+        NewsMadeby: $('#NewsMadeby').val()
     };
     $.ajax({
         url: "/Base/UpdateNews",
@@ -203,8 +198,9 @@ function clearTextBox() {
     //$('#NewsId').removeAttr('disabled');
     $('#NewsName').removeAttr('disabled');   
     $('#NewsImage').removeAttr('disabled');
+    $('#NewsDescription').removeAttr('disabled');
     $('#NewsRemark').removeAttr('disabled');
-
+    $('#NewsMadeby').removeAttr('disabled');
     $('#btnUpdate').hide();
     $('#btnAdd').show();
     $('#NewsName').css('border-color', 'lightgrey');

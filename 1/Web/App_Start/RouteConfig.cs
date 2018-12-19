@@ -90,12 +90,7 @@ namespace Web
                 url: "Lien-He-Inox-ThaiBinh",
                 defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional }
             );
-            //routes.MapRoute(
-            //    name: "Product",
-            //    url: "Trang-Chu/Chi-Tiet-San-Pham-Inox/{id}",
-            //    defaults: new { controller = "Home", action = "Product", id = UrlParameter.Optional }
-            //);
-
+            
             routes.Add("ProductDetails", new GetSEOFriendlyRoute("Chi-tiet-Inox/{id}",
             new RouteValueDictionary(new { controller = "Home", action = "Product" }),
             new MvcRouteHandler()));  

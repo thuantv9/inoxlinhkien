@@ -13,9 +13,9 @@ namespace Web.Common
     }
     public class CommonFunction
     {
-        public static bool GetLoginStatus(string UserId, string Password)
+        public static bool GetLoginStatus(string UserName, string Password)
         {
-            string sqlcommand = string.Format("select count(1) from Users where UserId = '{0}' and Password = '{1}'", UserId, Password);
+            string sqlcommand = string.Format("select count(1) from Users where UserName = '{0}' and Password = '{1}'", UserName, Password);
             return (int)SqlHelper.ExecuteScalar(Const.Connectring, CommandType.Text, sqlcommand) > 0;
         }
     }

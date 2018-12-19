@@ -20,7 +20,20 @@
 13. 400px
 
 ******************************/
+@media (max-width: @screen-xs) {
+    body{font-size: 10px;}
+    .footer_social {
+    float:left;
+    }
+}
 
+@media (max-width: @screen-sm) {
+    body{font-size: 12px;}
+     .footer_social {
+    float:left;
+    }
+
+}
 
 @media only screen and (max-width: 1600px)
 {
@@ -144,9 +157,9 @@
 	{
 		width: 25%;
 	}
-	.top_nav
+	.top_nav_right span
 	{
-		display: none;
+		color:#fe4c50;
 	}
 	.navbar_menu
 	{
@@ -156,15 +169,10 @@
 	{
 		display: block;
 	}
-	.main_slider
-	{
-		margin-top: 100px;
-	}
-	.main_slider_content
-	{
-		width: 100%;
-		padding-right: 15px;
-	}
+    .logo_container a{
+        margin: 0 auto auto 0;
+    }
+	
 	.banner_item
 	{
 		height: 160px;

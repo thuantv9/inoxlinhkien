@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace Web.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
-        //
-        // GET: /Admin/
+        
         public ActionResult Product()
         {
             return View();
@@ -42,5 +42,5 @@ namespace Web.Controllers
         {
             return View();
         }
-	}
+    }
 }

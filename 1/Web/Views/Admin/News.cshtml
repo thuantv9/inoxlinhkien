@@ -45,10 +45,17 @@
                         <div class="form-group">
                             <input type="button" value="Thay ảnh" onclick="BrowseServer();" />
                         </div>
-
+                        <div class="form-group">
+                            <label for="NewsDescription">Mô tả ngắn gọn</label>
+                            <textarea id="NewsDescription" name="txtArea" class="ckeditor form-control" rows="2" cols="20" placeholder="Mô tả ngắn gọn"></textarea>
+                        </div>
                         <div class="form-group">
                             <label for="NewsRemark">Chi tiết tin</label>
                             <textarea id="NewsRemark" name="txtArea" class="ckeditor form-control" rows="2" cols="20" placeholder="Chi tiết"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="NewsMadeby">Viết bởi <span class="labels">(*)</span></label>
+                            <input type="text" class="form-control" id="NewsMadeby" placeholder="Viết bởi"/>
                         </div>
                     </div>
                     <div class="modal-footer">
