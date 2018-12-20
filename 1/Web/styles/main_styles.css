@@ -562,7 +562,7 @@ section {
 }
 
     .logo_container a {
-        font-size:2.3rem;
+        font-size: 2.3rem;
         color: #1e1e27;
         font-weight: 700;
         padding-left: 35px;
@@ -840,10 +840,14 @@ section {
 }
 
     .product_price a {
-        font-size: 15px;
-        color: #fe4c50;
+        font-size: 1rem;
+        color: #000000;
         font-weight: 600;
     }
+
+        .product_price a:hover {
+            color: #fe4c50;
+        }
 
     .product_price span {
         font-size: 12px;
@@ -1379,11 +1383,12 @@ section {
             -o-transition: all 300ms ease;
             transition: all 300ms ease;
             font-size: 1.5rem;
-             line-height: 2rem;
+            line-height: 2rem;
         }
-        .footer_social li a:hover {
-            color: #fe4c50;
-        }
+
+            .footer_social li a:hover {
+                color: #fe4c50;
+            }
 
 /* Thêm mới vào đây*/
 /* Trang About*/
@@ -1453,20 +1458,60 @@ section {
 
 /*Trang NewsAll*/
 .newsall {
-margin-top:6rem;
+    margin-top: 6rem;
 }
+
 .newsall_item {
-margin : 3rem auto 3rem auto;
-border-bottom : 1px solid #ebebeb;
+    margin: 3rem auto 3rem auto;
+    border-bottom: 1px solid #ebebeb;
 }
+
 .newsall_item_image {
-max-width:100%;
+    max-width: 100%;
 }
+
 .newsall_item_content {
-padding-left:1rem;
+    padding-left: 1rem;
 }
-.newsall_item_content_title{
-    font-size:1.2rem;
-    font-weight:500;
-    color:#000000;
+
+.newsall_item_content_title a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #000000;
+    text-decoration: none;
+}
+
+    .newsall_item_content_title a:hover {
+        color: #fe4c50;
+    }
+/* Trang News*/
+.news {
+    margin: 11rem auto 1rem auto;
+}
+
+.news_content {
+    border-right: 1px solid #ebebeb;
+    padding-right: 1rem;
+}
+
+.news_remark img {
+    max-width: 100%;
+}
+
+.news_remark {
+    padding-bottom: 1rem;
+}
+
+.news_title {
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    font-size: 1.3rem;
+    color: #000000;
+    font-weight: 500;
+}
+
+.news_side img {
+    max-width: 100%;
+    padding-bottom: 1.2rem;
+    display: block;
 }

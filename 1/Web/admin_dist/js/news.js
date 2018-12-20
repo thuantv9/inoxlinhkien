@@ -192,8 +192,10 @@ function Update() {
 function clearTextBox() {
     $('#NewsId').val("");
     $('#NewsName').val("");   
-    $('#NewsImage').val("");  
+    $('#NewsImage').val("");
+    $('#NewsMadeby').val("");
     CKEDITOR.instances['NewsRemark'].setData("")
+    CKEDITOR.instances['NewsDescription'].setData("")
 
     //$('#NewsId').removeAttr('disabled');
     $('#NewsName').removeAttr('disabled');   

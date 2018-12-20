@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Web.Controllers
 {
-    [Authorize]
+   
     public class AdminController : Controller
     {
         
