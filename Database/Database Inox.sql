@@ -692,7 +692,7 @@ go
 create procedure dbo.GetAllNews
 as
 begin
-	select * from News
+	select * from News order by NewsId desc
 end
 go
 
