@@ -1393,50 +1393,22 @@ section {
 /* Thêm mới vào đây*/
 /* Trang About*/
 #about1 {
-    /*background-image: url("/images/bg3.jpg");*/
-    background-size: cover;
+    /*background-size: cover;
     background-position: center center;
     background-repeat: repeat-x;
-    display: block;
-    padding-top: 150px;
-    padding-bottom: 80px;
-}
-
-.ltext-105 {
-    font-family: Poppins-Bold;
-    font-size: 50px;
-    line-height: 1.1;
-}
-
-.cl0 {
-    color: #fff;
-    display: block;
-}
-
-.mtext-111 {
-    font-family: Poppins-Bold;
-    font-size: 25px;
-    line-height: 1.2;
-}
-
-.cl2 {
-    color: #333;
-}
-
-.p-b-16, .p-tb-16, .p-all-16 {
-    padding-bottom: 16px;
+    display: block;*/
+    padding-top: 11rem;
+    padding-bottom: 2rem;
 }
 
 #about_story {
-    padding-top: 10px;
-    padding-bottom: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-top: 3rem;
+    padding-bottom:3rem;
+    border-bottom: 1px solid #ebebeb;
 }
 
     #about_story p {
         color: #000;
-        /*font-family: Poppins-Light;*/
         font-size: 16px;
         line-height: 1.7857;
         padding-bottom: 4px;
@@ -1446,15 +1418,9 @@ section {
         color: #fe4c50;
     }
 
-    #about_story img {
-        display: block;
-        overflow: hidden;
-        width: 100%;
-        transition: transform 0.9s ease;
-        vertical-align: middle;
-        border-style: none;
-        box-sizing: border-box;
-    }
+.about_img img {
+    max-width: 100%;
+}
 
 /*Trang NewsAll*/
 .newsall {

@@ -1444,6 +1444,7 @@
     <Content Include="ckfinder\skins\v1\skin.js" />
     <Content Include="ckfinder\skins\v1\uipanel.css" />
     <Content Include="ckfinder\translations.txt" />
+    <Content Include="images\avatarnew.jpg" />
     <Content Include="images\banner_1.jpg" />
     <Content Include="images\banner_2.jpg" />
     <Content Include="images\banner_3.jpg" />
@@ -1474,6 +1475,9 @@
     <Content Include="images\icon\ms-icon-310x310.png" />
     <Content Include="images\icon\ms-icon-70x70.png" />
     <Content Include="images\phuongcham.jpg" />
+    <Content Include="images\side.jpg" />
+    <Content Include="images\side2.png" />
+    <Content Include="images\tubep10_sua.png" />
     <Content Include="plugins\Isotope\isotope.pkgd.min.js" />
     <Content Include="styles\nivo-slider.css" />
     <Content Include="admin_dist\css\owl.carousel.css" />
