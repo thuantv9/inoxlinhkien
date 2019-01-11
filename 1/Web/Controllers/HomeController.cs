@@ -22,6 +22,7 @@ namespace Web.Controllers
             ViewBag.Product = dbcontext.GetAllProduct();
             ViewBag.Customer = dbcontext.GetAllCustomer();
             ViewBag.News = dbcontext.GetAllNews().Take(3);
+            ViewBag.Slide = dbcontext.GetAllSlideImage();
             return View(dbcontext.GetAllCategory());
         }
         public ActionResult Category()

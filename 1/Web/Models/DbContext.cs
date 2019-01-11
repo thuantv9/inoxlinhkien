@@ -753,7 +753,7 @@ namespace Web.Models
             return i;
         }
         #endregion
-        #region News
+        #region Table News
         // lấy tất cả tin tức
         public List<News> GetAllNews()
         {
@@ -938,6 +938,9 @@ namespace Web.Models
             return i;
         }
 
+        #endregion
+        #region Table Slide
+        
         #endregion
     }
 }

@@ -162,6 +162,22 @@
                 </div>
             </div>
         </footer>
+
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
+                fjs.parentNode.insertBefore(js, fjs);
+
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="fbchatbox hidden-xs" style="position:fixed;right:10px;bottom:0;z-index:9999">
+            <div class="fb-page" data-href="https://www.facebook.com/Inox-Linh-Ki%C3%AAn-Th%C3%A1i-B%C3%ACnh-2175699859341086/" data-small-header="true" data-adapt-container-width="false" data-height="300" data-width="300" data-hide-cover="true" data-show-facepile="true" data-show-posts="false" data-tabs="messages"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Inox-Linh-Ki%C3%AAn-Th%C3%A1i-B%C3%ACnh-2175699859341086/"><a href="https://www.facebook.com/Inox-Linh-Ki%C3%AAn-Th%C3%A1i-B%C3%ACnh-2175699859341086/">https://www.facebook.com/Inox-Linh-Ki%C3%AAn-Th%C3%A1i-B%C3%ACnh-2175699859341086/</a></blockquote></div></div>
+            <span class="hide" id="closefbchat" style="right:0px;white-space: nowrap;position:absolute;bottom:299px;width:300px;padding:7px; background: #44619D;color: #fff;cursor: pointer;">Tắt Hỗ Trợ</span>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -172,7 +188,36 @@
     <script src="/plugins/easing/easing.js"></script>
     <script src="/js/custom.js"></script>
     <script src="/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
 
+    <script>
+        if (localStorage.getItem("fbchatclose") == 1) {
+
+            jQuery('.fb-page').toggleClass('hide');
+
+            jQuery('#closefbchat').html('<i class="fa fa-comments fa-2x"></i> Hỗ Trợ Khách Hàng').css({ 'bottom': 0 });
+        }
+
+        setTimeout(function () {
+            $("#closefbchat").removeClass("hide");
+        }, 1000);
+
+
+        jQuery('#closefbchat').click(function () {
+            jQuery('.fb-page').toggleClass('hide');
+            if (jQuery('.fb-page').hasClass('hide')) {
+                localStorage.setItem("fbchatclose", 1);
+
+                jQuery('#closefbchat').html('<i class="fa fa-comments fa-2x"></i> Hỗ Trợ Khách Hàng').css({ 'bottom': 0 });
+            }
+            else {
+                localStorage.setItem("fbchatclose", 0);
+                jQuery('#closefbchat').text('Tắt Hỗ Trợ').css({ 'bottom': 299 });
+            }
+        });
+    </script>
     @*<script src="/js/jquery.flexslider.js"></script>*@
     @RenderSection("categoriesjs", false)
 

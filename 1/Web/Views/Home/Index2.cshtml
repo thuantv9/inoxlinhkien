@@ -1,4 +1,5 @@
 ﻿@model  IEnumerable<Web.Models.Category>
+@using Web.Models;
 @{
     ViewBag.Title = "Thiết bị Inox Linh Kiên- Chuyên cung cấp thiết bị inox, tủ bếp, giường bệnh viện, xe đẩy inox tại Thái Bình";
     Layout = "~/Views/Share/_Home.cshtml";
@@ -8,17 +9,29 @@
         <!-- Indicators -->
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active">
-                <img src="/images/nivo/slide-1.jpg" alt="Inox tại các nhà hàng: chậu rửa, bếp công nghiệp inox" class="img-responsive">
-            </div>
+            @*<div class="item active">
+                    <img src="/images/nivo/slide-1.jpg" alt="Inox tại các nhà hàng: chậu rửa, bếp công nghiệp inox" class="img-responsive">
+                </div>
 
-            <div class="item">
-                <img src="/images/nivo/slide-2.jpg" alt="Inox tại các bệnh viện Thái bình: giường Inox, xe tiêm, xe đẩy" class="img-responsive">
-            </div>
+                <div class="item">
+                    <img src="/images/nivo/slide-2.jpg" alt="Inox tại các bệnh viện Thái bình: giường Inox, xe tiêm, xe đẩy" class="img-responsive">
+                </div>
 
-            <div class="item">
-                <img src="/images/nivo/slide-3.jpg" alt="Inox tại các công trình dân dụng Thái Bình: tủ cá nhân, giường, tủ bếp " class="img-responsive">
-            </div>
+                <div class="item">
+                    <img src="/images/nivo/slide-3.jpg" alt="Inox tại các công trình dân dụng Thái Bình: tủ cá nhân, giường, tủ bếp " class="img-responsive">
+                </div>*@
+            @{
+                IEnumerable<SlideImage> slides = (ViewBag.Slide as IEnumerable<SlideImage>).Take(5);                
+                if (slides.Count() > 0)
+                {
+                    foreach (SlideImage slide in slides)
+                    {
+                        <div class="item">
+                            <img src="@slide.SlideImageName" alt="Inox nhà hàng, tủ nấu cơm inox" class="img-responsive">
+                        </div>
+                    }
+                }
+            }
         </div>
 
         <!-- Left and right controls -->
@@ -91,7 +104,7 @@
                                 }
                                 foreach (var p in listcategory)
                                 {
-                        <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".@p.CategoryId">@p.CategoryName</li>
+                                    <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".@p.CategoryId">@p.CategoryName</li>
                                 }
                             }
                         }
@@ -110,20 +123,20 @@
                         {
                             foreach (var p in getlistproduct)
                             {
-                    <div class="product-item @p.CategoryId">
-                        <div class="product discount product_filter">
-                            <div class="product_image">
-                                <a href="@Url.Action("Product", "Home", new { id = p.GenerateItemNameAsParam()})"><img src="@p.Image" alt="@p.Name,@p.MadeFrom,Thái Bình"></a>
-                                @*<a href="@Url.Action("Product","Home",new RouteValueDictionary(new {id=@p.Id}))"><img src="@p.Image" alt="@p.Name,@p.MadeFrom,Thái Bình"></a>*@
-                            </div>
-                            <div class="favorite favorite_left"></div>
-                            <div class="product_info">
-                                <h6 class="product_name"><a href="@Url.Action("Product","Home",new { id = p.GenerateItemNameAsParam()})">@p.Name</a></h6>
-                                <div class="product_price">Chất liệu: @p.MadeFrom@*<span>@p.Dimenson</span>*@</div>
-                            </div>
-                        </div>
-                        <div class="red_button add_to_cart_button"><a href="@Url.Action("Product","Home",new { id = p.GenerateItemNameAsParam()})">Xem chi tiết</a></div>
-                    </div>
+                                <div class="product-item @p.CategoryId">
+                                    <div class="product discount product_filter">
+                                        <div class="product_image">
+                                            <a href="@Url.Action("Product", "Home", new { id = p.GenerateItemNameAsParam()})"><img src="@p.Image" alt="@p.Name,@p.MadeFrom,Thái Bình"></a>
+                                            @*<a href="@Url.Action("Product","Home",new RouteValueDictionary(new {id=@p.Id}))"><img src="@p.Image" alt="@p.Name,@p.MadeFrom,Thái Bình"></a>*@
+                                        </div>
+                                        <div class="favorite favorite_left"></div>
+                                        <div class="product_info">
+                                            <h6 class="product_name"><a href="@Url.Action("Product","Home",new { id = p.GenerateItemNameAsParam()})">@p.Name</a></h6>
+                                            <div class="product_price">Chất liệu: @p.MadeFrom@*<span>@p.Dimenson</span>*@</div>
+                                        </div>
+                                    </div>
+                                    <div class="red_button add_to_cart_button"><a href="@Url.Action("Product","Home",new { id = p.GenerateItemNameAsParam()})">Xem chi tiết</a></div>
+                                </div>
                             }
                         }
                     }
