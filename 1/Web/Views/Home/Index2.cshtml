@@ -20,15 +20,27 @@
                 <div class="item">
                     <img src="/images/nivo/slide-3.jpg" alt="Inox tại các công trình dân dụng Thái Bình: tủ cá nhân, giường, tủ bếp " class="img-responsive">
                 </div>*@
+
             @{
-                IEnumerable<SlideImage> slides = (ViewBag.Slide as IEnumerable<SlideImage>).Take(5);                
+                int k = 0;
+                IEnumerable<SlideImage> slides = (ViewBag.Slide as IEnumerable<SlideImage>).Take(5);
                 if (slides.Count() > 0)
                 {
                     foreach (SlideImage slide in slides)
                     {
-                        <div class="item">
-                            <img src="@slide.SlideImageName" alt="Inox nhà hàng, tủ nấu cơm inox" class="img-responsive">
-                        </div>
+                        if (k == 0)
+                        {
+                            <div class="item active">
+                                <img src="@slide.SlideImageName" alt="Inox nhà hàng, tủ nấu cơm inox" class="img-responsive">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="item ">
+                                <img src="@slide.SlideImageName" alt="Inox nhà hàng, tủ nấu cơm inox" class="img-responsive">
+                            </div>
+                        }
+                        k++;
                     }
                 }
             }

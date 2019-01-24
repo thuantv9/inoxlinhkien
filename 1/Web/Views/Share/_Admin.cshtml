@@ -60,17 +60,17 @@
                             <span>Khách hàng</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="" href="@Url.Action("User","Admin")">
-                            <i class="icon_piechart"></i>
-                            <span>Người dùng</span>
-                        </a>
-                    </li>
-
                     <li class="sub-menu">
                         <a href="@Url.Action("News","Admin")" class="">
                             <i class="icon_documents_alt"></i>
                             <span>Tin tức</span>
+                        </a>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="@Url.Action("SlideImage", "Admin")" class="">
+                            <i class="icon_documents_alt"></i>
+                            <span>Slide hình ảnh</span>
                         </a>
                     </li>
                 </ul>
@@ -103,5 +103,6 @@
     @RenderSection("userjs", required: false)
     @RenderSection("orderjs", required: false)
     @RenderSection("newsjs", required: false)   
+    @RenderSection("slidejs",required:false)
 </body>
 </html>

@@ -595,7 +595,87 @@ namespace Web.Models
             }
             return i;
         }
-
+        // láy slide theo id
+        public SlideImage GetSlideById(int id)
+        {
+            SlideImage c = new SlideImage();
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("GetSlideById", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SlideId", id);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    c.SlideId = Int32.Parse(reader["SlideId"].ToString());
+                    c.SlideImageName = reader["SlideImageName"].ToString();                   
+                }
+                return c;
+            }
+        }
+        // lấy số Id News tiếp theo
+        public int GetNextSlideId()
+        {
+            int i = 1;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("GetNextSlideId", con);
+                com.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = com.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
+                    {
+                        i = Int32.Parse(reader[0].ToString());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return i;
+                }
+            }
+            return i;
+        }
+        // Cập nhật slide
+        public int UpdateSlide(SlideImage slide)
+        {
+            int i;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UpdateSlide", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SlideId", Int32.Parse(slide.SlideId.ToString()));
+                cmd.Parameters.AddWithValue("@SlideImageName", slide.SlideImageName.ToString());
+                // Check NewsImage là null thì truyền null
+                if (slide.SlideImageName == null)
+                {
+                    cmd.Parameters.AddWithValue("@SlideImageName", DBNull.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@SlideImageName", slide.SlideImageName);
+                }               
+                i = cmd.ExecuteNonQuery();
+            }
+            return i;
+        }
+        // Xóa Slide
+        public int DeleteSlide(int Id)
+        {
+            int i;
+            using (SqlConnection con = new SqlConnection(Const.Connectring))
+            {
+                con.Open();
+                SqlCommand com = new SqlCommand("DeleteSlideImage", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@SlideId", Id);
+                i = com.ExecuteNonQuery();
+            }
+            return i;
+        }
         #endregion
         #region Table Order
         // lấy tất cả đơn hàng
@@ -913,7 +993,7 @@ namespace Web.Models
             return i;
         }
 
-        // lấy số Id Customer tiếp theo
+        // lấy số Id News tiếp theo
         public int GetNextNewsId()
         {
             int i = 1;

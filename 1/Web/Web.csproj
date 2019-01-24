@@ -443,6 +443,7 @@
     <Content Include="admin_dist\dist\datatable\datatables.min.js" />
     <Content Include="admin_dist\dist\libs\jquery-3.3.1.min.js" />
     <Content Include="admin_dist\js\news.js" />
+    <Content Include="admin_dist\js\slide.js" />
     <Content Include="bin\CKFinder.dll" />
     <Content Include="bin\CKFinder.pdb" />
     <Content Include="ckeditor\adapters\jquery.js" />

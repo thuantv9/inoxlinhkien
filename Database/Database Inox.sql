@@ -1,7 +1,4 @@
--- tạo database
----------------------------------------
-create database InoxLinhKien
-go
+
 --1. tạo bảng
 -- tạo bảng sản phẩm
 IF OBJECT_ID('dbo.Product', 'U') IS NOT NULL 
@@ -618,7 +615,7 @@ IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 go
 create procedure dbo.DeleteProduct
 @Id int
-as
+as
 begin
 	delete from Product where Id=@Id
 end
@@ -674,11 +671,13 @@ as
 begin
 	insert into Category values (@CategoryId,@CategoryName,@CategorySeo);
 end
+GO
 -- Update chủng loại
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 	WHERE ROUTINE_NAME = 'UpdateCategory' AND ROUTINE_SCHEMA = 'dbo')
 		DROP PROCEDURE dbo.UpdateCategory
-go
+GO
+
 create procedure dbo.UpdateCategory
 @CategoryId int,
 @CategoryName nvarchar(100),
@@ -689,18 +688,18 @@ begin
 	set CategoryName=@CategoryName, CategorySeo=@CategorySeo
 	where CategoryId=@CategoryId	
 end
+GO
 -- Delete chủng loại theo id, nếu còn sản phẩm của chủng loại thì không cho xóa
 -- Tham khảo từ Online Help
 -- procedure lấy số tiếp theo của CategoryIdId
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 	WHERE ROUTINE_NAME = 'GetNextCategoryId' AND ROUTINE_SCHEMA = 'dbo')
 		DROP PROCEDURE dbo.GetNextCategoryId
-go
+GO
 create procedure dbo.GetNextCategoryId
 as
 begin
-	 select max(CategoryId)+1 from Category
-	
+	 select max(CategoryId)+1 from Category	
 end
 go
  
@@ -709,7 +708,7 @@ go
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
 	WHERE ROUTINE_NAME = 'GetAllCustomer' AND ROUTINE_SCHEMA = 'dbo')
 		DROP PROCEDURE dbo.GetAllCustomer
-go
+GO
 create procedure dbo.GetAllCustomer
 as
 begin
@@ -891,7 +890,47 @@ begin
 	delete from SlideImage where SlideId=@SlideId
 end
 go
+-- lấy slide theo id
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetSlideById' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.GetSlideById
+go
+create procedure dbo.GetSlideById
+@SlideId int
+as
+begin
+	select * from SlideImage where SlideId=@SlideId
+end
+go
+-- Update slide 
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'UpdateSlide' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.UpdateSlide
+go
+create procedure dbo.UpdateSlide 
+@SlideId int,
+@SlideImageName nvarchar(300)
+as
+begin
+	update SlideImage set 	
+	SlideImageName = @SlideImageName
+	where 
+	SlideId = @SlideId
+end
+go
 
+-- lấy số tiếp theo của SlideId
+IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetNextSlideId' AND ROUTINE_SCHEMA = 'dbo')
+		DROP PROCEDURE dbo.GetNextSlideId
+go
+create procedure dbo.GetNextSlideId
+as
+begin
+	 select max(SlideId)+1 from SlideImage
+	
+end
+go
 -- Bảng đơn hàng
 -- lấy tất cả đơn hàng
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES
@@ -1022,7 +1061,7 @@ BEGIN
 
  RETURN
 END
-
+GO
 -- Bảng tin tức News
 -- lấy tất cả tin tức
 IF EXISTS (SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES

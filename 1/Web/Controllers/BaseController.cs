@@ -118,6 +118,19 @@ namespace Web.Controllers
         {
             return Json(dbcontext.InsertSlideImage(slide), JsonRequestBehavior.AllowGet);
         }
+        public JsonResult GetNextSlideId()
+        {
+            return Json(dbcontext.GetNextSlideId(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult DeleteSlide(int id)
+        {
+            return Json(dbcontext.DeleteSlide(id), JsonRequestBehavior.AllowGet);
+        }
+        // lấy slide theo Id
+        //public JsonResult GetSlideById(int id)
+        //{ 
+        //    return Json(dbcontext.)
+        //}
         #endregion
         #region Admin Order
         // lấy tất cả đơn hàng
