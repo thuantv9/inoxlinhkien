@@ -1445,6 +1445,7 @@
     <Content Include="ckfinder\skins\v1\skin.js" />
     <Content Include="ckfinder\skins\v1\uipanel.css" />
     <Content Include="ckfinder\translations.txt" />
+    <Content Include="images\avatar new.jpg" />
     <Content Include="images\avatarnew.jpg" />
     <Content Include="images\banner_1.jpg" />
     <Content Include="images\banner_2.jpg" />

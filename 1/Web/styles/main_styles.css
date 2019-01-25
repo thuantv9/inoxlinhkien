@@ -207,7 +207,7 @@ section {
 .float_left {
     float: left;
 }
-
+main_nav_container
 .float_right {
     float: right;
 }
@@ -268,7 +268,7 @@ section {
 
 .top_nav {
     width: 100%;
-    height: 50px;
+    height: 2.8rem;
     background: #1e1e27;
 }
 
@@ -301,12 +301,12 @@ section {
 }
 
 .navbar {
-    width: auto;
-    height: 80px;
+    /*width: auto;*/
+    /*height: 2rem;*/
     float: right;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 18px;
+    /*padding-left: 0px;
+    padding-right: 0px;*/
+    padding-top: 1rem;
 }
 
 .navbar_menu li {
@@ -316,22 +316,24 @@ section {
     .navbar_menu li a {
         display: block;
         color: #1e1e27;
-        font-size: 15px;
-        font-weight: 500;
+        font-size: 1.2rem;
+        font-weight: 600;
         text-transform: uppercase;
-        padding: 20px;
-        -webkit-transition: color 0.3s ease;
+        /*padding: 20px;*/
+        padding-top:1rem;
+        padding-right:1.8rem;
+        /*-webkit-transition: color 0.3s ease;
         -moz-transition: color 0.3s ease;
         -ms-transition: color 0.3s ease;
         -o-transition: color 0.3s ease;
-        transition: color 0.3s ease;
+        transition: color 0.3s ease;*/
     }
 
         .navbar_menu li a:hover {
             color: #b5aec4;
         }
 
-.navbar_user {
+/*.navbar_user {
     margin-left: 37px;
 }
 
@@ -362,14 +364,14 @@ section {
 
             .navbar_user li a:hover {
                 color: #b5aec4;
-            }
+            }*/
 
-.checkout a {
+/*.checkout a {
     background: #eceff6;
     border-radius: 50%;
-}
+}*/
 
-.checkout_items {
+/*.checkout_items {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -387,7 +389,7 @@ section {
     background: #fe4c50;
     font-size: 12px;
     color: #FFFFFF;
-}
+}*/
 
 /*********************************
 3.5 Hamburger Menu
@@ -430,7 +432,7 @@ section {
         right: 0;
     }
 
-.fs_menu_overlay {
+/*.fs_menu_overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -444,7 +446,7 @@ section {
     -ms-transition: all 200ms ease;
     -o-transition: all 200ms ease;
     transition: all 200ms ease;
-}
+}*/
 
 .hamburger_close {
     position: absolute;
@@ -552,7 +554,7 @@ section {
 
 .logo_container {
     position: absolute;
-    top: 50%;
+    top:50%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -562,7 +564,7 @@ section {
 }
 
     .logo_container a {
-        font-size: 2.3rem;
+        font-size: 2rem;
         color: #1e1e27;
         font-weight: 700;
         padding-left: 35px;
@@ -580,11 +582,8 @@ section {
 .main_slider {
     width: 100%;
     display: block;
-    height: auto;
-    /*background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;*/
-    margin-top: 150px;
+    height: auto;   
+    margin-top: 9rem;
 }
 
 .main_slider_content {
@@ -637,10 +636,10 @@ section {
         width: 100%;
     }
 
-.shop_now_button {
+/*.shop_now_button {
     width: 140px;
     margin-top: 32px;
-}
+}*/
 
 /*#featured {
     background: #fcfcfc;
@@ -710,8 +709,8 @@ section {
     width: 100%;
 }
 
-.new_arrivals_title {
-    margin-top: 74px;
+.new_arrivals_title { 
+    margin-top:1.5rem;
 }
 
 /*********************************
@@ -764,12 +763,13 @@ section {
 
 .product-grid {
     width: 100%;
-    margin-top: 57px;
+    margin-top: 47px;
 }
 
 .product-item {
-    width: 20%;
-    height: 380px;
+    width: 25%;
+    /*height: 380px;*/
+    height:30rem;
     cursor: pointer;
 }
 
@@ -803,11 +803,13 @@ section {
 }
 
 .product_image {
-    width: 100%;
+    /*width: 100%;*/
+    max-width:100%;
 }
 
     .product_image img {
-        width: 100%;
+        /*width: 100%;*/
+        max-width:100%;
     }
 
 .product_info {
@@ -856,7 +858,7 @@ section {
         text-decoration: line-through;
     }
 
-.product_bubble {
+/*.product_bubble {
     position: absolute;
     top: 15px;
     width: 50px;
@@ -916,7 +918,7 @@ section {
 
 .product_bubble_right {
     right: 15px;
-}
+}*/
 
 .add_to_cart_button {
     width: 100%;
@@ -985,16 +987,16 @@ section {
 
 .deal_ofthe_week {
     width: 100%;
-    margin-top: 41px;
+    margin-top: 1rem;
     background: #f2f2f2;
 }
 
 .deal_ofthe_week_img {
-    height: 540px;
+    height: 25rem;
 }
 
     .deal_ofthe_week_img img {
-        height: 100%;
+        max-height: 100%;
     }
 
 .deal_ofthe_week_content {
@@ -1008,13 +1010,16 @@ section {
 
 .section_title1 {
     padding-top: 40px;
+    background-color:#fe4c50;
+    width:100%;
+    margin-left:1.5rem;
 }
 
     .section_title1 p {
         text-align: center;
         font-size: 16px;
         font-weight: 500;
-        color: #000;
+        color: #fff;
     }
 
 .section_title h2 {
@@ -1054,8 +1059,8 @@ section {
 
 .product_slider_container {
     width: 100%;
-    height: 340px;
-    margin-top: 73px;
+    height: 15rem;
+    margin-top: 4rem;
 }
 
     .product_slider_container::after {
@@ -1075,7 +1080,7 @@ section {
 }
 
 .product_slider_item .product-item {
-    height: 340px;
+    height: 15rem;
 }
 
 .product_slider_item {
@@ -1085,7 +1090,9 @@ section {
     .product_slider_item .product-item {
         width: 100% !important;
     }
-
+        .product_slider_item .product-item .product .product_image img {
+            max-width:100%;
+        }
 /*********************************
 7.1 Slider Nav
 *********************************/

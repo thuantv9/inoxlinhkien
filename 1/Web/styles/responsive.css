@@ -76,8 +76,11 @@
     .main_slider{
         display:none;
     }
+    .benefit {
+    display:none;
+    }
     .logo_container{
-        padding-top:8rem;
+        padding-top:4.5rem;
         padding-left:3rem;
         /*vertical-align:central;*/
     }
@@ -132,7 +135,7 @@
         display:none;
     }
     .logo_container{
-        padding-top:8rem;
+        padding-top:4.5rem;
         padding-left:3rem;       
     }
 }
@@ -294,7 +297,7 @@
         display:none;
     }
     .logo_container{
-        padding-top:8rem;
+        padding-top:4.5rem;
         padding-left:3rem;
         /*vertical-align:central;*/
     }
@@ -310,7 +313,7 @@
         display:none;
     }
     .logo_container{
-        padding-top:8rem;
+         padding-top:4.5rem;
         padding-left:3rem;
         /*vertical-align:central;*/
     }}
@@ -325,7 +328,7 @@
         display:none;
     }
     .logo_container{
-        padding-top:8rem;
+        padding-top:4.5rem;
         padding-left:3rem;
         /*vertical-align:central;*/
     }
@@ -341,8 +344,9 @@
         display:none;
     }
     .logo_container{
-        padding-top:8rem;
-        padding-left:3rem;
+        padding-top:4.5rem;
+        /*padding-left:3rem;*/
+        /*margin:auto;*/
         /*vertical-align:central;*/
     }
 	h1{font-size: 36px;}

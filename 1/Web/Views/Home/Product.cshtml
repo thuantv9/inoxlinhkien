@@ -14,7 +14,7 @@
             <div class="breadcrumbs @*d-flex flex-row align-items-center*@">
                 <ul>
                     <li><a href="@Url.Action("Index2","Home")">Trang chủ</a></li>
-                    <li><a href="@Url.Action("Category","Home")"><i class="fa fa-angle-right" aria-hidden="true"></i>Sản phẩm</a></li>
+                    @*<li><a href="@Url.Action("Category","Home")"><i class="fa fa-angle-right" aria-hidden="true"></i>Sản phẩm</a></li>*@
                     <li class="active"><a href="@Url.Action("Product", "Home", new { id = @Model.GenerateItemNameAsParam()})"><i class="fa fa-angle-right" aria-hidden="true"></i>@Model.Name</a></li>
                 </ul>
             </div>
