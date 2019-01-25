@@ -1485,9 +1485,6 @@
     <Content Include="admin_dist\css\owl.carousel.css" />
     <Content Include="admin_dist\css\style-responsive.css" />
     <Content Include="admin_dist\css\styleadmin.css" />
-    <Content Include="admin_dist\fonts\ElegantIcons.svg" />
-    <Content Include="admin_dist\fonts\fontawesome-webfont.svg" />
-    <Content Include="admin_dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="admin_dist\img\arrow-up.png" />
     <Content Include="admin_dist\img\avatar-mini.jpg" />
     <Content Include="admin_dist\img\avatar-mini2.jpg" />
@@ -1646,16 +1643,6 @@
     <Content Include="admin_dist\assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="admin_dist\assets\ckeditor\samples\sample_posteddata.php" />
     <Content Include="admin_dist\assets\ckeditor\skins\moono\readme.md" />
-    <Content Include="admin_dist\fonts\ElegantIcons.eot" />
-    <Content Include="admin_dist\fonts\ElegantIcons.ttf" />
-    <Content Include="admin_dist\fonts\ElegantIcons.woff" />
-    <Content Include="admin_dist\fonts\fontawesome-webfont.eot" />
-    <Content Include="admin_dist\fonts\fontawesome-webfont.ttf" />
-    <Content Include="admin_dist\fonts\fontawesome-webfont.woff" />
-    <Content Include="admin_dist\fonts\FontAwesome.otf" />
-    <Content Include="admin_dist\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="admin_dist\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="admin_dist\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="admin_dist\dist\boostrap\css\bootstrap-theme.css.map" />
     <Content Include="admin_dist\dist\boostrap\css\bootstrap-theme.min.css.map" />
     <Content Include="admin_dist\dist\boostrap\css\bootstrap.css.map" />

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ConString-Web.config Connection String" description="ConString Connection String used in web.config by the application to access the database." defaultValue="Data Source=MAYTINH-Q6AGQQ7\SQLEXPRESS;Initial Catalog=InoxLinhKien ;User Id=sa;Password=123456Aa@" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Nhiem\ Vu\\INOXLINHKIEN-PROJECT\\inoxlinhkien\\1\\Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ConString']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="DefaultConnection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Nhiem\ Vu\\INOXLINHKIEN-PROJECT\\inoxlinhkien\\1\\Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

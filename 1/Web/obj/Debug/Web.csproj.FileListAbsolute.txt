@@ -160,5 +160,6 @@ E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.
 E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.Google.xml
 E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
 E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.dll
 E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Debug\Web.pdb
