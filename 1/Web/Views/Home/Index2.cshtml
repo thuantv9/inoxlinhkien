@@ -11,8 +11,17 @@
         <div class="carousel-inner">
             @{
                 int k = 0;
-                IEnumerable<SlideImage> slides = (ViewBag.Slide as IEnumerable<SlideImage>).Take(5);
-                if (slides.Count() > 0)
+                IEnumerable<SlideImage> _slideimage = ViewBag.Slide;
+                IEnumerable<SlideImage> slides;
+                if (_slideimage != null && _slideimage.Count() > 5)
+                {
+                    slides = _slideimage.Take(5);
+                }
+                else
+                {
+                    slides = _slideimage;
+                }
+                if (slides!=null && slides.Count() > 0)
                 {
                     foreach (SlideImage slide in slides)
                     {
@@ -104,7 +113,7 @@
                                 }
                                 foreach (var p in listcategory)
                                 {
-                        <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".@p.CategoryId">@p.CategoryName</li>
+                                    <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".@p.CategoryId">@p.CategoryName</li>
                                 }
                             }
                         }

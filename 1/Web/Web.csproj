@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -167,6 +168,7 @@
     <Compile Include="Common\SQLHelper.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -445,7 +447,6 @@
     <Content Include="admin_dist\js\news.js" />
     <Content Include="admin_dist\js\slide.js" />
     <Content Include="bin\CKFinder.dll" />
-    <Content Include="bin\CKFinder.pdb" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\build-config.js" />
     <Content Include="ckeditor\ckeditor.js" />
@@ -1671,6 +1672,7 @@
     <Content Include="ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="ckfinder\userfiles\.htaccess" />
     <Content Include="images\icon\manifest.json" />
+    <None Include="Properties\PublishProfiles\lk.pubxml" />
     <None Include="Scripts\jquery-3.0.0.intellisense.js" />
     <Content Include="Scripts\index.d.ts" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -1735,6 +1737,7 @@
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Home\NewsAll.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

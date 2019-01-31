@@ -21,7 +21,14 @@ namespace Web.Controllers
         {
             ViewBag.Product = dbcontext.GetAllProduct();
             ViewBag.Customer = dbcontext.GetAllCustomer();
-            ViewBag.News = dbcontext.GetAllNews().Take(3);
+            if (dbcontext.GetAllNews() != null && dbcontext.GetAllNews().Count > 3)
+            {
+                ViewBag.News = dbcontext.GetAllNews().Take(3);
+            }
+            else
+            {
+                ViewBag.News = dbcontext.GetAllNews();  
+            }           
             ViewBag.Slide = dbcontext.GetAllSlideImage();
             return View(dbcontext.GetAllCategory());
         }
@@ -77,5 +84,6 @@ namespace Web.Controllers
         {
             return View(dbcontext.GetAllNews());
         }
+       
     }
 }
