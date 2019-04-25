@@ -52,3 +52,4 @@ E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.
 E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Release\Web.dll
 E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\obj\Release\Web.pdb
+E:\Nhiem Vu\INOXLINHKIEN-PROJECT\inoxlinhkien\1\Web\bin\CKFinder.pdb
